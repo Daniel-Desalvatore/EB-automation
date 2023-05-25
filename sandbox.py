@@ -3,10 +3,13 @@ import datetime
 import win32com.client
 from datetime import datetime, timedelta
 import pyodbc
+from dotenv import load_dotenv
 #sandbox for code testing
 class Sandbox:
 
     def __init__(self):
+        load_dotenv()
+
 
         self.outlook_app = win32com.client.Dispatch("Outlook.Application")
 
@@ -26,6 +29,8 @@ class Sandbox:
         print(f"PROD: Ebiennial Payment Reports ({yesterday_str} 12:00:00 AM - {yesterday_str} 11:59:59 PM)")
         print(self.inbox.Name)
     def database_connect(self,DOS_ID):
+            EVPW = os.getenv('DBPW')
+            EVUN = os.getenv('DBUN')
             date_query = f'''select bf.FilingDateTime,bf.filingno, bft.[Description] AS FilingType from [corp].[businessfiling] bF with(nolock) 
 Inner join corp.Business B with(Nolock) on bf.businessid = b.businessid
 inner join [corp].[BusinessFilingType] bft with(nolock) on bf.BusinessFilingTypeId = bft.BusinessFilingTypeId
@@ -36,8 +41,8 @@ where b.EntityNumber = {DOS_ID}'''
             "Driver={SQL Server};"
             "Server=EDS0085PW5SQLV\P17SO50364,50364"
             "Database=Prod_CORP_APPDB"
-            "UID=SVC\DDesalvatore"
-            "PWD=09Sep2346global!!")
+            f"UID={EVUN}"
+            f"PWD={EVPW}")
 
             # Create a cursor object to interact with the database
             print(conn)
@@ -53,7 +58,9 @@ where b.EntityNumber = {DOS_ID}'''
             conn.close()
             print(date)
             return date
-       
+    def env_vars(self):
+         EVPW = os.getenv('DBUN')
+         print(EVPW)  
 
 
           
@@ -64,5 +71,5 @@ where b.EntityNumber = {DOS_ID}'''
 Sandbox = Sandbox()
 
 
-Sandbox.database_connect(5555720)
-
+#Sandbox.database_connect(5555720)
+Sandbox.env_vars()

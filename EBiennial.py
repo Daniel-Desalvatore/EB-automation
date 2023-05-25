@@ -1,5 +1,6 @@
 import pyodbc
-
+import os
+from dotenv import load_dotenv
 #invoive_id =""#daily report here 
 
 #url from transaction replace below
@@ -20,6 +21,10 @@ class process_EBiennial:
     def __init__(self) -> None:
         self.transactions=[] #store transactions from EBiennial_emails_processing
         self.built_transaction_objcts=[]
+        load_dotenv()
+        self.EVPW=os.getenv('DBPW')
+        self.EVUN=os.getenv('DBUN')
+
 
     def populate_transactions(self,transactions):
         try:
@@ -67,8 +72,8 @@ class process_EBiennial:
             "Driver={SQL Server};"
             "Server=EDS0085PW5SQLV\P17SO50364,50364"
             "Database=Prod_SharedServices"
-            "UID=SVC\DDesalvatore"
-            "PWD=09Sep2346global!!")
+            f"UID={self.EVUN}"
+            f"PWD={self.EVPW}")
             #commit test
             # Create a cursor object to interact with the database
             print(conn)
@@ -110,8 +115,8 @@ where b.EntityNumber = {DOS_ID}'''
             "Driver={SQL Server};"
             "Server=EDS0085PW5SQLV\P17SO50364,50364"
             "Database=Prod_CORP_APPDB"
-            "UID=SVC\DDesalvatore"
-            "PWD=09Sep2346global!!")
+            f"UID={self.EVUN}"
+            f"PWD={self.EVPW}")
 
             # Create a cursor object to interact with the database
             print(conn)
@@ -150,8 +155,8 @@ where b.EntityNumber = {DOS_ID}'''
             "Driver={SQL Server};"
             "Server=your_server_name;"
             "Database=your_database_name;"
-            "UID=your_username;"
-            "PWD=your_password;")
+            f"UID={self.EVUN}"
+            f"PWD={self.EVPW}")
 
             # Create a cursor object to interact with the database
             cursor = conn.cursor()
