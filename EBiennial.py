@@ -98,6 +98,7 @@ class process_EBiennial:
             print("there was an error extracting dos ID: ",e)
 
     def date_query(self, DOS_ID):
+        pass
         try:
     
             date_query = f'''select bf.FilingDateTime,bf.filingno, bft.[Description] AS FilingType from corp.businessfiling bF with(nolock) 
@@ -133,7 +134,7 @@ where b.EntityNumber = {DOS_ID}'''
     def build_reprocess_url(self,url,DOS_ID):
         try:
             #add code to check the date
-            recentdate= "self.date_query(DOS_ID)"
+            recentdate= self.date_query(DOS_ID)
             if recentdate:
                 reprocess_URL = url.replace("http://sharedservices.ny.gov/api/payment/response?","https://filing.dos.ny.gov/eBiennialWeb/confirmation?")
             else:
