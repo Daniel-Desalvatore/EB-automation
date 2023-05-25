@@ -26,9 +26,9 @@ class Sandbox:
         print(f"PROD: Ebiennial Payment Reports ({yesterday_str} 12:00:00 AM - {yesterday_str} 11:59:59 PM)")
         print(self.inbox.Name)
     def database_connect(self,DOS_ID):
-            date_query = f'''select bf.FilingDateTime,bf.filingno, bft.[Description] AS FilingType from corp.[businessfiling] bF with(nolock) 
+            date_query = f'''select bf.FilingDateTime,bf.filingno, bft.[Description] AS FilingType from [corp].[businessfiling] bF with(nolock) 
 Inner join corp.Business B with(Nolock) on bf.businessid = b.businessid
-inner join corp.[BusinessFilingType] bft with(nolock) on bf.BusinessFilingTypeId = bft.BusinessFilingTypeId
+inner join [corp].[BusinessFilingType] bft with(nolock) on bf.BusinessFilingTypeId = bft.BusinessFilingTypeId
 where b.EntityNumber = {DOS_ID}'''
             # Establish a connection to the SQL Server
             conn = pyodbc.connect(
