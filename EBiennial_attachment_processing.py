@@ -9,8 +9,8 @@ class EBiennial_emails_processing:
     def read_attachments(self):
         if self.read_summery():
            return self.read_dis()
-        else: 
-            print()
+        else:
+            return
 
     def read_dis(self):
         try:
@@ -52,6 +52,7 @@ class EBiennial_emails_processing:
         
     def read_summery(self):
             try:
+                user_input = False
                 folder_path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EBiennial Processing Automation\EBiennial_email_attachments" # Specify the folder path where the Excel files are located
                 folder = os.listdir(folder_path)
                 if "Summary" in folder[-1]:
@@ -68,7 +69,20 @@ class EBiennial_emails_processing:
                                     if pd.isna(sumvalue): # Check if value is blank
                                         break
                                     if sumvalue != "SALE":
-                                        print("Transaction type is not SALE",sumvalue)
+                                        while not user_input:
+                                            print(f"Transaction type is not SALE | Current Value is : '{sumvalue}'")
+                                            admin_input =input("please review Ebiennial PaymentReport Summary: Y to contuine| N to end \n")
+                                            if admin_input == 'Y':
+                                                user_input = True
+                                                return True
+                                            elif admin_input == 'N':
+                                                user_input = True
+                                                return False
+                                            else:
+                                                print("\n")
+                                                print("invaild response:")
+                                        
+                                        
                                         return False
                                     else:
                                         print("value is SALE")
@@ -81,3 +95,5 @@ class EBiennial_emails_processing:
                 print("there was an error reading data from email attachments: ",e)
                 
 
+test = EBiennial_emails_processing()
+test.read_attachments() 
