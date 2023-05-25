@@ -5,6 +5,7 @@ import datetime
 import time
 import subprocess 
 #running class
+#commit test
 class execute_EBiennial:
     def __init__(self) -> None:
         self.extract_emails = OutlookEmailReader()

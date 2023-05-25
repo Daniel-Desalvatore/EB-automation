@@ -5,6 +5,7 @@ if index != -1:
     end_index = url.find("&",start_index)
     DOS_ID = url[start_index:end_index]
 #new_update_sql_statment = f"Update [Prod_NETAPPS].[dbo].[EBIENNIAL_TRANSACTION_TEMP] set Is_Processed=Null  where TRANSACTION_ID = {invoive_id} "
+#commit test
     print("DOL ID: ", DOS_ID) 
 
 

@@ -28,7 +28,7 @@ class OutlookEmailReader:
 
             filter_criteria = f"@SQL=\"urn:schemas:httpmail:subject\" LIKE '%PROD: Ebiennial Payment Reports ({yesterday_str} 12:00:00 AM - {yesterday_str} 11:59:59 PM)%'"
             messages = self.inbox.Items.Restrict(filter_criteria)
-
+#commit test
             for message in messages:
 
                 subject = message.Subject
