@@ -37,12 +37,7 @@ inner join [corp].[BusinessFilingType] bft with(nolock) on bf.BusinessFilingType
 where b.EntityNumber = {DOS_ID}'''
             # Establish a connection to the SQL Server
             #commit test
-            conn = pyodbc.connect(
-            "Driver={SQL Server};"
-            "Server=EDS0085PW5SQLV\P17SO50364,50364"
-            "Database=Prod_CORP_APPDB"
-            f"UID={EVUN}"
-            f"PWD={EVPW}")
+            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
 
             # Create a cursor object to interact with the database
             print(conn)
@@ -71,5 +66,5 @@ where b.EntityNumber = {DOS_ID}'''
 Sandbox = Sandbox()
 
 
-#Sandbox.database_connect(5555720)
+Sandbox.database_connect(5555720)
 Sandbox.env_vars()

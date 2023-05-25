@@ -94,6 +94,3 @@ class EBiennial_emails_processing:
             except ValueError as e:
                 print("there was an error reading data from email attachments: ",e)
                 
-
-test = EBiennial_emails_processing()
-test.read_attachments() 

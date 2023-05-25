@@ -111,12 +111,7 @@ Inner join corp.Business B with(Nolock) on bf.businessid = b.businessid
 inner join corp.BusinessFilingType bft with(nolock) on bf.BusinessFilingTypeId = bft.BusinessFilingTypeId
 where b.EntityNumber = {DOS_ID}'''
             # Establish a connection to the SQL Server
-            conn = pyodbc.connect(
-            "Driver={SQL Server};"
-            "Server=EDS0085PW5SQLV\P17SO50364,50364"
-            "Database=Prod_CORP_APPDB"
-            f"UID={self.EVUN}"
-            f"PWD={self.EVPW}")
+            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
 
             # Create a cursor object to interact with the database
             print(conn)
