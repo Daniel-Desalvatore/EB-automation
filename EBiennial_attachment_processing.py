@@ -9,7 +9,7 @@ class EBiennial_emails_processing:
         try:
             Transaction_Types=[]
             Invoice_Number=[]
-            Transaction_IDs=[]
+            Transaction_IDs=[]#ids
             folder_path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EBiennial Processing Automation\EBiennial_email_attachments" # Specify the folder path where the Excel files are located
             headerlist=["Transaction ID","Transaction Type","Invoice Number"] 
         # Iterate over files in the folder
@@ -41,7 +41,7 @@ class EBiennial_emails_processing:
                     for item in self.transactions:
                         print(item)
                     return self.transactions
-        except:
-            print("there was an error reading data from email attachments ")
+        except ValueError as e:
+            print("there was an error reading data from email attachments: ",e)
             
 
