@@ -56,7 +56,7 @@ class process_EBiennial:
                 if Transaction_Type == "SALE":
                     url = self.url_query(transactionid,test_mode)
                     DOS_ID = self.extract_dos_id(url,test_mode)
-                    reprocess_url = self.build_reprocess_url(url,DOS_ID, test_mode)
+                    reprocess_url = self.build_reprocess_url(url,DOS_ID,transactionid, test_mode)
                     self.built_transaction_objcts.append(
                         {
                             "Transaction_ID": transactionid,
@@ -172,7 +172,7 @@ where b.EntityNumber = {DOS_ID}'''
             print("there was an error running date query:",e)
         
 
-    def build_reprocess_url(self,url,DOS_ID,test_mode):
+    def build_reprocess_url(self,url,DOS_ID,transactionid,test_mode):
         try:
             #add code to check the date
             recentdate= self.date_query(DOS_ID,test_mode)
@@ -183,17 +183,12 @@ where b.EntityNumber = {DOS_ID}'''
             if most_recent_date < two_years_ago:
                 reprocess_URL = url.replace("http://sharedservices.ny.gov/api/payment/response?","https://filing.dos.ny.gov/eBiennialWeb/confirmation?")
             else:
-                reprocess_URL = None
                 print('RECENT TRANSACTION: ', most_recent_date)
-            if test_mode:
-                print('review above data: Y to proceed anyother char to abort')
-                user_input = input()
-                if user_input =="y":
-                    return reprocess_URL
+                print('Running refund check')
+                if self.refund_check(transactionid):
+                    reprocess_URL = "REFUND"
                 else:
-                    print( 'error')
-            else:
-                return reprocess_URL
+                    reprocess_URL = "DO NOT REFUND"
             return reprocess_URL
         except ValueError as e:
             print("there was an error creating Reprocess URL: ",e)
@@ -228,5 +223,34 @@ where b.EntityNumber = {DOS_ID}'''
             return transaction_Url
         except ValueError as e:
             print("there was wan error with the update query: ",e)
+    def refund_check(self,transaction_id):
+        try:
+            date_query = f"SELECT * FROM CORP.WORKORDERPAY WHERE PaymentTransactionID ='{transaction_id}'"
+            # Establish a connection to the SQL Server
+            #commit test
+            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
+
+            # Create a cursor object to interact with the database
+            print(conn)
+            cursor = conn.cursor()
+            print(cursor)
+            cursor.execute(date_query)
+            rows = cursor.fetchall()
+            print(rows)
+            # Print the retrieved data
+
+            for row in rows:
+                 print(type(row[0]))
+
+            cursor.close()
+            conn.close()
+            if not rows:
+                 print("empty")
+                 return True
+            else:
+                return False
+            
+        except:
+            print("there was an error running URL query")
 
 
