@@ -2,6 +2,7 @@ import pyodbc
 import os
 from dotenv import load_dotenv
 from datetime import datetime, timedelta, date
+import win32com.client as win32
 #invoive_id =""#daily report here 
 
 #url from transaction replace below
@@ -36,20 +37,47 @@ class process_EBiennial:
                 for key in transactions_keys:
                     transactionid,invoiceNumber,Transaction_Type = transaction[key] 
                     self.build_transaction_object(transactionid,invoiceNumber,Transaction_Type,test_mode)
+            body = '''<html>
+            <body>
+            <table style = "border-collapse: collapse;>
+            '''
+            today = datetime.today()
+            yesterday= today-timedelta(days=2)
+            yesterday_str = yesterday.strftime("%m/%d/%Y")
+            header_row=[]
+            
             for item in self.built_transaction_objcts:
-                print(item)
-            if test_mode:
-                print('review above data: Y to proceed anyother char to abort')
-                user_input = input()
-                if user_input =="y":
-                    return
-                else:
-                    print( 'error')
+                 del item['Url']
+                 if list(item.keys()) not in header_row:
+                     header_row = list(item.keys())
+
+            for item in self.built_transaction_objcts:
+               
+                data_rows = list(item.values())
+                table_data_list = [header_row] + [data_rows]
+                print(table_data_list)
+                for row in table_data_list:
+                    body += '<tr style="color:red;">'
+                    print(row)
+                    for cell in row:
+                            body += '<td style="border: 1px solid black; padding: 5px;">{}</td>'.format(cell)
+                    body += '</tr>'
+                    
+            self.send_email(f'PROD: Ebiennial Payment Reports ({yesterday_str} 12:00:00 AM - {yesterday_str} 11:59:59 PM)', body ,'daniel.desalvatore@its.ny.gov',)
+
+
+
         except ValueError as e:
             print("there was an error reading transactions: ",e)
        
            
-
+    def send_email(self, subject, body, recipient):
+        outlook = win32.Dispatch('Outlook.Application')
+        mail = outlook.CreateItem(0)
+        mail.Subject = subject
+        mail.HTMLBody =  body
+        mail.To = recipient
+        mail.Send()
 
     def build_transaction_object(self,transactionid,invoiceNumber,Transaction_Type,test_mode):
             try: 
