@@ -17,10 +17,10 @@ class OutlookEmailReader:
 
         self.attachment_names =[]
 
-    def retrieve_attachments(self):
+    def retrieve_attachments(self,test_mode):
         try:
             today = datetime.today()
-            yesterday= today-timedelta(days=1)
+            yesterday= today-timedelta(days=2)
             yesterday_str = yesterday.strftime("%m/%d/%Y")
             #today_str = today.strftime("%m/%d/%Y")
             
@@ -57,6 +57,16 @@ class OutlookEmailReader:
 
 
                 print("----------------------------")
+                if test_mode == True:
+
+                    print("please review saved attachments Above Y to proceed N to Abort:")
+                    test_input = input()
+                    if test_input == "Y":
+                        return True
+                    if test_input != "y":
+                        return False
+                else:
+                    return True
         except ValueError as e:
             print("there was an error getting email attachments: ", e)
 

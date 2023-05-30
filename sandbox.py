@@ -2,6 +2,7 @@ import os
 import datetime
 import win32com.client
 from datetime import datetime, timedelta
+import re
 import pyodbc
 from dotenv import load_dotenv
 #sandbox for code testing
@@ -45,14 +46,21 @@ where b.EntityNumber = {DOS_ID}'''
             print(cursor)
             cursor.execute(date_query)
             rows = cursor.fetchall()
-
+            print(type(rows))
             # Print the retrieved data
-            date = rows[-1][0]
+            dates =[]
+            for row in rows:
+                 dates.append(row[0])
 
             cursor.close()
             conn.close()
-            print(date)
-            return date
+            formatted_dates = [date.split(" ")[0] for date in dates]
+            most_recent_date = max(formatted_dates)
+
+            formatted_most_recent_date = datetime.strptime(most_recent_date, "%Y-%m-%d").strftime("%Y-%m-%d")
+            print(formatted_most_recent_date)
+            #print(date)
+            return 
     def env_vars(self):
          EVPW = os.getenv('DBUN')
          print(EVPW)  
@@ -66,5 +74,5 @@ where b.EntityNumber = {DOS_ID}'''
 Sandbox = Sandbox()
 
 
-Sandbox.database_connect(5555720)
+Sandbox.database_connect(2895138)
 Sandbox.env_vars()

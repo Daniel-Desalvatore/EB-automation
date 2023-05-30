@@ -6,13 +6,13 @@ class EBiennial_emails_processing:
     def __init__(self):
         self.transactions= [] #list of transaction objects 
 
-    def read_attachments(self):
-        if self.read_summery():
-           return self.read_dis()
+    def read_attachments(self,test_mode):
+        if self.read_summery(test_mode):
+           return self.read_dis(test_mode)
         else:
             return
 
-    def read_dis(self):
+    def read_dis(self,test_mode):
         try:
             Transaction_Types=[]
             Invoice_Number=[]
@@ -46,11 +46,19 @@ class EBiennial_emails_processing:
                     self.transactions.append({f"Transaction{i}": vlaue for i, vlaue in enumerate(zip(Transaction_IDs,Invoice_Number,Transaction_Types))})
                     for item in self.transactions:
                         print(item)
-                    return self.transactions
+                    if test_mode:
+                        print("review above data: Y to proceed anyother char to abort")
+                        user_input = input()
+                        if user_input == 'Y':
+                            return self.transactions
+                        else: 
+                            return None
+                    else:
+                        return self.transactions
         except ValueError as e:
             print("there was an error reading data from email attachments: ",e)
         
-    def read_summery(self):
+    def read_summery(self,test_mode):
             try:
                 user_input = False
                 folder_path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EBiennial Processing Automation\EBiennial_email_attachments" # Specify the folder path where the Excel files are located
@@ -86,7 +94,14 @@ class EBiennial_emails_processing:
                                         return False
                                     else:
                                         print("value is SALE")
-                            #build summery check here   
+                            #build summery check here  
+                        if test_mode:
+                            print("review above data: Y to proceed anyother char to abort") 
+                            test_input = input()
+                            if test_input !="Y":
+                                print("user exit")
+                                return False
+
                         return True
             # Iterate over files in the folder
                 

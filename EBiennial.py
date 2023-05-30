@@ -1,6 +1,7 @@
 import pyodbc
 import os
 from dotenv import load_dotenv
+from datetime import datetime, timedelta, date
 #invoive_id =""#daily report here 
 
 #url from transaction replace below
@@ -26,7 +27,7 @@ class process_EBiennial:
         self.EVUN=os.getenv('DBUN')
 
 
-    def populate_transactions(self,transactions):
+    def populate_transactions(self,transactions,test_mode):
         try:
             print(type(transactions))
             for transaction in transactions:
@@ -34,21 +35,28 @@ class process_EBiennial:
             for transaction in transactions:
                 for key in transactions_keys:
                     transactionid,invoiceNumber,Transaction_Type = transaction[key] 
-                    self.build_transaction_object(transactionid,invoiceNumber,Transaction_Type)
+                    self.build_transaction_object(transactionid,invoiceNumber,Transaction_Type,test_mode)
             for item in self.built_transaction_objcts:
                 print(item)
+            if test_mode:
+                print('review above data: Y to proceed anyother char to abort')
+                user_input = input()
+                if user_input =="y":
+                    return
+                else:
+                    print( 'error')
         except ValueError as e:
             print("there was an error reading transactions: ",e)
        
            
 
 
-    def build_transaction_object(self,transactionid,invoiceNumber,Transaction_Type):
+    def build_transaction_object(self,transactionid,invoiceNumber,Transaction_Type,test_mode):
             try: 
                 if Transaction_Type == "SALE":
-                    url = self.url_query(transactionid)
-                    DOS_ID = self.extract_dos_id(url)
-                    reprocess_url = self.build_reprocess_url(url,DOS_ID)
+                    url = self.url_query(transactionid,test_mode)
+                    DOS_ID = self.extract_dos_id(url,test_mode)
+                    reprocess_url = self.build_reprocess_url(url,DOS_ID, test_mode)
                     self.built_transaction_objcts.append(
                         {
                             "Transaction_ID": transactionid,
@@ -59,11 +67,12 @@ class process_EBiennial:
                         
                         }
                     )
+                
             except ValueError as e:
                 print("there was an error building transaction objects: ",e)
             
     
-    def url_query(self,Transaction_ID):
+    def url_query(self,Transaction_ID,test_mode):
         try:
     
             Prod_sharedServices_query = f"Select * from [Prod_SharedServices].[metrics].[Request] where url like '%{Transaction_ID}%'"
@@ -87,22 +96,40 @@ class process_EBiennial:
 
             cursor.close()
             conn.close()
-            return url
+            print(url)
+            if test_mode:
+                print('review above data: Y to proceed anyother char to abort')
+                user_input = input()
+                if user_input =="Y":
+                    return url
+                else:
+                    print( 'error')
+            else:
+                return url
         except:
             print("there was an error running URL query")
     
-    def extract_dos_id(self,url):
+    def extract_dos_id(self,url,test_mode):
         try:
             index= url.find('merchant_defined_data2=',1)
             if index != -1:
                 start_index = index + len("merchant_defined_data2=")
                 end_index = url.find("&",start_index)
                 DOS_ID = url[start_index:end_index]
+            if test_mode:
+                print('review above data: Y to proceed anyother char to abort')
+                user_input = input()
+                if user_input =="y":
+                    return DOS_ID
+                else:
+                    print( 'error')
+            else:
                 return DOS_ID
+
         except ValueError as e:
             print("there was an error extracting dos ID: ",e)
 
-    def date_query(self, DOS_ID):
+    def date_query(self, DOS_ID, test_mode):
         pass
         try:
     
@@ -120,25 +147,53 @@ where b.EntityNumber = {DOS_ID}'''
             cursor.execute(date_query)
             rows = cursor.fetchall()
 
-            # Print the retrieved data
-            date = rows[-1][0]
+            dates =[]
+            for row in rows:
+                 dates.append(row[0])
 
             cursor.close()
             conn.close()
-            print(date)
-            return date
+            formatted_dates = [date.split(" ")[0] for date in dates]
+            most_recent_date = max(formatted_dates)
+
+            formatted_most_recent_date = datetime.strptime(most_recent_date, "%Y-%m-%d").strftime("%Y-%m-%d")
+            print(formatted_most_recent_date)
+            if test_mode:
+                print('review above data: Y to proceed anyother char to abort')
+                user_input = input()
+                if user_input =="y":
+                    return formatted_most_recent_date 
+                else:
+                    print( 'error')
+            else:
+                return formatted_most_recent_date
+            
         except ValueError as e:
             print("there was an error running date query:",e)
         
 
-    def build_reprocess_url(self,url,DOS_ID):
+    def build_reprocess_url(self,url,DOS_ID,test_mode):
         try:
             #add code to check the date
-            recentdate= self.date_query(DOS_ID)
-            if recentdate:
+            recentdate= self.date_query(DOS_ID,test_mode)
+            most_recent_date = datetime.strptime(recentdate, "%Y-%m-%d").date()
+            today = date.today()
+            two_years_ago = today - timedelta(days=365 * 2)
+            
+            if most_recent_date < two_years_ago:
                 reprocess_URL = url.replace("http://sharedservices.ny.gov/api/payment/response?","https://filing.dos.ny.gov/eBiennialWeb/confirmation?")
             else:
                 reprocess_URL = None
+                print('RECENT TRANSACTION: ', most_recent_date)
+            if test_mode:
+                print('review above data: Y to proceed anyother char to abort')
+                user_input = input()
+                if user_input =="y":
+                    return reprocess_URL
+                else:
+                    print( 'error')
+            else:
+                return reprocess_URL
             return reprocess_URL
         except ValueError as e:
             print("there was an error creating Reprocess URL: ",e)

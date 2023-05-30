@@ -13,9 +13,20 @@ class execute_EBiennial:
         self.process_EBiennial = process_EBiennial()
     
     def run(self):
+            test_mode=False
+            print("would you like to run in test mode? Y for yes| any other char for No")
+            activate_test_mode = input()
             print("Now Running Script:")
-            self.extract_emails.retrieve_attachments()
-            self.process_EBiennial.populate_transactions(self.process_attachments.read_attachments())
+            if activate_test_mode == 'Y':
+                test_mode = True
+                if self.extract_emails.retrieve_attachments(test_mode): 
+                    self.process_EBiennial.populate_transactions(self.process_attachments.read_attachments(test_mode),test_mode)
+                else:
+                     print("user exit")
+                     return
+            else:
+                self.extract_emails.retrieve_attachments(test_mode)
+                self.process_EBiennial.populate_transactions(self.process_attachments.read_attachments(test_mode),test_mode)
 
 
 
