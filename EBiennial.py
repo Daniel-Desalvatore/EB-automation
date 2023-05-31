@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 from datetime import datetime, timedelta, date
 import win32com.client as win32
+import pandas as pd
 #invoive_id =""#daily report here 
 
 #url from transaction replace below
@@ -26,8 +27,6 @@ class process_EBiennial:
         load_dotenv()
         self.EVPW=os.getenv('DBPW')
         self.EVUN=os.getenv('DBUN')
-
-
     def populate_transactions(self,transactions,test_mode):
         try:
             print(type(transactions))
@@ -37,51 +36,97 @@ class process_EBiennial:
                 for key in transactions_keys:
                     transactionid,invoiceNumber,Transaction_Type = transaction[key] 
                     self.build_transaction_object(transactionid,invoiceNumber,Transaction_Type,test_mode)
+            self.send_email()
+        except ValueError as e:
+            print("there was an error reading transactions: ",e)        
+    def send_email(self):
+            folder_path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EBiennial Processing Automation\EBiennial_email_attachments" # Specify the folder path where the Excel files are located
+            headerlist=["Transaction ID","Auth Code","Invoice Number","Converge Amount","EBiennial Amount","First Name","Last Name","Card Type","Card Number","Transaction Type","Payment Date"] 
+            folder = os.listdir(folder_path)
+            Transaction_ID=[]
+            Auth_Code = []
+            Invoice_Number = []
+            Converge_Amount = []
+            EBiennial_Amount = []
+            First_Name = []
+            Last_Name = []
+            Card_Type = []
+            Transaction_Type = []
+            Payment_Date = []
+
+
+
+
+        # Iterate over files in the folder
+            for file_name in folder:
+                if file_name.endswith(".xlsx"): # Consider only Excel files, adjust the extension if needed
+                    file_path = os.path.join(folder_path, file_name)
+                    data_frame = pd.read_excel(file_path, skiprows=4)
+                    #print(folder[-1])
+                    # Perform operations on the DataFrame for each file  
+                    print("Data from", file_name)
+                    headers=data_frame.columns.to_list()
+                    for header in headers:
+                            columndata = data_frame[header].tolist()
+                            for value in columndata:
+                                if pd.isna(value): # Check if value is blank
+                                    break
+                                elif header == headerlist[0]:
+                                    Transaction_ID.append(value)
+                                elif header == headerlist[1]:
+                                    Auth_Code.append(value)
+                                elif header == headerlist[2]:
+                                    Converge_Amount.append(value)
+                                elif header == headerlist[3]:
+                                    Invoice_Number.append(value)
+                                elif header == headerlist[4]:
+                                    EBiennial_Amount.append(value)
+                                elif header == headerlist[5]:
+                                    First_Name.append(value)
+                                elif header == headerlist[6]:
+                                    Last_Name.append(value)
+                                elif header == headerlist[7]:
+                                    Card_Type.append(value)
+                                elif header == headerlist[8]:
+                                    Transaction_Type.append(value)
+                                elif header == headerlist[9]:
+                                    Payment_Date.append(value)
             body = '''<html>
             <body>
-            <table style = "border-collapse: collapse;>
+            <table style = "border-collapse: collapse;">
             '''
             today = datetime.today()
             yesterday= today-timedelta(days=2)
             yesterday_str = yesterday.strftime("%m/%d/%Y")
-            header_row=[]
-            
-            for item in self.built_transaction_objcts:
-                 del item['Url']
-                 if list(item.keys()) not in header_row:
-                     header_row = list(item.keys())
+            body += '<tr  style="border: 1px solid black; padding: 5px;">'
+            for table_header in headerlist:
+                body += '<th style="border: 1px solid black; padding: 5px;">{}</th>'.format(table_header)
+            body += '</tr>'
+            for i in range(len(Transaction_ID)):
+                body += '<tr  style="border: 1px solid black; padding: 5px;">'
+                body += '<td style="border: 1px solid black; padding: 5px;">{}</td>'.format(Transaction_ID[i])
+                body += '<td style="border: 1px solid black; padding: 5px;">{}</td>'.format(Auth_Code[i]) 
+                body += '<td style="border: 1px solid black; padding: 5px;">{}</td>'.format(Invoice_Number[i]) 
+                body += '<td style="border: 1px solid black; padding: 5px;">{}</td>'.format(Converge_Amount[i]) 
+                body += '<td style="border: 1px solid black; padding: 5px;">{}</td>'.format(EBiennial_Amount[i]) 
+                body += '<td style="border: 1px solid black; padding: 5px;">{}</td>'.format(First_Name[i]) 
+                body += '<td style="border: 1px solid black; padding: 5px;">{}</td>'.format(Last_Name[i]) 
+                body += '<td style="border: 1px solid black; padding: 5px;">{}</td>'.format(Card_Type[i]) 
+                body += '<td style="border: 1px solid black; padding: 5px;">{}</td>'.format(Transaction_Type[i]) 
+                body += '<td style="border: 1px solid black; padding: 5px;">{}</td>'.format(Payment_Date[i])
+                body += '</tr>'
+            body +="""
+            </table>
+            </body>
+            </html>"""
+            outlook = win32.Dispatch('Outlook.Application')
+            mail = outlook.CreateItem(0)
+            mail.Subject = f'PROD: Ebiennial Payment Reports ({yesterday_str} 12:00:00 AM - {yesterday_str} 11:59:59 PM)'
+            mail.HTMLBody =  body
+            mail.To = 'daniel.desalvatore@its.ny.gov'
+            mail.Send()  
 
-            for item in self.built_transaction_objcts:
-               
-                data_rows = list(item.values())
-                table_data_list = [header_row] + [data_rows]
-                print(table_data_list)
-                for row in table_data_list:
-                    body += '<tr style="color:Black;">' 
-                    print(row)
-                    for cell in row:
-                            if 'DO NOT REFUND' in row:
-                                body += '<td style="border: 1px solid black; padding: 5px; color: #F6BE00;">{}</td>'.format(cell)
-                            if 'All SET' in row:
-                                body += '<td style="border: 1px solid black; padding: 5px; color:Green;">{}</td>'.format(cell)
-                    body += '</tr>'
                     
-            self.send_email(f'PROD: Ebiennial Payment Reports ({yesterday_str} 12:00:00 AM - {yesterday_str} 11:59:59 PM)', body ,'daniel.desalvatore@its.ny.gov',)
-
-
-
-        except ValueError as e:
-            print("there was an error reading transactions: ",e)
-       
-           
-    def send_email(self, subject, body, recipient):
-        outlook = win32.Dispatch('Outlook.Application')
-        mail = outlook.CreateItem(0)
-        mail.Subject = subject
-        mail.HTMLBody =  body
-        mail.To = recipient
-        mail.Send()
-
     def build_transaction_object(self,transactionid,invoiceNumber,Transaction_Type,test_mode):
             try: 
                 if Transaction_Type == "SALE":
@@ -100,9 +145,7 @@ class process_EBiennial:
                     )
                 
             except ValueError as e:
-                print("there was an error building transaction objects: ",e)
-            
-    
+                print("there was an error building transaction objects: ",e)  
     def url_query(self,Transaction_ID,test_mode):
         try:
     
@@ -138,8 +181,7 @@ class process_EBiennial:
             else:
                 return url
         except:
-            print("there was an error running URL query")
-    
+            print("there was an error running URL query")   
     def extract_dos_id(self,url,test_mode):
         try:
             index= url.find('merchant_defined_data2=',1)
@@ -159,7 +201,6 @@ class process_EBiennial:
 
         except ValueError as e:
             print("there was an error extracting dos ID: ",e)
-
     def date_query(self, DOS_ID, test_mode):
         pass
         try:
@@ -201,8 +242,6 @@ where b.EntityNumber = {DOS_ID}'''
             
         except ValueError as e:
             print("there was an error running date query:",e)
-        
-
     def build_reprocess_url(self,url,DOS_ID,transactionid,test_mode):
         try:
             #add code to check the date
@@ -223,7 +262,6 @@ where b.EntityNumber = {DOS_ID}'''
             return reprocess_URL
         except ValueError as e:
             print("there was an error creating Reprocess URL: ",e)
-
     def reset_transaction(self,Invoice_Number):
         try:
             reset_transaction_query = f'Update [Prod_NETAPPS].[dbo].[EBIENNIAL_TRANSACTION_TEMP] set Is_Processed=Null  where TRANSACTION_ID = {Invoice_Number}'
