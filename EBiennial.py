@@ -57,10 +57,13 @@ class process_EBiennial:
                 table_data_list = [header_row] + [data_rows]
                 print(table_data_list)
                 for row in table_data_list:
-                    body += '<tr style="color:red;">'
+                    body += '<tr style="color:Black;">' 
                     print(row)
                     for cell in row:
-                            body += '<td style="border: 1px solid black; padding: 5px;">{}</td>'.format(cell)
+                            if 'DO NOT REFUND' in row:
+                                body += '<td style="border: 1px solid black; padding: 5px; color: #F6BE00;">{}</td>'.format(cell)
+                            if 'All SET' in row:
+                                body += '<td style="border: 1px solid black; padding: 5px; color:Green;">{}</td>'.format(cell)
                     body += '</tr>'
                     
             self.send_email(f'PROD: Ebiennial Payment Reports ({yesterday_str} 12:00:00 AM - {yesterday_str} 11:59:59 PM)', body ,'daniel.desalvatore@its.ny.gov',)

@@ -20,7 +20,7 @@ class OutlookEmailReader:
     def retrieve_attachments(self,test_mode):
         try:
             today = datetime.today()
-            yesterday= today-timedelta(days=2)
+            yesterday= today-timedelta(days=1)
             yesterday_str = yesterday.strftime("%m/%d/%Y")
             #today_str = today.strftime("%m/%d/%Y")
             
