@@ -1,10 +1,25 @@
 import pandas as pd
 import os
-#commit test
-#extacts the info from 
+from log_builder import MyLogger 
+class transaction:
+    def __init__(self,transaction_id,invoice_number,transaction_type) -> None:
+        self.Transaction_ID = transaction_id
+        self.Invoice_Number = invoice_number
+        self.Transaction_Type = transaction_type
+        self.DOS_ID =''
+        self.Action = ''
+        self.URl = ''
+        self.Reprocess_URL = ''
+        self.Transaction_Date =''
+        self.Refund = bool
+        self.Reprocessed = bool
+
 class EBiennial_emails_processing:
     def __init__(self):
         self.transactions= [] #list of transaction objects 
+        self.processed_transactions = []
+        self.logger = MyLogger()
+        self.logger.info("extracting data from saved attachments")
 
     def read_attachments(self,test_mode):
         if self.read_summery(test_mode):
@@ -14,6 +29,7 @@ class EBiennial_emails_processing:
 
     def read_dis(self,test_mode):
         try:
+            self.logger.info("reading data From Discrepancy")
             Transaction_Types=[]
             Invoice_Number=[]
             Transaction_IDs=[]#ids
@@ -22,13 +38,10 @@ class EBiennial_emails_processing:
             folder = os.listdir(folder_path)
         # Iterate over files in the folder
             for file_name in folder:
-                if file_name.endswith(".xlsx"): # Consider only Excel files, adjust the extension if needed
+                if file_name.endswith(".xlsx"): # Consider only Excel files
                     file_path = os.path.join(folder_path, file_name)
                     data_frame = pd.read_excel(file_path, skiprows=4)
-                    #print(folder[-1])
-                    # Perform operations on the DataFrame for each file
-                   
-                    print("Data from", file_name)
+                    self.logger.debug("Reading data from:", file_name)
                     headers=data_frame.columns.to_list()
                     for header in headers:
                         if header in headerlist:
@@ -41,23 +54,26 @@ class EBiennial_emails_processing:
                                 elif header == headerlist[1]:
                                     Transaction_Types.append(value)
                                 elif header == headerlist[2]:
-                                    Invoice_Number.append(value)
-                                    
+                                    Invoice_Number.append(value)    
                     self.transactions.append({f"Transaction{i}": vlaue for i, vlaue in enumerate(zip(Transaction_IDs,Invoice_Number,Transaction_Types))})
                     for item in self.transactions:
-                        print(item)
+                        #rawtransaction = transaction(item[],item[1],item[3])
+                        for key in item.keys():
+                            rawtranscation = transaction(item[key][0],item[key][1],item[key][2])
+                            self.processed_transactions.append(rawtranscation)
+                            self.logger.debug("transaction found:",f'{item[key][0]},{item[key][1]},{item[key][2]}')
                     if test_mode:
                         print("review above data: Y to proceed anyother char to abort")
                         user_input = input()
                         if user_input == 'Y':
-                            return self.transactions
+                            return self.processed_transactions
                         else: 
                             return None
                     else:
-                        return self.transactions
+                        return self.processed_transactions
         except ValueError as e:
-            print("there was an error reading data from email attachments: ",e)
-        
+            self.logger.error("there was an error reading data from email attachments: ",e)
+
     def read_summery(self,test_mode):
             try:
                 user_input = False
@@ -68,7 +84,7 @@ class EBiennial_emails_processing:
                         sum_file_path = os.path.join(folder_path, sumfile_name)
                         sumdata_frame = pd.read_excel(sum_file_path, skiprows=3)
                         sumheaderlist=["Transaction Type"] 
-                        print("Summary check")
+                        self.logger.info("checking Summary")
                         headers=sumdata_frame.columns.to_list()
                         for header in headers:
                             if header in sumheaderlist:
@@ -78,7 +94,7 @@ class EBiennial_emails_processing:
                                         break
                                     if sumvalue != "SALE":
                                         while not user_input:
-                                            print(f"Transaction type is not SALE | Current Value is : '{sumvalue}'")
+                                            self.logger.warning(f"Transaction type is not SALE | Current Value is : '{sumvalue}'")
                                             admin_input =input("please review Ebiennial PaymentReport Summary: Y to contuine| N to end \n")
                                             if admin_input == 'Y':
                                                 user_input = True
@@ -89,23 +105,15 @@ class EBiennial_emails_processing:
                                             else:
                                                 print("\n")
                                                 print("invaild response:")
-                                        
-                                        
                                         return False
-                                    else:
-                                        print("value is SALE")
-                            #build summery check here  
+                                self.logger.debug("All values are SALE") 
                         if test_mode:
                             print("review above data: Y to proceed anyother char to abort") 
                             test_input = input()
                             if test_input !="Y":
-                                print("user exit")
+                                self.logger.critical("user exit: EBiennial reprocessing stoped")
                                 return False
-
                         return True
-            # Iterate over files in the folder
-                
-                        
             except ValueError as e:
-                print("there was an error reading data from email attachments: ",e)
-                
+                self.logger.error("there was an error reading data from email attachments: ",e)     
+                           

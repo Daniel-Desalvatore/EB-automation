@@ -1,35 +1,29 @@
 import pyodbc
 import os
-from dotenv import load_dotenv
-from datetime import datetime, timedelta, date
 import win32com.client as win32
 import pandas as pd
-
-
-#refactor the above as a class 
+from dotenv import load_dotenv
+from log_builder import MyLogger 
+from datetime import datetime, timedelta, date
+ 
 class process_EBiennial:
     def __init__(self) -> None:
         self.transactions=[] #store transactions from EBiennial_emails_processing
-        self.built_transaction_objcts=[]
         load_dotenv()
         self.EVPW=os.getenv('DBPW')
         self.EVUN=os.getenv('DBUN')
+        self.logger = MyLogger()
+        
     def populate_transactions(self,transactions,test_mode):
+        self.logger.info("Reprocessing EBiennial Transactions")
         try:
-            print(type(transactions))
-            for transaction in transactions:
-                transactions_keys= list(transaction.keys())
-            for transaction in transactions:
-                for key in transactions_keys:
-                    transactionid,invoiceNumber,Transaction_Type = transaction[key] 
-                    self.build_transaction_object(transactionid,invoiceNumber,Transaction_Type,test_mode)
-            self.send_email()
+            self.build_transaction_object(transactions,test_mode)
+            self.send_email(transactions)
         except ValueError as e:
-            print("there was an error reading transactions: ",e)
+            self.logger.error("there was an error reading transactions: ",e)
 
-
-
-    def send_email(self):
+    def send_email(self, transactions):
+            self.logger.info("Sending Email")
             folder_path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EBiennial Processing Automation\EBiennial_email_attachments" # Specify the folder path where the Excel files are located
             headerlist=["Transaction ID","Auth Code","Invoice Number","Converge Amount","EBiennial Amount","First Name","Last Name","Card Type","Card Number","Transaction Type","Payment Date"] 
             folder = os.listdir(folder_path)
@@ -48,9 +42,7 @@ class process_EBiennial:
                 if file_name.endswith(".xlsx"): # Consider only Excel files, adjust the extension if needed
                     file_path = os.path.join(folder_path, file_name)
                     data_frame = pd.read_excel(file_path, skiprows=4)
-                    #print(folder[-1])
                     # Perform operations on the DataFrame for each file  
-                    print("Data from", file_name)
                     headers=data_frame.columns.to_list()
                     for header in headers:
                             columndata = data_frame[header].tolist()
@@ -62,9 +54,9 @@ class process_EBiennial:
                                 elif header == headerlist[1]:
                                     Auth_Code.append(value)
                                 elif header == headerlist[2]:
-                                    Converge_Amount.append(value)
-                                elif header == headerlist[3]:
                                     Invoice_Number.append(value)
+                                elif header == headerlist[3]:
+                                    Converge_Amount.append(value)
                                 elif header == headerlist[4]:
                                     EBiennial_Amount.append(value)
                                 elif header == headerlist[5]:
@@ -79,7 +71,12 @@ class process_EBiennial:
                                     Payment_Date.append(value)
             body = '''<html>
             <body>
-            <table style = "border-collapse: collapse;">
+            <ul>
+            <li>Green: All Set</li>
+            <li>Yellow: No Action</li>
+            <li>Red: Refund</li>
+            </ul>
+            <table style = "border-collapse: collapse;  white-space: nowrap; ">
             '''
             today = datetime.today()
             yesterday= today-timedelta(days=2)
@@ -90,10 +87,11 @@ class process_EBiennial:
             body += '</tr>'
             
             for i in range(len(Transaction_ID)):
-                item = i % len(self.built_transaction_objcts)          
-                print(self.built_transaction_objcts[item]['action'],self.built_transaction_objcts[item]['date'])
-               
-                if self.built_transaction_objcts[item]['action'] == 'Refund' and self.built_transaction_objcts[item]['Transaction_ID'] == Transaction_ID[i]:
+                    
+                
+                self.logger.debug(f'{transactions[i].Transaction_ID},{transactions[i].Action}')
+
+                if transactions[i].Action == 'Refund':
                         body += '<tr  style="border: 1px solid black; padding: 5px; color: red;">'
                         body += '<td style="border: 1px solid black; padding: 5px; color: red;">{}</td>'.format(Transaction_ID[i])
                         body += '<td style="border: 1px solid black; padding: 5px; color: red;">{}</td>'.format(Auth_Code[i]) 
@@ -106,7 +104,7 @@ class process_EBiennial:
                         body += '<td style="border: 1px solid black; padding: 5px; color: red;">{}</td>'.format(Transaction_Type[i]) 
                         body += '<td style="border: 1px solid black; padding: 5px; color: red;">{}</td>'.format(Payment_Date[i])
                         body += '</tr>'
-                elif self.built_transaction_objcts[item]['action'] == 'Process' and self.built_transaction_objcts[item]['Transaction_ID'] == Transaction_ID[i]:
+                elif transactions[i].Action == 'Process':
                         body += '<tr  style="border: 1px solid black; padding: 5px; color: green;">'
                         body += '<td style="border: 1px solid black; padding: 5px; color: green;">{}</td>'.format(Transaction_ID[i])
                         body += '<td style="border: 1px solid black; padding: 5px; color: green;">{}</td>'.format(Auth_Code[i]) 
@@ -119,62 +117,73 @@ class process_EBiennial:
                         body += '<td style="border: 1px solid black; padding: 5px; color: green;">{}</td>'.format(Transaction_Type[i]) 
                         body += '<td style="border: 1px solid black; padding: 5px; color: green;">{}</td>'.format(Payment_Date[i])
                         body += '</tr>'
-                else:
-                        body += '<tr  style="border: 1px solid black; padding: 5px; color: yellow;">'
-                        body += '<td style="border: 1px solid black; padding: 5px; color: yellow;">{}</td>'.format(Transaction_ID[i])
-                        body += '<td style="border: 1px solid black; padding: 5px; color: yellow;">{}</td>'.format(Auth_Code[i]) 
-                        body += '<td style="border: 1px solid black; padding: 5px; color: yellow;">{}</td>'.format(Invoice_Number[i]) 
-                        body += '<td style="border: 1px solid black; padding: 5px; color: yellow;">{}</td>'.format(Converge_Amount[i]) 
-                        body += '<td style="border: 1px solid black; padding: 5px; color: yellow;">{}</td>'.format(EBiennial_Amount[i]) 
-                        body += '<td style="border: 1px solid black; padding: 5px; color: yellow;">{}</td>'.format(First_Name[i]) 
-                        body += '<td style="border: 1px solid black; padding: 5px; color: yellow;">{}</td>'.format(Last_Name[i]) 
-                        body += '<td style="border: 1px solid black; padding: 5px; color: yellow;">{}</td>'.format(Card_Type[i]) 
-                        body += '<td style="border: 1px solid black; padding: 5px; color: yellow;">{}</td>'.format(Transaction_Type[i]) 
-                        body += '<td style="border: 1px solid black; padding: 5px; color: yellow;">{}</td>'.format(Payment_Date[i])
+                elif transactions[i].Action == 'No Action':
+                        body += '<tr  style="border: 1px solid black; padding: 5px; color: #e6ac00;">'
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Transaction_ID[i])
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Auth_Code[i]) 
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Invoice_Number[i]) 
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Converge_Amount[i]) 
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(EBiennial_Amount[i]) 
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(First_Name[i]) 
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Last_Name[i]) 
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Card_Type[i]) 
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Transaction_Type[i]) 
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Payment_Date[i])
                         body += '</tr>'
-            body +="""
-            </table>
-            </body>
-            </html>"""
+                else:
+                        body += '<tr  style="border: 1px solid black; padding: 5px; color: #e6ac00;">'
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Transaction_ID[i])
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Auth_Code[i]) 
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Invoice_Number[i]) 
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Converge_Amount[i]) 
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(EBiennial_Amount[i]) 
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(First_Name[i]) 
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Last_Name[i]) 
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Card_Type[i]) 
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Transaction_Type[i]) 
+                        body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Payment_Date[i])
+                        body += '</tr>'
+            
+            if len(transactions) == 0 :
+                body += """ </table>
+                            <p>Empty No Action</p>
+                            </body>
+                            </html>"""
+            else:
+                body +="""
+                </table>
+                </body>
+                </html>"""
             outlook = win32.Dispatch('Outlook.Application')
             mail = outlook.CreateItem(0)
             mail.Subject = f'PROD: Ebiennial Payment Reports ({yesterday_str} 12:00:00 AM - {yesterday_str} 11:59:59 PM)'
             mail.HTMLBody =  body
             mail.To = 'daniel.desalvatore@its.ny.gov'
-            mail.Send()  
-
-                    
-    def build_transaction_object(self,transactionid,invoiceNumber,Transaction_Type,test_mode):
-            try: 
-                if Transaction_Type == "SALE":
-                    url = self.url_query(transactionid,test_mode)
-                    DOS_ID = self.extract_dos_id(url,test_mode)
-                    file_date = self.date_query(DOS_ID,test_mode)
-                    reprocess_url = self.build_reprocess_url(url,DOS_ID,transactionid, test_mode,file_date)
-                    action = self.action_check(file_date,transactionid)
-                    print(action)
-                    self.built_transaction_objcts.append(
-                        {
-                            "Transaction_ID": transactionid,
-                            "Invoice_Number": invoiceNumber,
-                            "DOS_ID": DOS_ID,
-                            "Url" : url,
-                            "reprocess_Url": reprocess_url,
-                            "date": file_date,
-                            "action" : action 
-                        
-                        }
-                    )
+            mail.Send()
+            self.logger.info("Email Sent")  
+            self.delete_files()
                 
+    def build_transaction_object(self,transactions,test_mode):
+            self.logger.info("Building Objects")
+            try: 
+                for transaction in transactions:
+                    self.logger.info('-------------------------------------------------------')
+                    if transaction.Transaction_Type != "SALE":
+                        transaction.Action = "No Action"
+                        self.logger.debug("no action needed:",transaction.Transaction_Type)
+                    else:
+                        transaction.URL = self.url_query(transaction.Transaction_ID,test_mode)
+                        transaction.DOS_ID = self.extract_dos_id(transaction.URL,test_mode)
+                        transaction.Transaction_Date = self.date_query(transaction.DOS_ID,test_mode)
+                        transaction.Reprocess_URL = self.build_reprocess_url(transaction.Transaction_ID)
+                        transaction.Action = self.action_check(transaction)
+                self.logger.info('-------------------------------------------------------')  
             except ValueError as e:
-                print("there was an error building transaction objects: ",e)
-
-
-
+                self.logger.error("there was an error building transaction objects: ",e)
 
     def url_query(self,Transaction_ID,test_mode):
+        self.logger.info("Running URL Query")
         try:
-    
             Prod_sharedServices_query = f"Select * from [Prod_SharedServices].[metrics].[Request] where url like '%{Transaction_ID}%'"
             # Establish a connection to the SQL Server
             conn = pyodbc.connect(
@@ -185,18 +194,13 @@ class process_EBiennial:
             f"PWD={self.EVPW}")
             #commit test
             # Create a cursor object to interact with the database
-            print(conn)
             cursor = conn.cursor()
-            print(cursor)
             cursor.execute(Prod_sharedServices_query)
             rows = cursor.fetchall()
-
-            # Print the retrieved data
             url = rows[0][5]
-
             cursor.close()
             conn.close()
-            print(url)
+            self.logger.debug("URL found: ",url)
             if test_mode:
                 print('review above data: Y to proceed anyother char to abort')
                 user_input = input()
@@ -206,13 +210,11 @@ class process_EBiennial:
                     print( 'error')
             else:
                 return url
-        except:
-            print("there was an error running URL query")   
-
-
-
+        except ValueError as e:
+            self.logger.error("there was an error running URL query", e)   
 
     def extract_dos_id(self,url,test_mode):
+        self.logger.info("Extracting DOS ID")
         try:
             index= url.find('merchant_defined_data2=',1)
             if index != -1:
@@ -227,91 +229,75 @@ class process_EBiennial:
                 else:
                     print( 'error')
             else:
+                self.logger.debug("DOS ID found:",DOS_ID)
                 return DOS_ID
 
         except ValueError as e:
-            print("there was an error extracting dos ID: ",e)
-
-
+            self.logger.error("there was an error extracting dos ID: ",e)
 
     def date_query(self, DOS_ID, test_mode):
+        self.logger.info("Running Date Query")
         try:
     
-            date_query = f'''select bf.FilingDateTime,bf.filingno, bft.[Description] AS FilingType from corp.businessfiling bF with(nolock) 
-Inner join corp.Business B with(Nolock) on bf.businessid = b.businessid
-inner join corp.BusinessFilingType bft with(nolock) on bf.BusinessFilingTypeId = bft.BusinessFilingTypeId
-where b.EntityNumber = {DOS_ID}'''
+            date_query = f'''select bf.FilingDateTime,bf.filingno, bft.[Description] AS FilingType from corp.businessfiling bF with(nolock) Inner join corp.Business B with(Nolock) on bf.businessid = b.businessidinner join corp.BusinessFilingType bft with(nolock) on bf.BusinessFilingTypeId = bft.BusinessFilingTypeIdwhere b.EntityNumber = {DOS_ID}'''
             # Establish a connection to the SQL Server
             conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
-
             # Create a cursor object to interact with the database
-            print(conn)
             cursor = conn.cursor()
-            print(cursor)
             cursor.execute(date_query)
             rows = cursor.fetchall()
-
             dates =[]
             for row in rows:
                  dates.append(row[0])
-
             cursor.close()
             conn.close()
             formatted_dates = [date.split(" ")[0] for date in dates]
             most_recent_date = max(formatted_dates)
-
             formatted_most_recent_date = datetime.strptime(most_recent_date, "%Y-%m-%d").strftime("%Y-%m-%d")
-            print(formatted_most_recent_date)
+            self.logger.debug(f"date found for {DOS_ID}:",formatted_most_recent_date)
             recentdate= formatted_most_recent_date
             most_recent_date = datetime.strptime(recentdate, "%Y-%m-%d").date()
-            
             return formatted_most_recent_date
             
         except ValueError as e:
-            print("there was an error running date query:",e)
+            self.logger.error("there was an error running date query:",e)
 
-
-
-    def build_reprocess_url(self,url,DOS_ID,transactionid,test_mode,file_date):
+    def build_reprocess_url(self,url):
+        self.logger.info("Building reprocess URL")
         try:
             #check if the date is recent 
-            today = date.today()
+            '''today = date.today()
             two_years_ago = today - timedelta(days=365 * 2)            
-            if file_date < str(two_years_ago):
-                reprocess_URL = url.replace("http://sharedservices.ny.gov/api/payment/response?","https://filing.dos.ny.gov/eBiennialWeb/confirmation?")
-            else:
-                print('RECENT TRANSACTION: ', file_date)
-                print('Running refund check')
-                if self.refund_check(transactionid):
-                    reprocess_URL = "REFUND"
-                else:
-                    reprocess_URL = "DO NOT REFUND"
+            if file_date < str(two_years_ago):'''
+            reprocess_URL = url.replace("http://sharedservices.ny.gov/api/payment/response?","https://filing.dos.ny.gov/eBiennialWeb/confirmation?")
+            self.logger.debug("Reprocess URL:", reprocess_URL)
             return reprocess_URL
         except ValueError as e:
-            print("there was an error creating Reprocess URL: ",e)
+            self.logger.error("there was an error creating Reprocess URL: ",e)
 
-
-    def action_check(self,file_date,transactionid):
+    def action_check(self,transaction):
+        self.logger.info("Assigning Actions ")
         try:
             #check if the date is recent 
             today = date.today()
             two_days_ago = today - timedelta(days=2)            
-            if file_date < str(two_days_ago):
-                if self.refund_check(transactionid):
-                    action = "REFUND"                
+            if transaction.Transaction_Date < str(two_days_ago):
+                if self.refund_check(transaction.Transaction_ID):
+                    Action = "Refund"          
                 else:
-                    action = 'Do Not Refund'
+                    Action = 'Do Not Refund'
+                    return Action
+            if transaction.Transaction_Type != 'SALE':
+                Action = "No Action"
             else:
-                action = "Process"
-            return action
+                Action = "Process"
+            self.logger.debug(f"Action for transaction ID:{transaction}",Action)
+            return Action
         except ValueError as e:
-            print("there was an error creating Reprocess URL: ",e)
-
-
-
-
+            self.logger.error("there was an error creating Reprocess URL: ",e)
 
     def reset_transaction(self,Invoice_Number):
+        self.logger.warning("reseting transaction")
         try:
             reset_transaction_query = f'Update [Prod_NETAPPS].[dbo].[EBIENNIAL_TRANSACTION_TEMP] set Is_Processed=Null  where TRANSACTION_ID = {Invoice_Number}'
             conn = pyodbc.connect(
@@ -320,55 +306,53 @@ where b.EntityNumber = {DOS_ID}'''
             "Database=your_database_name;"
             f"UID={self.EVUN}"
             f"PWD={self.EVPW}")
-
             # Create a cursor object to interact with the database
             cursor = conn.cursor()
-
-            # Execute a simple query
+            # Execute query
             cursor.execute(reset_transaction_query)
-
             # Fetch all the rows returned by the query
             rows = cursor.fetchall()
-
-            # Print the retrieved data
             for row in rows:
-                print(row)
                 transaction_Url = row["URL"]
-
             # Close the cursor and the connection
             cursor.close()
             conn.close()
             return transaction_Url
         except ValueError as e:
-            print("there was wan error with the update query: ",e)
-    def refund_check(self,transaction_id):
+            self.logger.error("there was wan error with the update query: ",e)
+
+    def refund_check(self,transaction):
+        self.logger.info("Checking for Refund ")
         try:
-            refund_query = f"SELECT * FROM CORP.WORKORDERPAY WHERE PaymentTransactionID ='{transaction_id}'"
+            refund_query = f"SELECT * FROM CORP.WORKORDERPAY WHERE PaymentTransactionID ='{transaction}'"
             # Establish a connection to the SQL Server
             #commit test
             conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
-
             # Create a cursor object to interact with the database
-            print(conn)
             cursor = conn.cursor()
-            print(cursor)
             cursor.execute(refund_query)
             rows = cursor.fetchall()
-            print(rows)
-            # Print the retrieved data
-
-            for row in rows:
-                 print(type(row[0]))
-
             cursor.close()
             conn.close()
             if not rows:
-                 print("empty")
+                 self.logger.debug("Empty Refund")
                  return True
             else:
+                self.logger.debug("Data Found Do not refund")
                 return False
             
-        except:
-            print("there was an error running URL query")
+        except ValueError as e:
+            self.logger.error("there was an error running refund query", e)
 
-
+    def delete_files(self):
+        self.logger.info("Removing Saved files")
+        path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EBiennial Processing Automation\EBiennial_email_attachments"
+        files = os.listdir(path)
+        total_deleted = 0
+        for file  in files:
+            file_path =  os.path.join(path,file)
+            if os.path.isfile(file_path):
+                os.remove(file_path)
+                total_deleted += 1
+        self.logger.debug("Total Files Deleted: ", total_deleted)
+        self.logger.warning("EBiennial Reprocessing Complete")
