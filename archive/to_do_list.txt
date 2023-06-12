@@ -1,0 +1,2 @@
+remove files after reprocessing and date verification 
+build date verify to self check automation
