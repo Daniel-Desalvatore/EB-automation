@@ -3,4 +3,5 @@
 /__pycache__
 /EBiennial_email_attachments
 .env
-./archive
+/archive
+sandbox.py
