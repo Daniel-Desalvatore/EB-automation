@@ -1,22 +1,23 @@
 from EBiennial_emails import OutlookEmailReader
 from EBiennial_attachment_processing import EBiennial_emails_processing
 from EBiennial import process_EBiennial
+from log_builder import MyLogger 
 import datetime
 import time
 import subprocess 
-#running class
-#commit test
+
 class execute_EBiennial:
     def __init__(self) -> None:
         self.extract_emails = OutlookEmailReader()
         self.process_attachments = EBiennial_emails_processing()
         self.process_EBiennial = process_EBiennial()
+        self.logger = MyLogger()
+        self.logger.warning("Began EBiennial Reprocessing")
     
     def run(self):
             test_mode=False
             print("would you like to run in test mode? Y for yes| any other char for No")
             activate_test_mode = input()
-            print("Now Running Script:")
             if activate_test_mode == 'Y':
                 test_mode = True
                 if self.extract_emails.retrieve_attachments(test_mode): 
@@ -27,9 +28,6 @@ class execute_EBiennial:
             else:
                 self.extract_emails.retrieve_attachments(test_mode)
                 self.process_EBiennial.populate_transactions(self.process_attachments.read_attachments(test_mode),test_mode)
-
-
-
 
 app = execute_EBiennial()
 '''while True:

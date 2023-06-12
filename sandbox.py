@@ -91,15 +91,7 @@ where b.EntityNumber = {DOS_ID}'''
             
             #print(date)
             return 
-
-          
-
-
-# Usage example:
-
 Sandbox = Sandbox()
-
-
 Sandbox.database_connect(2895138)
 Sandbox.env_vars()
 Sandbox.refund_db_check('280523C1A-CBCB042C-0BB1-4FF5-8C37-694D8BC56CC1')
