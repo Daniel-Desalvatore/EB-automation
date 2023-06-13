@@ -15,7 +15,7 @@ class OutlookEmailReader:
         try:
             self.logger.info("Retrieving Attachments")
             today = datetime.today()
-            yesterday= today-timedelta(days=6) #update back to 1
+            yesterday= today-timedelta(days=1) #update back to 1
             yesterday_str = yesterday.strftime("%m/%d/%Y")
             filter_criteria = f"@SQL=\"urn:schemas:httpmail:subject\" LIKE '%PROD: Ebiennial Payment Reports ({yesterday_str} 12:00:00 AM - {yesterday_str} 11:59:59 PM)%'"
             self.logger.debug("looking for emails with subject: ", filter_criteria)
