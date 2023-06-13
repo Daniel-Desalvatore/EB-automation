@@ -1,110 +1,36 @@
-2023-06-12 16:29:14,672 - INFO - extracting data from saved attachments
-2023-06-12 16:29:14,673 - WARNING - Began EBiennial Reprocessing
-2023-06-12 16:29:14,674 - INFO - Retrieving Attachments
-2023-06-12 16:29:14,674 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (06/06/2023 12:00:00 AM - 06/06/2023 11:59:59 PM)%'
-2023-06-12 16:29:14,947 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (06/06/2023 12:00:00 AM - 06/06/2023 11:59:59 PM)
-2023-06-12 16:29:14,948 - DEBUG - Sender: - Interface Team
-2023-06-12 16:29:14,948 - DEBUG - Received Time: - 2023-06-07 09:12:16.274000+00:00
-2023-06-12 16:29:14,991 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-06-07_Summary.xlsx
-2023-06-12 16:29:15,013 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-06-07_Discrepancy.xlsx
-2023-06-12 16:29:15,567 - INFO - checking Summary
-2023-06-12 16:29:15,567 - WARNING - Transaction type is not SALE | Current Value is : 'AUTHONLY'
-2023-06-12 16:29:18,544 - INFO - reading data From Discrepancy
-2023-06-12 16:29:18,557 - DEBUG - Reading data from: - Ebiennial PaymentReport_2023-06-07_Discrepancy.xlsx
-2023-06-12 16:29:18,557 - DEBUG - transaction found: - 060623C1C-0E956960-F4C8-48C0-BCB5-DBF4D8A40C13,474096,SALE
-2023-06-12 16:29:18,557 - DEBUG - transaction found: - 060623C1A-E0E1D55F-65C4-4546-B4BA-C3D06E757480,472976,RETURN
-2023-06-12 16:29:18,557 - DEBUG - transaction found: - 060623C29-995015E5-DC4C-49F4-88B0-2C80A96D8E73,474412,SALE
-2023-06-12 16:29:18,557 - DEBUG - transaction found: - 060623C2B-E6075B4A-E0B5-42BF-BE05-DB12D95AD9D9,474508,SALE
-2023-06-12 16:29:18,557 - DEBUG - transaction found: - 060623O10-AAD750F4-FB7B-4083-9220-A76E840F9F1F,474767,SALE
-2023-06-12 16:29:18,558 - DEBUG - transaction found: - 060623O2D-FF4F78DD-80A6-470D-BF49-D01B43FD71A5,474844,SALE
-2023-06-12 16:29:18,558 - DEBUG - transaction found: - 060623O2D-E53B6E59-EDC1-4015-9169-359C03B9D954,475092,SALE
-2023-06-12 16:29:18,558 - INFO - Reprocessing EBiennial Transactions
-2023-06-12 16:29:18,558 - INFO - Building Objects
-2023-06-12 16:29:18,558 - INFO - -------------------------------------------------------
-2023-06-12 16:29:18,558 - INFO - Running URL Query
-2023-06-12 16:30:10,080 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Quraishi&ssl_company=Comuni+Acupuncture+P.C.&ssl_phone=718-775-8990&ssl_approval_code=06194G&ssl_email=saminaqi%40gmail.com&ssl_amount=9.00&ssl_avs_zip=11375&uid=1d201d96-295c-483f-b4e4-f01f87b7fcaa&ssl_exp_date=1023&ssl_card_short_description=VISA&merchant_defined_data2=4419912&merchant_defined_data1=474096&ssl_country=USA&ssl_avs_address=102-32+65+AVE+APT+A57&ssl_state=NY&ssl_city=Forest+Hills&ssl_first_name=Samina&ssl_invoice_number=474096&application_profile_id=2&ssl_txn_id=060623C1C-0E956960-F4C8-48C0-BCB5-DBF4D8A40C13&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********5767&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=06%2f06%2f2023+10%3a15%3a39+AM&Uid=40dd5ce4-e683-4e4f-a1c3-0e778e170168
-2023-06-12 16:30:10,080 - INFO - Extracting DOS ID
-2023-06-12 16:30:10,080 - DEBUG - DOS ID found: - 4419912
-2023-06-12 16:30:10,080 - INFO - Running Date Query
-2023-06-12 16:30:10,976 - DEBUG - date found for 4419912: - 2023-06-07
-2023-06-12 16:30:10,976 - INFO - Building reprocess URL
-2023-06-12 16:30:10,976 - DEBUG - Reprocess URL: - 060623C1C-0E956960-F4C8-48C0-BCB5-DBF4D8A40C13
-2023-06-12 16:30:10,976 - INFO - Assigning Actions 
-2023-06-12 16:30:10,976 - INFO - Checking for Refund 
-2023-06-12 16:30:11,238 - DEBUG - Data Found Do not refund
-2023-06-12 16:30:11,238 - INFO - -------------------------------------------------------
-2023-06-12 16:30:11,238 - DEBUG - no action needed: - RETURN
-2023-06-12 16:30:11,238 - INFO - -------------------------------------------------------
-2023-06-12 16:30:11,238 - INFO - Running URL Query
-2023-06-12 16:30:51,535 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Fuchs&ssl_phone=2123806753&ssl_approval_code=09577D&ssl_email=jonathan%40icelandair.is&ssl_amount=9.00&ssl_avs_zip=11232&uid=dc53c79d-17f1-41cc-af11-92bfa1406ca8&ssl_exp_date=0325&ssl_card_short_description=VISA&merchant_defined_data2=4925617&merchant_defined_data1=474412&ssl_country=USA&ssl_avs_address=908+4th+Avenue&ssl_state=New+York&ssl_city=Brooklyn&ssl_first_name=Jonathan&ssl_invoice_number=474412&application_profile_id=2&ssl_txn_id=060623C29-995015E5-DC4C-49F4-88B0-2C80A96D8E73&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=41**********7735&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=06%2f06%2f2023+11%3a23%3a19+AM&Uid=8454a562-b0de-4672-86c7-3f1ce335cc7f
-2023-06-12 16:30:51,535 - INFO - Extracting DOS ID
-2023-06-12 16:30:51,535 - DEBUG - DOS ID found: - 4925617
-2023-06-12 16:30:51,535 - INFO - Running Date Query
-2023-06-12 16:30:52,382 - DEBUG - date found for 4925617: - 2023-06-06
-2023-06-12 16:30:52,382 - INFO - Building reprocess URL
-2023-06-12 16:30:52,382 - DEBUG - Reprocess URL: - 060623C29-995015E5-DC4C-49F4-88B0-2C80A96D8E73
-2023-06-12 16:30:52,382 - INFO - Assigning Actions 
-2023-06-12 16:30:52,382 - INFO - Checking for Refund 
-2023-06-12 16:30:52,582 - DEBUG - Empty Refund
-2023-06-12 16:30:52,582 - DEBUG - Action for transaction ID:<EBiennial_attachment_processing.transaction object at 0x0000017022BE9890> - Process
-2023-06-12 16:30:52,582 - INFO - -------------------------------------------------------
-2023-06-12 16:30:52,582 - INFO - Running URL Query
-2023-06-12 16:31:31,240 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=tawil&ssl_company=Valley+1800%2c+LLC&ssl_phone=3154724481&ssl_approval_code=006774&ssl_email=ltawil%40pappascoxlaw.com&ssl_amount=9.00&ssl_avs_zip=13210&uid=1f7ba66f-fbee-4b39-ac39-951aba139585&ssl_exp_date=0525&ssl_card_short_description=VISA&merchant_defined_data2=3334860&merchant_defined_data1=474508&ssl_country=USA&ssl_avs_address=416+e+Brighton+Ave&ssl_state=NY&ssl_city=Syracuse&ssl_first_name=samir&ssl_invoice_number=474508&application_profile_id=2&ssl_txn_id=060623C2B-E6075B4A-E0B5-42BF-BE05-DB12D95AD9D9&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=41**********5876&ssl_avs_response=Z&ssl_cvv2_response=M&ssl_txn_time=06%2f06%2f2023+11%3a51%3a54+AM&Uid=884cb105-e8b5-4f4b-92f9-ce7e5dbd19d5
-2023-06-12 16:31:31,240 - INFO - Extracting DOS ID
-2023-06-12 16:31:31,240 - DEBUG - DOS ID found: - 3334860
-2023-06-12 16:31:31,240 - INFO - Running Date Query
-2023-06-12 16:31:32,090 - DEBUG - date found for 3334860: - 2023-06-07
-2023-06-12 16:31:32,090 - INFO - Building reprocess URL
-2023-06-12 16:31:32,090 - DEBUG - Reprocess URL: - 060623C2B-E6075B4A-E0B5-42BF-BE05-DB12D95AD9D9
-2023-06-12 16:31:32,090 - INFO - Assigning Actions 
-2023-06-12 16:31:32,090 - INFO - Checking for Refund 
-2023-06-12 16:31:32,269 - DEBUG - Data Found Do not refund
-2023-06-12 16:31:32,269 - INFO - -------------------------------------------------------
-2023-06-12 16:31:32,269 - INFO - Running URL Query
-2023-06-12 16:32:17,173 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=STRAUS&ssl_phone=9144500413&ssl_approval_code=07999P&ssl_email=elisabeth_straus%40hotmail.com&ssl_amount=9.00&ssl_avs_zip=12578-314&uid=de015d89-b2a0-4aa1-8a2e-8b16e83c2335&ssl_exp_date=0526&ssl_card_short_description=MC&merchant_defined_data2=3948577&merchant_defined_data1=474767&ssl_country=USA&ssl_avs_address=55+Ice+Pond+Ln&ssl_state=NY&ssl_city=Salt+Point&ssl_first_name=ELISABETH&ssl_invoice_number=474767&application_profile_id=2&ssl_txn_id=060623O10-AAD750F4-FB7B-4083-9220-A76E840F9F1F&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=54**********5841&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=06%2f06%2f2023+02%3a32%3a41+PM&Uid=686dacd5-0fb6-4719-a9f0-2a2f6b6bd562
-2023-06-12 16:32:17,173 - INFO - Extracting DOS ID
-2023-06-12 16:32:17,173 - DEBUG - DOS ID found: - 3948577
-2023-06-12 16:32:17,174 - INFO - Running Date Query
-2023-06-12 16:32:18,023 - DEBUG - date found for 3948577: - 2023-06-07
-2023-06-12 16:32:18,023 - INFO - Building reprocess URL
-2023-06-12 16:32:18,024 - DEBUG - Reprocess URL: - 060623O10-AAD750F4-FB7B-4083-9220-A76E840F9F1F
-2023-06-12 16:32:18,024 - INFO - Assigning Actions 
-2023-06-12 16:32:18,024 - INFO - Checking for Refund 
-2023-06-12 16:32:18,248 - DEBUG - Data Found Do not refund
-2023-06-12 16:32:18,248 - INFO - -------------------------------------------------------
-2023-06-12 16:32:18,248 - INFO - Running URL Query
-2023-06-12 16:32:58,686 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Boller&ssl_company=Akoustis%2c+Inc.&ssl_phone=7049975735&ssl_approval_code=261864&ssl_email=tbender%40akoustis.com&ssl_amount=9.00&ssl_avs_zip=28078&uid=541909df-8de8-4ad6-ba6f-17514974facf&ssl_exp_date=0228&ssl_card_short_description=MC&ssl_address2=Suite+A&merchant_defined_data2=5132824&merchant_defined_data1=474844&ssl_country=USA&ssl_avs_address=9805+Northcross+Center+Ct&ssl_state=NC&ssl_city=Huntersville&ssl_first_name=Kenneth&ssl_invoice_number=474844&application_profile_id=2&ssl_txn_id=060623O2D-FF4F78DD-80A6-470D-BF49-D01B43FD71A5&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=55**********6498&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=06%2f06%2f2023+03%3a19%3a17+PM&Uid=0c2c6adc-8a85-4e22-b5f8-bea4037fb047
-2023-06-12 16:32:58,686 - INFO - Extracting DOS ID
-2023-06-12 16:32:58,686 - DEBUG - DOS ID found: - 5132824
-2023-06-12 16:32:58,686 - INFO - Running Date Query
-2023-06-12 16:32:59,538 - DEBUG - date found for 5132824: - 2023-06-07
-2023-06-12 16:32:59,538 - INFO - Building reprocess URL
-2023-06-12 16:32:59,538 - DEBUG - Reprocess URL: - 060623O2D-FF4F78DD-80A6-470D-BF49-D01B43FD71A5
-2023-06-12 16:32:59,538 - INFO - Assigning Actions 
-2023-06-12 16:32:59,538 - INFO - Checking for Refund 
-2023-06-12 16:32:59,770 - DEBUG - Data Found Do not refund
-2023-06-12 16:32:59,770 - INFO - -------------------------------------------------------
-2023-06-12 16:32:59,770 - INFO - Running URL Query
-2023-06-12 16:33:37,761 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Jemal&ssl_company=Fulton+Nostrand+LLC&ssl_phone=9177011050&ssl_approval_code=081154&ssl_email=alanjemal%40aol.com&ssl_amount=9.00&ssl_avs_zip=07723&uid=d4438d5c-a937-451f-acae-e321e25963f3&ssl_exp_date=0426&ssl_card_short_description=VISA&merchant_defined_data2=3627442&merchant_defined_data1=475092&ssl_country=USA&ssl_avs_address=15+Lady+Bess+Drive&ssl_state=NJ&ssl_city=Deal&ssl_first_name=Alan&ssl_invoice_number=475092&application_profile_id=2&ssl_txn_id=060623O2D-E53B6E59-EDC1-4015-9169-359C03B9D954&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=40**********1942&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=06%2f06%2f2023+07%3a11%3a53+PM&Uid=9427081f-3e5a-437b-9eae-b4018c77977c
-2023-06-12 16:33:37,761 - INFO - Extracting DOS ID
-2023-06-12 16:33:37,761 - DEBUG - DOS ID found: - 3627442
-2023-06-12 16:33:37,761 - INFO - Running Date Query
-2023-06-12 16:33:38,631 - DEBUG - date found for 3627442: - 2023-06-07
-2023-06-12 16:33:38,631 - INFO - Building reprocess URL
-2023-06-12 16:33:38,631 - DEBUG - Reprocess URL: - 060623O2D-E53B6E59-EDC1-4015-9169-359C03B9D954
-2023-06-12 16:33:38,631 - INFO - Assigning Actions 
-2023-06-12 16:33:38,631 - INFO - Checking for Refund 
-2023-06-12 16:33:38,937 - DEBUG - Data Found Do not refund
-2023-06-12 16:33:38,937 - INFO - -------------------------------------------------------
-2023-06-12 16:33:38,937 - INFO - Sending Email
-2023-06-12 16:33:39,156 - DEBUG - 060623C1C-0E956960-F4C8-48C0-BCB5-DBF4D8A40C13,Do Not Refund
-2023-06-12 16:33:39,157 - DEBUG - 060623C1A-E0E1D55F-65C4-4546-B4BA-C3D06E757480,No Action
-2023-06-12 16:33:39,157 - DEBUG - 060623C29-995015E5-DC4C-49F4-88B0-2C80A96D8E73,Process
-2023-06-12 16:33:39,157 - DEBUG - 060623C2B-E6075B4A-E0B5-42BF-BE05-DB12D95AD9D9,Do Not Refund
-2023-06-12 16:33:39,157 - DEBUG - 060623O10-AAD750F4-FB7B-4083-9220-A76E840F9F1F,Do Not Refund
-2023-06-12 16:33:39,157 - DEBUG - 060623O2D-FF4F78DD-80A6-470D-BF49-D01B43FD71A5,Do Not Refund
-2023-06-12 16:33:39,157 - DEBUG - 060623O2D-E53B6E59-EDC1-4015-9169-359C03B9D954,Do Not Refund
-2023-06-12 16:33:39,186 - INFO - Email Sent
-2023-06-12 16:33:39,186 - INFO - Removing Saved files
-2023-06-12 16:33:39,188 - DEBUG - Total Files Deleted:  - 2
-2023-06-12 16:33:39,188 - WARNING - EBiennial Reprocessing Complete
+2023-06-13 08:56:44,731 - INFO - extracting data from saved attachments
+2023-06-13 08:56:44,737 - WARNING - Began EBiennial Reprocessing
+2023-06-13 08:56:44,738 - INFO - Retrieving Attachments
+2023-06-13 08:56:44,738 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (06/07/2023 12:00:00 AM - 06/07/2023 11:59:59 PM)%'
+2023-06-13 08:56:45,194 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (06/07/2023 12:00:00 AM - 06/07/2023 11:59:59 PM)
+2023-06-13 08:56:45,194 - DEBUG - Sender: - Interface Team
+2023-06-13 08:56:45,194 - DEBUG - Received Time: - 2023-06-08 09:12:35.969000+00:00
+2023-06-13 08:56:45,254 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-06-08_Summary.xlsx
+2023-06-13 08:56:45,315 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-06-08_Discrepancy.xlsx
+2023-06-13 08:56:45,973 - INFO - checking Summary
+2023-06-13 08:56:45,974 - DEBUG - All values are SALE
+2023-06-13 08:56:45,974 - INFO - reading data From Discrepancy
+2023-06-13 08:56:45,985 - DEBUG - Reading data from: - Ebiennial PaymentReport_2023-06-08_Discrepancy.xlsx
+2023-06-13 08:56:45,985 - DEBUG - transaction found: - 070623O13-FEFDB591-32B1-49C8-9287-1603F771955C,475301,SALE
+2023-06-13 08:56:45,985 - DEBUG - transaction found: - 070623C1C-8A856B37-7D20-4E89-BCB7-9B16097F053E,474412,RETURN
+2023-06-13 08:56:45,985 - DEBUG - transaction found: - 070623O2C-4858080D-5D38-4163-A93F-AF85DBDC7D01,475721,SALE
+2023-06-13 08:56:45,985 - DEBUG - transaction found: - 070623C1C-104832E4-083A-4033-9361-067F68EE176A,475850,SALE
+2023-06-13 08:56:45,985 - DEBUG - transaction found: - 070623O18-A425840C-638A-469E-B3BD-D6BDDD71EA6C,475995,SALE
+2023-06-13 08:56:45,985 - INFO - Reprocessing EBiennial Transactions
+2023-06-13 08:56:45,985 - INFO - Building Objects
+2023-06-13 08:56:45,985 - INFO - -------------------------------------------------------
+2023-06-13 08:56:45,985 - INFO - Running URL Query
+2023-06-13 08:57:23,772 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Ferdinand%2c+III&ssl_company=Ferdinand+IP+LLC&ssl_phone=2035574224&ssl_approval_code=09799G&ssl_email=lauras%40fiplawgroup.com&ssl_amount=9.00&ssl_avs_zip=06880&uid=64f04c25-652f-450c-b767-5db5131c70db&ssl_exp_date=0228&ssl_card_short_description=VISA&merchant_defined_data2=5263661&merchant_defined_data1=475301&ssl_country=USA&ssl_avs_address=1221+POST+RD+E+STE+205&ssl_state=CT&ssl_city=WESTPORT&ssl_first_name=Edmund&ssl_invoice_number=475301&application_profile_id=2&ssl_txn_id=070623O13-FEFDB591-32B1-49C8-9287-1603F771955C&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********5220&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=06%2f07%2f2023+10%3a23%3a26+AM&Uid=d5b1ec18-25fc-41ca-918e-cd85bb8feb2c
+2023-06-13 08:57:23,772 - INFO - Extracting DOS ID
+2023-06-13 08:57:23,772 - DEBUG - DOS ID found: - 5263661
+2023-06-13 08:57:23,772 - INFO - Running Date Query
+2023-06-13 08:57:24,894 - DEBUG - date found for 5263661: - 2023-06-08
+2023-06-13 08:57:24,894 - INFO - Building reprocess URL
+2023-06-13 08:57:24,894 - DEBUG - Reprocess URL: - 070623O13-FEFDB591-32B1-49C8-9287-1603F771955C
+2023-06-13 08:57:24,894 - INFO - Assigning Actions 
+2023-06-13 08:57:24,894 - INFO - Checking for Refund 
+2023-06-13 08:57:25,425 - DEBUG - Data Found Do not refund
+2023-06-13 08:57:25,425 - INFO - -------------------------------------------------------
+2023-06-13 08:57:25,425 - DEBUG - no action needed: - RETURN
+2023-06-13 08:57:25,425 - INFO - -------------------------------------------------------
+2023-06-13 08:57:25,425 - INFO - Running URL Query

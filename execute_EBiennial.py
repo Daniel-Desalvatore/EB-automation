@@ -20,6 +20,3 @@ class execute_EBiennial:
             self.extract_emails.retrieve_attachments(test_mode)
             self.process_EBiennial.populate_transactions(self.process_attachments.read_attachments(test_mode),test_mode)
 
-
-app = execute_EBiennial()
-app.run()
