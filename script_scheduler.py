@@ -10,7 +10,7 @@ class Scheduler:
         self.app.run()
     
     def schedule(self,hour, minute):
-        print(f"Ebiennial Reprocessing will automatically run at {hour}:{minute} evryday.")
+        print(f"Ebiennial Reprocessing will automatically run at {hour}:{minute} everyday.")
         schedule.every().day.at(f"{hour:02d}:{minute:02d}").do(self.run_app)
     def start(self):
         while True:

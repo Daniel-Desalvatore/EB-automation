@@ -71,11 +71,6 @@ class process_EBiennial:
                                     Payment_Date.append(value)
             body = '''<html>
             <body>
-            <ul>
-            <li>Green: All Set</li>
-            <li>Yellow: No Action</li>
-            <li>Red: Refund</li>
-            </ul>
             <table style = "border-collapse: collapse;  white-space: nowrap; ">
             '''
             today = datetime.today()
@@ -131,7 +126,7 @@ class process_EBiennial:
                         body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Payment_Date[i])
                         body += '</tr>'
                 else:
-                        body += '<tr  style="border: 1px solid black; padding: 5px; color: #e6ac00;">'
+                        body += '<tr  style="border: 1px solid black; padding: 5px; color: #e6ac00; text-align: center;">'
                         body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Transaction_ID[i])
                         body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Auth_Code[i]) 
                         body += '<td style="border: 1px solid black; padding: 5px; color: #e6ac00;">{}</td>'.format(Invoice_Number[i]) 
@@ -150,8 +145,17 @@ class process_EBiennial:
                             </body>
                             </html>"""
             else:
-                body +="""
-                </table>
+                body += """</table>
+                <ul>
+                """
+            if "green" in body:
+                body += "<li>Green: All Set</li>"
+            if '#e6ac00' in body:
+                body +=  "<li>Yellow: No Action</li>"
+            if 'red' in body:
+                body += "<li>Red: Refund</li>"
+            body +=""" 
+            </ul>               
                 </body>
                 </html>"""
             outlook = win32.Dispatch('Outlook.Application')
@@ -283,8 +287,12 @@ where b.EntityNumber = {DOS_ID}'''
         try:
             #check if the date is recent 
             today = date.today()
-            two_days_ago = today - timedelta(days=2)            
-            if transaction.Transaction_Date < str(two_days_ago):
+            two_days_ago = today - timedelta(days=2)
+            print(two_days_ago, "non string") 
+            print(str(two_days_ago), 'string')  
+            found_date = datetime.strptime(transaction.Transaction_Date,"%Y-%m-%d")
+            two_days_ago = datetime.strptime(str(two_days_ago),"%Y-%m-%d")
+            if found_date >= two_days_ago:
                 if self.refund_check(transaction.Transaction_ID):
                     Action = "Refund"          
                 else:

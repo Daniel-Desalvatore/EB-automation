@@ -19,9 +19,10 @@ class EBiennial_emails_processing:
         self.transactions= [] #list of transaction objects 
         self.processed_transactions = []
         self.logger = MyLogger()
-        self.logger.info("extracting data from saved attachments")
+        
 
     def read_attachments(self,test_mode):
+        self.logger.info("extracting data from saved attachments")
         if self.read_summery(test_mode):
            return self.read_dis(test_mode)
         else:
