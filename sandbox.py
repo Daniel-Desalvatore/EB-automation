@@ -1,10 +1,10 @@
-import os
-import datetime
-import win32com.client
-from datetime import datetime, timedelta
-import re
 import pyodbc
+import os
+import win32com.client as win32
+import pandas as pd
 from dotenv import load_dotenv
+from log_builder import MyLogger 
+from datetime import datetime, timedelta, date
 #sandbox for code testing
 class Sandbox:
 
@@ -12,7 +12,7 @@ class Sandbox:
         load_dotenv()
 
 
-        self.outlook_app = win32com.client.Dispatch("Outlook.Application")
+        self.outlook_app = win32.Dispatch("Outlook.Application")
 
         self.namespace = self.outlook_app.GetNamespace("MAPI")
 
@@ -91,7 +91,35 @@ where b.EntityNumber = {DOS_ID}'''
             
             #print(date)
             return 
+
+    def send_log(self):
+        # Iterate over files in the folder
+            body =''
+            with open('EBiennial.log','r') as f:
+                  f = f.readlines()
+
+            for line in f:
+               if "DEBUG" in line:
+                    body += f"<p style=color:green> {line} </p> <br><br>"
+               elif "WARNING" in line:
+                    body += f"<p style=color:RED> {line} </p> <br><br>"
+               else:
+                    body += f"<p style=color:#98850b> {line} </p> <br><br>"
+
+          
+            today = datetime.today()
+          
+            
+            
+            outlook = win32.Dispatch('Outlook.Application')
+            mail = outlook.CreateItem(0)
+            mail.Subject = f'Ebiennial Payment Reports logs ({today})'
+            mail.HTMLBody =  body
+            mail.To = 'daniel.desalvatore@its.ny.gov'
+            mail.Send()
+            
 Sandbox = Sandbox()
-Sandbox.database_connect(2895138)
-Sandbox.env_vars()
-Sandbox.refund_db_check('280523C1A-CBCB042C-0BB1-4FF5-8C37-694D8BC56CC1')
+#Sandbox.database_connect(2895138)
+#Sandbox.env_vars()
+#Sandbox.refund_db_check('280523C1A-CBCB042C-0BB1-4FF5-8C37-694D8BC56CC1')
+Sandbox.send_log()

@@ -14,15 +14,16 @@ class process_EBiennial:
         self.EVUN=os.getenv('DBUN')
         self.logger = MyLogger()
         
-    def populate_transactions(self,transactions,test_mode):
+    def reprocess_transactions(self,transactions):
         self.logger.info("Reprocessing EBiennial Transactions")
         try:
-            self.build_transaction_object(transactions,test_mode)
+            self.build_transaction_object(transactions)
             self.send_email(transactions)
         except ValueError as e:
             self.logger.error("there was an error reading transactions: ",e)
 
     def send_email(self, transactions):
+            #send the email to PROD with proper coloring and actions assinged 
             self.logger.info("Sending Email")
             folder_path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EBiennial Processing Automation\EBiennial_email_attachments" # Specify the folder path where the Excel files are located
             headerlist=["Transaction ID","Auth Code","Invoice Number","Converge Amount","EBiennial Amount","First Name","Last Name","Card Type","Card Number","Transaction Type","Payment Date"] 
@@ -167,7 +168,8 @@ class process_EBiennial:
             self.logger.info("Email Sent")  
             self.delete_files()
                 
-    def build_transaction_object(self,transactions,test_mode):
+    def build_transaction_object(self,transactions):
+            #build the transaction objects
             self.logger.info("Building Objects")
             try: 
                 for transaction in transactions:
@@ -176,16 +178,17 @@ class process_EBiennial:
                         transaction.Action = "No Action"
                         self.logger.debug("no action needed:",transaction.Transaction_Type)
                     else:
-                        transaction.URL = self.url_query(transaction.Transaction_ID,test_mode)
-                        transaction.DOS_ID = self.extract_dos_id(transaction.URL,test_mode)
-                        transaction.Transaction_Date = self.date_query(transaction.DOS_ID,test_mode)
+                        transaction.URL = self.url_query(transaction.Transaction_ID)
+                        transaction.DOS_ID = self.extract_dos_id(transaction.URL)
+                        transaction.Transaction_Date = self.date_query(transaction.DOS_ID)
                         transaction.Reprocess_URL = self.build_reprocess_url(transaction.Transaction_ID)
                         transaction.Action = self.action_check(transaction)
                 self.logger.info('-------------------------------------------------------')  
             except ValueError as e:
                 self.logger.error("there was an error building transaction objects: ",e)
 
-    def url_query(self,Transaction_ID,test_mode):
+    def url_query(self,Transaction_ID):
+        #find the base URL for the transaction 
         self.logger.info("Running URL Query")
         try:
             Prod_sharedServices_query = f"Select * from [Prod_SharedServices].[metrics].[Request] where url like '%{Transaction_ID}%'"
@@ -205,19 +208,12 @@ class process_EBiennial:
             cursor.close()
             conn.close()
             self.logger.debug("URL found: ",url)
-            if test_mode:
-                print('review above data: Y to proceed anyother char to abort')
-                user_input = input()
-                if user_input =="Y":
-                    return url
-                else:
-                    print( 'error')
-            else:
-                return url
+            return url
         except ValueError as e:
             self.logger.error("there was an error running URL query", e)   
 
-    def extract_dos_id(self,url,test_mode):
+    def extract_dos_id(self,url,):
+        #extact the DOS id form the normal URL
         self.logger.info("Extracting DOS ID")
         try:
             index= url.find('merchant_defined_data2=',1)
@@ -225,21 +221,13 @@ class process_EBiennial:
                 start_index = index + len("merchant_defined_data2=")
                 end_index = url.find("&",start_index)
                 DOS_ID = url[start_index:end_index]
-            if test_mode:
-                print('review above data: Y to proceed anyother char to abort')
-                user_input = input()
-                if user_input =="y":
-                    return DOS_ID
-                else:
-                    print( 'error')
-            else:
                 self.logger.debug("DOS ID found:",DOS_ID)
                 return DOS_ID
-
         except ValueError as e:
             self.logger.error("there was an error extracting dos ID: ",e)
 
-    def date_query(self, DOS_ID, test_mode):
+    def date_query(self, DOS_ID):
+        #pull the most recent filing date for the transaction 
         self.logger.info("Running Date Query")
         try:
     
@@ -270,6 +258,8 @@ where b.EntityNumber = {DOS_ID}'''
             self.logger.error("there was an error running date query:",e)
 
     def build_reprocess_url(self,url):
+        #replace the noraml URL with the reporcess URl
+        #not currently working 
         self.logger.info("Building reprocess URL")
         try:
             #check if the date is recent 
@@ -283,6 +273,7 @@ where b.EntityNumber = {DOS_ID}'''
             self.logger.error("there was an error creating Reprocess URL: ",e)
 
     def action_check(self,transaction):
+        #check and assign the action to be taken for the transaction
         self.logger.info("Assigning Actions ")
         try:
             #check if the date is recent 
@@ -308,6 +299,8 @@ where b.EntityNumber = {DOS_ID}'''
             self.logger.error("there was an error creating Reprocess URL: ",e)
 
     def reset_transaction(self,Invoice_Number):
+        #rest transaction for reprocessing 
+        #no currently working 
         self.logger.warning("reseting transaction")
         try:
             reset_transaction_query = f'Update [Prod_NETAPPS].[dbo].[EBIENNIAL_TRANSACTION_TEMP] set Is_Processed=Null  where TRANSACTION_ID = {Invoice_Number}'
@@ -333,6 +326,7 @@ where b.EntityNumber = {DOS_ID}'''
             self.logger.error("there was wan error with the update query: ",e)
 
     def refund_check(self,transaction):
+        #check if the transaction should be refuned 
         self.logger.info("Checking for Refund ")
         try:
             refund_query = f"SELECT * FROM CORP.WORKORDERPAY WHERE PaymentTransactionID ='{transaction}'"
@@ -356,6 +350,7 @@ where b.EntityNumber = {DOS_ID}'''
             self.logger.error("there was an error running refund query", e)
 
     def delete_files(self):
+        #remove saved email attchments 
         self.logger.info("Removing Saved files")
         path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EBiennial Processing Automation\EBiennial_email_attachments"
         files = os.listdir(path)
@@ -367,3 +362,24 @@ where b.EntityNumber = {DOS_ID}'''
                 total_deleted += 1
         self.logger.debug("Total Files Deleted: ", total_deleted)
         self.logger.warning("EBiennial Reprocessing Complete")
+        self.send_log()
+
+    def send_log(self):
+        #send a email copy of the logs file
+            body =''
+            with open('EBiennial.log','r') as f:
+                  f = f.readlines()
+            for line in f:
+               if "DEBUG" in line:
+                    body += f"<p style=color:green> {line} </p> <br><br>"
+               elif "WARNING" in line:
+                    body += f"<p style=color:RED> {line} </p> <br><br>"
+               else:
+                    body += f"<p style=color:#98850b> {line} </p> <br><br>"          
+            today = datetime.today()
+            outlook = win32.Dispatch('Outlook.Application')
+            mail = outlook.CreateItem(0)
+            mail.Subject = f'Ebiennial Payment Reports logs ({today})'
+            mail.HTMLBody =  body
+            mail.To = 'daniel.desalvatore@its.ny.gov'
+            mail.Send()

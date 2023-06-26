@@ -1,26 +1,39 @@
-2023-06-22 09:14:00,108 - DEBUG - Running job Job(interval=1, unit=days, do=run_app, args=(), kwargs={})
-2023-06-22 09:14:00,108 - WARNING - Began EBiennial Reprocessing
-2023-06-22 09:14:00,108 - INFO - Retrieving Attachments
-2023-06-22 09:14:00,108 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (06/21/2023 12:00:00 AM - 06/21/2023 11:59:59 PM)%'
-2023-06-22 09:14:00,397 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (06/21/2023 12:00:00 AM - 06/21/2023 11:59:59 PM)
-2023-06-22 09:14:00,397 - DEBUG - Sender: - Interface Team
-2023-06-22 09:14:00,397 - DEBUG - Received Time: - 2023-06-22 09:11:56.122000+00:00
-2023-06-22 09:14:00,450 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-06-22_Summary.xlsx
-2023-06-22 09:14:00,466 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-06-22_Discrepancy.xlsx
-2023-06-22 09:14:00,466 - INFO - extracting data from saved attachments
-2023-06-22 09:14:01,028 - INFO - checking Summary
-2023-06-22 09:14:01,029 - WARNING - Transaction type is not SALE | Current Value is : 'AUTHONLY'
-2023-06-22 09:14:05,012 - INFO - reading data From Discrepancy
-2023-06-22 09:14:05,023 - DEBUG - Reading data from: - Ebiennial PaymentReport_2023-06-22_Discrepancy.xlsx
-2023-06-22 09:14:05,023 - DEBUG - transaction found: - 210623O18-BA4758A2-F3DA-4D24-A47D-D601B0B88043,493291,VOID
-2023-06-22 09:14:05,024 - INFO - Reprocessing EBiennial Transactions
-2023-06-22 09:14:05,024 - INFO - Building Objects
-2023-06-22 09:14:05,024 - INFO - -------------------------------------------------------
-2023-06-22 09:14:05,024 - DEBUG - no action needed: - VOID
-2023-06-22 09:14:05,024 - INFO - -------------------------------------------------------
-2023-06-22 09:14:05,024 - INFO - Sending Email
-2023-06-22 09:14:05,171 - DEBUG - 210623O18-BA4758A2-F3DA-4D24-A47D-D601B0B88043,No Action
-2023-06-22 09:14:05,191 - INFO - Email Sent
-2023-06-22 09:14:05,207 - INFO - Removing Saved files
-2023-06-22 09:14:05,207 - DEBUG - Total Files Deleted:  - 2
-2023-06-22 09:14:05,207 - WARNING - EBiennial Reprocessing Complete
+2023-06-26 12:49:00,488 - DEBUG - Running job Job(interval=1, unit=days, do=run_app, args=(), kwargs={})
+2023-06-26 12:49:00,488 - WARNING - Began EBiennial Reprocessing
+2023-06-26 12:49:00,488 - INFO - Retrieving Attachments
+2023-06-26 12:49:00,488 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (06/25/2023 12:00:00 AM - 06/25/2023 11:59:59 PM)%'
+2023-06-26 12:49:00,804 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (06/25/2023 12:00:00 AM - 06/25/2023 11:59:59 PM)
+2023-06-26 12:49:00,804 - DEBUG - Sender: - Interface Team
+2023-06-26 12:49:00,804 - DEBUG - Received Time: - 2023-06-26 09:10:58.391000+00:00
+2023-06-26 12:49:00,844 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-06-26_Summary.xlsx
+2023-06-26 12:49:00,860 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-06-26_Discrepancy.xlsx
+2023-06-26 12:49:00,860 - DEBUG - Subject: - RE: PROD: Ebiennial Payment Reports (06/25/2023 12:00:00 AM - 06/25/2023 11:59:59 PM)
+2023-06-26 12:49:00,860 - DEBUG - Sender: - Desalvatore, Daniel (ITS)
+2023-06-26 12:49:00,860 - DEBUG - Received Time: - 2023-06-26 09:27:10.014000+00:00
+2023-06-26 12:49:00,872 - INFO - extracting data from saved attachments
+2023-06-26 12:49:01,207 - INFO - checking Summary
+2023-06-26 12:49:01,207 - DEBUG - All values are SALE
+2023-06-26 12:49:01,207 - INFO - reading data From Discrepancy
+2023-06-26 12:49:01,219 - DEBUG - Reading data from: - Ebiennial PaymentReport_2023-06-26_Discrepancy.xlsx
+2023-06-26 12:49:01,219 - DEBUG - transaction found: - 250623C1C-E95B9BF0-886F-49D5-BB6E-3A4711E8A9B0,495856,SALE
+2023-06-26 12:49:01,220 - INFO - Reprocessing EBiennial Transactions
+2023-06-26 12:49:01,220 - INFO - Building Objects
+2023-06-26 12:49:01,220 - INFO - -------------------------------------------------------
+2023-06-26 12:49:01,220 - INFO - Running URL Query
+2023-06-26 12:49:43,135 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=CHEN&ssl_approval_code=113574&ssl_email=RUN4UFT%40GMAIL.COM&ssl_amount=9.00&ssl_avs_zip=11220&uid=8a30dc50-66bd-479c-94f9-86aca05721fb&ssl_exp_date=1123&ssl_card_short_description=VISA&merchant_defined_data2=5995252&merchant_defined_data1=495856&ssl_country=USA&ssl_avs_address=774+51TH+STREET&ssl_state=NY&ssl_city=BROOKLYN&ssl_first_name=YUEYUN&ssl_invoice_number=495856&application_profile_id=2&ssl_txn_id=250623C1C-E95B9BF0-886F-49D5-BB6E-3A4711E8A9B0&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=41**********3556&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=06%2f25%2f2023+03%3a37%3a45+PM&Uid=14454184-5aac-4bd1-b2e9-5ea2780109b2
+2023-06-26 12:49:43,135 - INFO - Extracting DOS ID
+2023-06-26 12:49:43,135 - DEBUG - DOS ID found: - 5995252
+2023-06-26 12:49:43,135 - INFO - Running Date Query
+2023-06-26 12:49:44,020 - DEBUG - date found for 5995252: - 2023-06-26
+2023-06-26 12:49:44,020 - INFO - Building reprocess URL
+2023-06-26 12:49:44,020 - DEBUG - Reprocess URL: - 250623C1C-E95B9BF0-886F-49D5-BB6E-3A4711E8A9B0
+2023-06-26 12:49:44,020 - INFO - Assigning Actions 
+2023-06-26 12:49:44,020 - INFO - Checking for Refund 
+2023-06-26 12:49:44,200 - DEBUG - Data Found Do not refund
+2023-06-26 12:49:44,210 - INFO - -------------------------------------------------------
+2023-06-26 12:49:44,210 - INFO - Sending Email
+2023-06-26 12:49:44,246 - DEBUG - 250623C1C-E95B9BF0-886F-49D5-BB6E-3A4711E8A9B0,Do Not Refund
+2023-06-26 12:49:44,279 - INFO - Email Sent
+2023-06-26 12:49:44,279 - INFO - Removing Saved files
+2023-06-26 12:49:44,282 - DEBUG - Total Files Deleted:  - 2
+2023-06-26 12:49:44,282 - WARNING - EBiennial Reprocessing Complete

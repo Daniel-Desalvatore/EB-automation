@@ -11,7 +11,7 @@ class OutlookEmailReader:
         self.attachment_folder_path = "C:\\Users\\DDesalvatore\\OneDrive - New York State Office of Information Technology Services\\Documents\\Python\EBiennial Processing Automation\EBiennial_email_attachments"
         self.attachment_names =[]
 
-    def retrieve_attachments(self,test_mode):
+    def retrieve_attachments(self):
         try:
             self.logger.info("Retrieving Attachments")
             today = datetime.today()
@@ -34,15 +34,6 @@ class OutlookEmailReader:
                     self.attachment_names.append(attachment_filename)
                     attachment.SaveAsFile(attachment_filename)
                     self.logger.debug("Attachment saved:", attachment.FileName)
-                if test_mode == True:
-                    print("please review saved attachments Above Y to proceed N to Abort:")
-                    test_input = input()
-                    if test_input == "Y":
-                        return True
-                    if test_input != "y":
-                        return False
-                else:
-                    return True
         except ValueError as e:
             self.logger.error("there was an error getting email attachments: ", e)
             return

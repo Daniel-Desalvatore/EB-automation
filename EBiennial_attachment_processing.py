@@ -21,14 +21,14 @@ class EBiennial_emails_processing:
         self.logger = MyLogger()
         
 
-    def read_attachments(self,test_mode):
+    def read_attachments(self):
         self.logger.info("extracting data from saved attachments")
-        if self.read_summery(test_mode):
-           return self.read_dis(test_mode)
+        if self.read_summery():
+           return self.read_dis()
         else:
             return
 
-    def read_dis(self,test_mode):
+    def read_dis(self):
         try:
             self.logger.info("reading data From Discrepancy")
             Transaction_Types=[]
@@ -63,19 +63,11 @@ class EBiennial_emails_processing:
                             rawtranscation = transaction(item[key][0],item[key][1],item[key][2])
                             self.processed_transactions.append(rawtranscation)
                             self.logger.debug("transaction found:",f'{item[key][0]},{item[key][1]},{item[key][2]}')
-                    if test_mode:
-                        print("review above data: Y to proceed anyother char to abort")
-                        user_input = input()
-                        if user_input == 'Y':
-                            return self.processed_transactions
-                        else: 
-                            return None
-                    else:
                         return self.processed_transactions
         except ValueError as e:
             self.logger.error("there was an error reading data from email attachments: ",e)
 
-    def read_summery(self,test_mode):
+    def read_summery(self):
             try:
                 user_input = False
                 folder_path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EBiennial Processing Automation\EBiennial_email_attachments" # Specify the folder path where the Excel files are located
@@ -108,12 +100,6 @@ class EBiennial_emails_processing:
                                                 print("invaild response:")
                                         return False
                                 self.logger.debug("All values are SALE") 
-                        if test_mode:
-                            print("review above data: Y to proceed anyother char to abort") 
-                            test_input = input()
-                            if test_input !="Y":
-                                self.logger.critical("user exit: EBiennial reprocessing stoped")
-                                return False
                         return True
             except ValueError as e:
                 self.logger.error("there was an error reading data from email attachments: ",e)     
