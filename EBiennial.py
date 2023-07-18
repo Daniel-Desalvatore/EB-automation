@@ -5,7 +5,7 @@ import pandas as pd
 from dotenv import load_dotenv
 from log_builder import MyLogger 
 from datetime import datetime, timedelta, date
- 
+import requests
 class process_EBiennial:
     def __init__(self) -> None:
         self.transactions=[] #store transactions from EBiennial_emails_processing
@@ -183,6 +183,10 @@ class process_EBiennial:
                         transaction.Transaction_Date = self.date_query(transaction.DOS_ID)
                         transaction.Reprocess_URL = self.build_reprocess_url(transaction.Transaction_ID)
                         transaction.Action = self.action_check(transaction)
+                    if transaction.Action == 'Process':
+                        self.reset_transaction(transaction.Invoice_Number)
+                        if not self.reprocess_date_verify(transaction):
+                            self.send_error_email()
                 self.logger.info('-------------------------------------------------------')  
             except ValueError as e:
                 self.logger.error("there was an error building transaction objects: ",e)
@@ -304,12 +308,26 @@ where b.EntityNumber = {DOS_ID}'''
         self.logger.warning("reseting transaction")
         try:
             reset_transaction_query = f'Update [Prod_NETAPPS].[dbo].[EBIENNIAL_TRANSACTION_TEMP] set Is_Processed=Null  where TRANSACTION_ID = {Invoice_Number}'
-            conn = pyodbc.connect(
-            "Driver={SQL Server};"
-            "Server=your_server_name;"
-            "Database=your_database_name;"
-            f"UID={self.EVUN}"
-            f"PWD={self.EVPW}")
+            #conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
+
+            #cursor = conn.cursor()
+           
+            #cursor.execute(reset_transaction_verify_query)
+         
+            #cursor.close()
+            #conn.close()
+            print(reset_transaction_query)
+            print(self.reset_verification(Invoice_Number))
+            '''if self.reset_verification(Invoice_Number):
+                self.reprocess_request()'''
+            
+        except ValueError as e:
+            self.logger.error("there was wan error with the update query: ",e)
+
+    def reset_verification(self,Invoice_Number):
+        try:
+            reset_transaction_query = f'SELECT IS_PROCESSED FROM [Prod_NETAPPS].[dbo].[EBIENNIAL_TRANSACTION_TEMP] WHERE TRANSACTION_ID = {Invoice_Number};'
+            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_NETAPPS} ; trusted_connection="yes"')
             # Create a cursor object to interact with the database
             cursor = conn.cursor()
             # Execute query
@@ -317,13 +335,62 @@ where b.EntityNumber = {DOS_ID}'''
             # Fetch all the rows returned by the query
             rows = cursor.fetchall()
             for row in rows:
-                transaction_Url = row["URL"]
-            # Close the cursor and the connection
+                isprocessed_vlaue=row[0]
             cursor.close()
             conn.close()
-            return transaction_Url
+            # Close the cursor and the connection
+            if isprocessed_vlaue =="Y":
+                self.logger.critical(f"Reset failed for invoice number :{Invoice_Number}")
+                self.send_error_email()
+                return False
+            else: 
+                self.logger.debug(f"Reset Successful for invoice number :{Invoice_Number}")
+                return True
+        
         except ValueError as e:
-            self.logger.error("there was wan error with the update query: ",e)
+            self.logger.error("there was wan error with the verifying update query: ",e)
+
+    def reprocess_request(self,reprocess_url):
+         session = requests.Session()
+         session.cookies.clear()
+         #response = session.post(url)
+         print(reprocess_url)
+   
+    def reprocess_date_verify(self,transaction):
+         #pull the most recent filing date for the transaction 
+        self.logger.info("Running Date Query")
+        try:
+    
+            date_query = f'''select bf.FilingDateTime,bf.filingno, bft.[Description] AS FilingType from [corp].[businessfiling] bF with(nolock) 
+Inner join corp.Business B with(Nolock) on bf.businessid = b.businessid
+inner join [corp].[BusinessFilingType] bft with(nolock) on bf.BusinessFilingTypeId = bft.BusinessFilingTypeId
+where b.EntityNumber = {transaction.DOS_ID}'''
+            # Establish a connection to the SQL Server
+            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
+            # Create a cursor object to interact with the database
+            cursor = conn.cursor()
+            cursor.execute(date_query)
+            rows = cursor.fetchall()
+            dates =[]
+            for row in rows:
+                 dates.append(row[0])
+            cursor.close()
+            conn.close()
+            formatted_dates = [date.split(" ")[0] for date in dates]
+            most_recent_date = max(formatted_dates)
+            formatted_most_recent_date = datetime.strptime(most_recent_date, "%Y-%m-%d").strftime("%Y-%m-%d")
+            self.logger.debug(f"date found for {transaction.DOS_ID}:",formatted_most_recent_date)
+            recentdate= formatted_most_recent_date
+            most_recent_date = datetime.strptime(recentdate, "%Y-%m-%d").date()
+            if transaction.Transaction_Date != formatted_most_recent_date:
+                self.logger.debug(f"reprocessing successful: Old Date{transaction.Transaction_Date} New date: {formatted_most_recent_date}",)
+                return True
+            else:
+                 self.logger.critical(f"reprocessing Failed: Old Date{transaction.Transaction_Date} New date: {formatted_most_recent_date}",)
+                 return False
+            
+        except ValueError as e:
+            self.logger.error("there was an error running date query:",e)
 
     def refund_check(self,transaction):
         #check if the transaction should be refuned 
@@ -374,12 +441,30 @@ where b.EntityNumber = {DOS_ID}'''
                     body += f"<p style=color:green> {line} </p> <br><br>"
                elif "WARNING" in line:
                     body += f"<p style=color:RED> {line} </p> <br><br>"
+               elif "CRITICAL" in line:
+                    body += f"<p style=color:#990033> {line} </p> <br><br>"
                else:
                     body += f"<p style=color:#98850b> {line} </p> <br><br>"          
             today = datetime.today()
             outlook = win32.Dispatch('Outlook.Application')
             mail = outlook.CreateItem(0)
             mail.Subject = f'Ebiennial Payment Reports logs ({today})'
+            mail.HTMLBody =  body
+            mail.To = 'daniel.desalvatore@its.ny.gov'
+            mail.Send()
+
+    def send_error_email(self):
+        #send a email copy of the logs errors
+            body =''
+            with open('EBiennial.log','r') as f:
+                  f = f.readlines()
+            for line in f:
+               if "CRITICAL" in line:
+                    body += f"<p style=color:#990033> {line} </p> <br><br>"
+            today = datetime.today()
+            outlook = win32.Dispatch('Outlook.Application')
+            mail = outlook.CreateItem(0)
+            mail.Subject = f'Ebiennial Payment Critical Error Report ({today})'
             mail.HTMLBody =  body
             mail.To = 'daniel.desalvatore@its.ny.gov'
             mail.Send()

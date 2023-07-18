@@ -13,6 +13,7 @@ class transaction:
         self.Transaction_Date =''
         self.Refund = bool
         self.Reprocessed = bool
+        
 
 class EBiennial_emails_processing:
     def __init__(self):

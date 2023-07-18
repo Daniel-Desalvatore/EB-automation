@@ -5,6 +5,7 @@ import pandas as pd
 from dotenv import load_dotenv
 from log_builder import MyLogger 
 from datetime import datetime, timedelta, date
+import requests
 #sandbox for code testing
 class Sandbox:
 
@@ -91,7 +92,6 @@ where b.EntityNumber = {DOS_ID}'''
             
             #print(date)
             return 
-
     def send_log(self):
         # Iterate over files in the folder
             body =''
@@ -117,9 +117,35 @@ where b.EntityNumber = {DOS_ID}'''
             mail.HTMLBody =  body
             mail.To = 'daniel.desalvatore@its.ny.gov'
             mail.Send()
-            
+    def reset_transaction_verify (self,Invoice_Number):
+        #rest transaction for reprocessing 
+        #no currently working 
+        try:
+            reset_transaction_verify_query = f'SELECT IS_PROCESSED FROM [Prod_NETAPPS].[dbo].[EBIENNIAL_TRANSACTION_TEMP] WHERE TRANSACTION_ID = {Invoice_Number};'
+            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
+            # Create a cursor object to interact with the database
+            cursor = conn.cursor()
+            # Execute query
+            cursor.execute(reset_transaction_verify_query)
+            # Fetch all the rows returned by the query
+            rows = cursor.fetchall()
+            for row in rows:
+                print(row[0])
+            # Close the cursor and the connection
+            cursor.close()
+            conn.close()
+        except ValueError as e:
+            self.logger.error("there was wan error with the update query: ",e)        
+    def run_reprocess_url(self,url):
+         session = requests.Session()
+         session.cookies.clear()
+         response = session.get(url)
+         print(response.text)
+         
 Sandbox = Sandbox()
 #Sandbox.database_connect(2895138)
 #Sandbox.env_vars()
 #Sandbox.refund_db_check('280523C1A-CBCB042C-0BB1-4FF5-8C37-694D8BC56CC1')
-Sandbox.send_log()
+#Sandbox.send_log()
+Sandbox.reset_transaction_verify(502912)
+Sandbox.run_reprocess_url('https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Wachs&ssl_company=Gerald+Wachs+Inc&ssl_phone=212-719-1003&ssl_approval_code=01807A&ssl_email=josiewachs319%40gmail.com&ssl_amount=9.00&ssl_avs_zip=10036&uid=c0f31291-3900-4757-a89d-5267e9ee2d49&ssl_exp_date=0527&ssl_card_short_description=VISA&merchant_defined_data2=1937867&merchant_defined_data1=505609&ssl_country=USA&ssl_avs_address=580+5th+Ave&ssl_state=NY&ssl_city=New+York&ssl_first_name=Gerald&ssl_invoice_number=505609&application_profile_id=2&ssl_txn_id=060723O2D-BDABB301-548C-4720-9FEE-582D135469A2&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=44**********4276&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f06%2f2023+11%3a38%3a58+AM&Uid=43e624e2-a496-43c5-94ac-ef78aaa8f873')

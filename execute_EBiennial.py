@@ -11,6 +11,8 @@ class execute_EBiennial:
         self.logger = MyLogger()
           
     def run(self):
+            print('running')
             self.logger.warning("Began EBiennial Reprocessing")
             self.extract_emails.retrieve_attachments()
             self.process_EBiennial.reprocess_transactions(self.process_attachments.read_attachments())
+

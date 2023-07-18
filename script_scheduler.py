@@ -5,7 +5,7 @@ from execute_EBiennial import execute_EBiennial
 class Scheduler:
     def __init__(self) -> None:
         self.app = execute_EBiennial()
-    
+        
     def run_app(self):
         self.app.run()
     
