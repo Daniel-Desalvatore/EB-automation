@@ -19,12 +19,12 @@ class OutlookEmailReader:
             yesterday_str = yesterday.strftime("%m/%d/%Y")
             today_str = today.strftime("%m/%d/%y")
             print(datetime.now().hour)
-            if datetime.now().hour !=16:
-                filter_criteria = f"@SQL=\"urn:schemas:httpmail:subject\" LIKE '%PROD: Ebiennial Payment Reports ({yesterday_str} 12:00:00 AM - {yesterday_str} 11:59:59 PM)%'"
+            if datetime.now().hour !=17:
+                filter_criteria = f"@SQL=\"urn:schemas:httpmail:subject\" LIKE '%PROD: Ebiennial Payment Reports (07/24/2023 12:00:00 AM - 07/24/2023 03:59:59 PM)%'"
             if datetime.now().hour == 16:
                 filter_criteria = f"@SQL=\"urn:schemas:httpmail:subject\" LIKE '%PROD: Ebiennial Payment Reports ({today_str} 12:00:00 AM - {today_str} 03:59:59 PM)%'"
             self.logger.debug("looking for emails with subject: ", filter_criteria)
-            messages = self.inbox.Items.Restrict(filter_criteria)
+            messages = self.inbox.Items.Restrict("@SQL=\"urn:schemas:httpmail:subject\" LIKE '%PROD: Ebiennial Payment Reports (07/25/2023 12:00:00 AM - 07/25/2023 11:59:59 PM)%'")
 
             for message in messages:
                 subject = message.Subject

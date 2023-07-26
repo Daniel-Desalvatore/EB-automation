@@ -181,7 +181,7 @@ class process_EBiennial:
                         transaction.URL = self.url_query(transaction.Transaction_ID)
                         transaction.DOS_ID = self.extract_dos_id(transaction.URL)
                         transaction.Transaction_Date = self.date_query(transaction.DOS_ID)
-                        transaction.Reprocess_URL = self.build_reprocess_url(transaction.Transaction_ID)
+                        transaction.Reprocess_URL = self.build_reprocess_url(transaction.URL)
                         transaction.Action = self.action_check(transaction)
                     if transaction.Action == 'Process':
                         self.reset_transaction(transaction.Invoice_Number)
@@ -278,7 +278,7 @@ where b.EntityNumber = {DOS_ID}'''
 
     def action_check(self,transaction):
         #check and assign the action to be taken for the transaction
-        self.logger.info("Assigning Actions ")
+        self.logger.info("Assigning Actions")
         try:
             #check if the date is recent 
             today = date.today()
@@ -287,17 +287,18 @@ where b.EntityNumber = {DOS_ID}'''
             print(str(two_days_ago), 'string')  
             found_date = datetime.strptime(transaction.Transaction_Date,"%Y-%m-%d")
             two_days_ago = datetime.strptime(str(two_days_ago),"%Y-%m-%d")
-            if found_date >= two_days_ago:
-                if self.refund_check(transaction.Transaction_ID):
-                    Action = "Refund"          
-                else:
-                    Action = 'Do Not Refund'
-                    return Action
             if transaction.Transaction_Type != 'SALE':
                 Action = "No Action"
             else:
-                Action = "Process"
-            self.logger.debug(f"Action for transaction ID:{transaction}",Action)
+                if found_date >= two_days_ago:
+                    if self.refund_check(transaction.Transaction_ID):
+                        Action = "Refund"          
+                    else:
+                        Action = 'Do Not Refund'
+                else:
+                    Action = "Process"
+            
+            self.logger.debug(f"Action for transaction ID:{transaction.Transaction_ID}",Action)
             return Action
         except ValueError as e:
             self.logger.error("there was an error creating Reprocess URL: ",e)
@@ -454,7 +455,7 @@ where b.EntityNumber = {transaction.DOS_ID}'''
             mail.Send()
 
     def send_error_email(self):
-        #send a email copy of the logs errors
+        '''#send a email copy of the logs errors
             body =''
             with open('EBiennial.log','r') as f:
                   f = f.readlines()
@@ -467,4 +468,4 @@ where b.EntityNumber = {transaction.DOS_ID}'''
             mail.Subject = f'Ebiennial Payment Critical Error Report ({today})'
             mail.HTMLBody =  body
             mail.To = 'daniel.desalvatore@its.ny.gov'
-            mail.Send()
+            mail.Send()'''
