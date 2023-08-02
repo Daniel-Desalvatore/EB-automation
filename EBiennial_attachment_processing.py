@@ -92,24 +92,25 @@ class EBiennial_emails_processing:
                                     if pd.isna(sumvalue): # Check if value is blank
                                         break
                                     if sumvalue != "SALE":
-                                        self.logger.warning(f"Transaction type is not SALE | Current Value is : '{sumvalue}'")
                                         index = sumcolumndata.index(sumvalue)
                                         self.non_sale_sum_transaction_indexs.append(index)
                         for transaction in self.non_sale_sum_transaction_indexs:
                                 sum_transaction_IDs = sumdata_frame["Transaction ID"].tolist()
+                                self.logger.warning(f"Transaction type is not SALE | Current Value is : '{sumvalue}'")
                                 self.logger.debug(f"Checking for payment data in DB for transaction {sum_transaction_IDs[transaction]}")
                                 if self.payment_data_check(sum_transaction_IDs[transaction]):
                                     self.non_sale_sum_transaction.append([sumdata_frame.iloc[index].keys().tolist(),sumdata_frame.iloc[index].tolist()])
                                 
                         if len(self.non_sale_sum_transaction)==0:
                             self.logger.debug("All values are SALE") 
-                        return self.non_sale_sum_transaction
+                        return True
             except ValueError as e:
                 self.logger.error("there was an error reading data from email attachments: ",e)     
                            
     def payment_data_check(self,transaction):
          #check if the transaction should be refuned 
         self.logger.info("Checking for Payment data")
+
         try:
             refund_query = f"SELECT * FROM CORP.WORKORDERPAY WHERE PaymentTransactionID ='{transaction}'"
             # Establish a connection to the SQL Server
