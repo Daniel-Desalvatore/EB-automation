@@ -14,6 +14,6 @@ class execute_EBiennial:
             print('running')
             self.logger.warning("Began EBiennial Reprocessing")
             self.extract_emails.retrieve_attachments()
-            self.process_EBiennial.reprocess_transactions(self.process_attachments.read_attachments())
+            self.process_EBiennial.reprocess_transactions(self.process_attachments.read_attachments(),self.process_attachments.read_summery())
 test = execute_EBiennial()
 test.run()

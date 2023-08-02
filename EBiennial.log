@@ -1,329 +1,74 @@
-2023-07-26 12:27:18,400 - WARNING - Began EBiennial Reprocessing
-2023-07-26 12:27:18,400 - INFO - Retrieving Attachments
-2023-07-26 12:27:18,400 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (07/24/2023 12:00:00 AM - 07/24/2023 03:59:59 PM)%'
-2023-07-26 12:27:19,332 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (07/25/2023 12:00:00 AM - 07/25/2023 11:59:59 PM)
-2023-07-26 12:27:19,332 - DEBUG - Sender: - Interface Team
-2023-07-26 12:27:19,332 - DEBUG - Received Time: - 2023-07-26 09:11:40.880000+00:00
-2023-07-26 12:27:19,381 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-07-26_Summary.xlsx
-2023-07-26 12:27:19,394 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-07-26_Discrepancy.xlsx
-2023-07-26 12:27:19,403 - DEBUG - Subject: - RE: PROD: Ebiennial Payment Reports (07/25/2023 12:00:00 AM - 07/25/2023 11:59:59 PM)
-2023-07-26 12:27:19,403 - DEBUG - Sender: - Desalvatore, Daniel (ITS)
-2023-07-26 12:27:19,403 - DEBUG - Received Time: - 2023-07-26 09:56:21.188000+00:00
-2023-07-26 12:27:19,409 - INFO - extracting data from saved attachments
-2023-07-26 12:27:19,898 - INFO - checking Summary
-2023-07-26 12:27:19,898 - DEBUG - All values are SALE
-2023-07-26 12:27:19,898 - INFO - reading data From Discrepancy
-2023-07-26 12:27:19,940 - DEBUG - Reading data from: - Ebiennial PaymentReport_2023-07-26_Discrepancy.xlsx
-2023-07-26 12:27:19,940 - DEBUG - transaction found: - 250723O18-02052B02-1DA7-400F-8B91-CCB456F951D6,515681,RETURN
-2023-07-26 12:27:19,940 - DEBUG - transaction found: - 250723O17-DF1BC714-E057-4E24-8FAD-5A454FF904AA,516661,AUTHONLY
-2023-07-26 12:27:19,940 - DEBUG - transaction found: - 250723C1A-1176CB69-CE03-4641-8D24-55BBE7B72E26,516668,AUTHONLY
-2023-07-26 12:27:19,940 - DEBUG - transaction found: - 250723O2D-938FFD4D-FF21-4D47-B521-53219B0FBA32,516669,SALE
-2023-07-26 12:27:19,940 - DEBUG - transaction found: - 250723O13-BFFEB042-D159-4190-977A-45D342D1D059,516673,SALE
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723O3B-DA51280A-56C0-4E4D-A473-92A5CD346DF3,516676,SALE
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723O10-4ED98690-098E-4D73-9BEE-CDEA3FBB16F3,516677,SALE
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723O17-E96556A8-2B46-47DC-A925-588F24A1F22F,516679,SALE
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723C1B-DF7FE37B-610E-4646-9105-CFFE279DBADF,516680,SALE
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723O10-353E0303-CD9E-474E-855F-0A5DB99B8876,516681,SALE
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723C2A-015A45E0-6593-40C8-84F1-EFC4CCE3EDC2,516684,AUTHONLY
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723C18-09D24F54-77E2-48AC-8942-993BFDE05411,516688,SALE
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723O3B-E73103A9-FC3E-4780-86CD-7764FE1835B6,516691,SALE
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723O3A-DFC6E832-4B6E-47D3-946A-65A81B510346,516692,SALE
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723C29-F4FB478E-FCFE-4422-9311-59196A39C2F9,516697,SALE
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723O2D-C5960E8E-6F01-4ED6-B51C-F9CEAF5F4E9E,516707,SALE
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723C2A-D86F3E2F-6149-42C5-8B01-DDEE30E2F9FD,516708,SALE
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723O10-7B60133B-C7A9-42B3-834F-1DD87CDB4F55,516711,SALE
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723C18-8ED3A38C-E32B-43FF-B831-2FFC08F87CF4,516718,SALE
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723C2A-31E2B479-8381-4C1F-B28B-5DDBC6F23008,516719,SALE
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723O39-D8D1ABBD-A1C6-44DB-8086-8A09C688564A,516722,AUTHONLY
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723O39-E60AC6F1-8C57-4228-AE4B-93F8E2C1CBA8,516728,SALE
-2023-07-26 12:27:19,941 - DEBUG - transaction found: - 250723C2A-31EA29E1-AC08-4123-B734-2B293C842C01,516737,SALE
-2023-07-26 12:27:19,942 - DEBUG - transaction found: - 250723O2D-AE8CDCF1-5A56-44F8-A610-8AD218DFF74F,516735,SALE
-2023-07-26 12:27:19,942 - INFO - Reprocessing EBiennial Transactions
-2023-07-26 12:27:19,942 - INFO - Building Objects
-2023-07-26 12:27:19,942 - INFO - -------------------------------------------------------
-2023-07-26 12:27:19,942 - DEBUG - no action needed: - RETURN
-2023-07-26 12:27:19,942 - INFO - -------------------------------------------------------
-2023-07-26 12:27:19,942 - DEBUG - no action needed: - AUTHONLY
-2023-07-26 12:27:19,942 - INFO - -------------------------------------------------------
-2023-07-26 12:27:19,942 - DEBUG - no action needed: - AUTHONLY
-2023-07-26 12:27:19,942 - INFO - -------------------------------------------------------
-2023-07-26 12:27:19,942 - INFO - Running URL Query
-2023-07-26 12:28:01,673 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Vancil&ssl_company=Registered+Agent+Solution&ssl_phone=8887057274&ssl_approval_code=049466&ssl_email=ARS%40RASI.COM&ssl_amount=9.00&ssl_avs_zip=78735&uid=777bc350-3eb7-4525-b2af-632015d6f179&ssl_exp_date=0425&ssl_card_short_description=MC&merchant_defined_data2=4429276&merchant_defined_data1=516669&ssl_country=USA&ssl_avs_address=5301+Southwest+Pkwy%2c+Suite+400&ssl_state=Texas&ssl_city=AUSTIN&ssl_first_name=Carolyn&ssl_invoice_number=516669&application_profile_id=2&ssl_txn_id=250723O2D-938FFD4D-FF21-4D47-B521-53219B0FBA32&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=55**********4946&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+08%3a43%3a50+AM&Uid=27a3005a-8140-4162-b859-65343a1e2660
-2023-07-26 12:28:01,673 - INFO - Extracting DOS ID
-2023-07-26 12:28:01,673 - DEBUG - DOS ID found: - 4429276
-2023-07-26 12:28:01,673 - INFO - Running Date Query
-2023-07-26 12:28:02,547 - DEBUG - date found for 4429276: - 2023-07-25
-2023-07-26 12:28:02,548 - INFO - Building reprocess URL
-2023-07-26 12:28:02,548 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Vancil&ssl_company=Registered+Agent+Solution&ssl_phone=8887057274&ssl_approval_code=049466&ssl_email=ARS%40RASI.COM&ssl_amount=9.00&ssl_avs_zip=78735&uid=777bc350-3eb7-4525-b2af-632015d6f179&ssl_exp_date=0425&ssl_card_short_description=MC&merchant_defined_data2=4429276&merchant_defined_data1=516669&ssl_country=USA&ssl_avs_address=5301+Southwest+Pkwy%2c+Suite+400&ssl_state=Texas&ssl_city=AUSTIN&ssl_first_name=Carolyn&ssl_invoice_number=516669&application_profile_id=2&ssl_txn_id=250723O2D-938FFD4D-FF21-4D47-B521-53219B0FBA32&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=55**********4946&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+08%3a43%3a50+AM&Uid=27a3005a-8140-4162-b859-65343a1e2660
-2023-07-26 12:28:02,548 - INFO - Assigning Actions
-2023-07-26 12:28:02,549 - INFO - Checking for Refund 
-2023-07-26 12:28:02,734 - DEBUG - Empty Refund
-2023-07-26 12:28:02,734 - DEBUG - Action for transaction ID:250723O2D-938FFD4D-FF21-4D47-B521-53219B0FBA32 - Refund
-2023-07-26 12:28:02,734 - INFO - -------------------------------------------------------
-2023-07-26 12:28:02,734 - INFO - Running URL Query
-2023-07-26 12:28:42,481 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=FATA&ssl_company=C.P.S.&ssl_phone=9162443826&ssl_approval_code=01268D&ssl_email=INFO2%40CPS-FILINGS.COM&ssl_amount=9.00&ssl_avs_zip=48917&uid=f24b9dcf-98ba-4260-b69a-ca94322c6647&ssl_exp_date=0624&ssl_card_short_description=VISA&merchant_defined_data2=5129352&merchant_defined_data1=516673&ssl_country=USA&ssl_avs_address=7718+NORTHPORT+DRIVE&ssl_state=MI&ssl_city=LANSING&ssl_first_name=STEVE&ssl_invoice_number=516673&application_profile_id=2&ssl_txn_id=250723O13-BFFEB042-D159-4190-977A-45D342D1D059&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=43**********3895&ssl_avs_response=N&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+08%3a47%3a08+AM&Uid=71b9034c-e2d5-491d-ac39-b4678b2c1110
-2023-07-26 12:28:42,481 - INFO - Extracting DOS ID
-2023-07-26 12:28:42,481 - DEBUG - DOS ID found: - 5129352
-2023-07-26 12:28:42,481 - INFO - Running Date Query
-2023-07-26 12:28:43,322 - DEBUG - date found for 5129352: - 2023-07-25
-2023-07-26 12:28:43,322 - INFO - Building reprocess URL
-2023-07-26 12:28:43,322 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=FATA&ssl_company=C.P.S.&ssl_phone=9162443826&ssl_approval_code=01268D&ssl_email=INFO2%40CPS-FILINGS.COM&ssl_amount=9.00&ssl_avs_zip=48917&uid=f24b9dcf-98ba-4260-b69a-ca94322c6647&ssl_exp_date=0624&ssl_card_short_description=VISA&merchant_defined_data2=5129352&merchant_defined_data1=516673&ssl_country=USA&ssl_avs_address=7718+NORTHPORT+DRIVE&ssl_state=MI&ssl_city=LANSING&ssl_first_name=STEVE&ssl_invoice_number=516673&application_profile_id=2&ssl_txn_id=250723O13-BFFEB042-D159-4190-977A-45D342D1D059&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=43**********3895&ssl_avs_response=N&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+08%3a47%3a08+AM&Uid=71b9034c-e2d5-491d-ac39-b4678b2c1110
-2023-07-26 12:28:43,322 - INFO - Assigning Actions
-2023-07-26 12:28:43,323 - INFO - Checking for Refund 
-2023-07-26 12:28:43,505 - DEBUG - Empty Refund
-2023-07-26 12:28:43,506 - DEBUG - Action for transaction ID:250723O13-BFFEB042-D159-4190-977A-45D342D1D059 - Refund
-2023-07-26 12:28:43,506 - INFO - -------------------------------------------------------
-2023-07-26 12:28:43,506 - INFO - Running URL Query
-2023-07-26 12:29:25,043 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Lais&ssl_company=FMBF&ssl_phone=5187451400&ssl_approval_code=00811G&ssl_email=bmf%40fmbf-law.com&ssl_amount=9.00&ssl_avs_zip=12801&uid=35139fcd-3434-4196-bb7e-6abaddb4c28b&ssl_exp_date=1227&ssl_card_short_description=VISA&merchant_defined_data2=5363425&merchant_defined_data1=516676&ssl_country=USA&ssl_avs_address=68+Warren+Street&ssl_state=NY&ssl_city=Glens+Falls&ssl_first_name=Kara&ssl_invoice_number=516676&application_profile_id=2&ssl_txn_id=250723O3B-DA51280A-56C0-4E4D-A473-92A5CD346DF3&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********2823&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+08%3a50%3a26+AM&Uid=3617bf6e-1e62-4eb0-bed8-8f1ada125e30
-2023-07-26 12:29:25,043 - INFO - Extracting DOS ID
-2023-07-26 12:29:25,043 - DEBUG - DOS ID found: - 5363425
-2023-07-26 12:29:25,043 - INFO - Running Date Query
-2023-07-26 12:29:25,898 - DEBUG - date found for 5363425: - 2023-07-25
-2023-07-26 12:29:25,898 - INFO - Building reprocess URL
-2023-07-26 12:29:25,898 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Lais&ssl_company=FMBF&ssl_phone=5187451400&ssl_approval_code=00811G&ssl_email=bmf%40fmbf-law.com&ssl_amount=9.00&ssl_avs_zip=12801&uid=35139fcd-3434-4196-bb7e-6abaddb4c28b&ssl_exp_date=1227&ssl_card_short_description=VISA&merchant_defined_data2=5363425&merchant_defined_data1=516676&ssl_country=USA&ssl_avs_address=68+Warren+Street&ssl_state=NY&ssl_city=Glens+Falls&ssl_first_name=Kara&ssl_invoice_number=516676&application_profile_id=2&ssl_txn_id=250723O3B-DA51280A-56C0-4E4D-A473-92A5CD346DF3&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********2823&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+08%3a50%3a26+AM&Uid=3617bf6e-1e62-4eb0-bed8-8f1ada125e30
-2023-07-26 12:29:25,898 - INFO - Assigning Actions
-2023-07-26 12:29:25,899 - INFO - Checking for Refund 
-2023-07-26 12:29:26,121 - DEBUG - Empty Refund
-2023-07-26 12:29:26,121 - DEBUG - Action for transaction ID:250723O3B-DA51280A-56C0-4E4D-A473-92A5CD346DF3 - Refund
-2023-07-26 12:29:26,121 - INFO - -------------------------------------------------------
-2023-07-26 12:29:26,121 - INFO - Running URL Query
-2023-07-26 12:30:06,885 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Werner&ssl_company=Schum+%26+Werner%2c+PLLC&ssl_phone=5853520700&ssl_approval_code=00965G&ssl_email=mlwerner%40schumwerner.com&ssl_amount=9.00&ssl_avs_zip=14559&uid=6f7a18e8-732b-4510-8024-d75bf48ae038&ssl_exp_date=0326&ssl_card_short_description=VISA&merchant_defined_data2=1587536&merchant_defined_data1=516677&ssl_country=USA&ssl_avs_address=43+Nichols+Street&ssl_state=NY&ssl_city=Spencerport&ssl_first_name=Maureen&ssl_invoice_number=516677&application_profile_id=2&ssl_txn_id=250723O10-4ED98690-098E-4D73-9BEE-CDEA3FBB16F3&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=46**********3005&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+08%3a50%3a31+AM&Uid=de6e313d-c2d0-4125-aa6a-9eb686117b71
-2023-07-26 12:30:06,885 - INFO - Extracting DOS ID
-2023-07-26 12:30:06,885 - DEBUG - DOS ID found: - 1587536
-2023-07-26 12:30:06,885 - INFO - Running Date Query
-2023-07-26 12:30:07,729 - DEBUG - date found for 1587536: - 2023-07-25
-2023-07-26 12:30:07,729 - INFO - Building reprocess URL
-2023-07-26 12:30:07,729 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Werner&ssl_company=Schum+%26+Werner%2c+PLLC&ssl_phone=5853520700&ssl_approval_code=00965G&ssl_email=mlwerner%40schumwerner.com&ssl_amount=9.00&ssl_avs_zip=14559&uid=6f7a18e8-732b-4510-8024-d75bf48ae038&ssl_exp_date=0326&ssl_card_short_description=VISA&merchant_defined_data2=1587536&merchant_defined_data1=516677&ssl_country=USA&ssl_avs_address=43+Nichols+Street&ssl_state=NY&ssl_city=Spencerport&ssl_first_name=Maureen&ssl_invoice_number=516677&application_profile_id=2&ssl_txn_id=250723O10-4ED98690-098E-4D73-9BEE-CDEA3FBB16F3&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=46**********3005&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+08%3a50%3a31+AM&Uid=de6e313d-c2d0-4125-aa6a-9eb686117b71
-2023-07-26 12:30:07,729 - INFO - Assigning Actions
-2023-07-26 12:30:07,730 - INFO - Checking for Refund 
-2023-07-26 12:30:07,929 - DEBUG - Empty Refund
-2023-07-26 12:30:07,929 - DEBUG - Action for transaction ID:250723O10-4ED98690-098E-4D73-9BEE-CDEA3FBB16F3 - Refund
-2023-07-26 12:30:07,929 - INFO - -------------------------------------------------------
-2023-07-26 12:30:07,929 - INFO - Running URL Query
-2023-07-26 12:30:49,057 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Hosch&ssl_phone=7188928888&ssl_approval_code=03357G&ssl_email=krislenmgmtcorp%40aol.com&ssl_amount=9.00&ssl_avs_zip=12602&uid=b6ebab02-f527-4f96-bcc3-4231db0ba5c5&ssl_exp_date=0525&ssl_card_short_description=VISA&merchant_defined_data2=2666131&merchant_defined_data1=516679&ssl_country=USA&ssl_avs_address=PO+Box+1151&ssl_state=NY&ssl_city=Poughkeepsie&ssl_first_name=Erik&ssl_invoice_number=516679&application_profile_id=2&ssl_txn_id=250723O17-E96556A8-2B46-47DC-A925-588F24A1F22F&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=48**********4057&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+08%3a51%3a11+AM&Uid=3a9f6a96-647b-4885-972b-002c721cf2b4
-2023-07-26 12:30:49,057 - INFO - Extracting DOS ID
-2023-07-26 12:30:49,057 - DEBUG - DOS ID found: - 2666131
-2023-07-26 12:30:49,057 - INFO - Running Date Query
-2023-07-26 12:30:49,984 - DEBUG - date found for 2666131: - 2023-07-25
-2023-07-26 12:30:49,984 - INFO - Building reprocess URL
-2023-07-26 12:30:49,984 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Hosch&ssl_phone=7188928888&ssl_approval_code=03357G&ssl_email=krislenmgmtcorp%40aol.com&ssl_amount=9.00&ssl_avs_zip=12602&uid=b6ebab02-f527-4f96-bcc3-4231db0ba5c5&ssl_exp_date=0525&ssl_card_short_description=VISA&merchant_defined_data2=2666131&merchant_defined_data1=516679&ssl_country=USA&ssl_avs_address=PO+Box+1151&ssl_state=NY&ssl_city=Poughkeepsie&ssl_first_name=Erik&ssl_invoice_number=516679&application_profile_id=2&ssl_txn_id=250723O17-E96556A8-2B46-47DC-A925-588F24A1F22F&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=48**********4057&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+08%3a51%3a11+AM&Uid=3a9f6a96-647b-4885-972b-002c721cf2b4
-2023-07-26 12:30:49,984 - INFO - Assigning Actions
-2023-07-26 12:30:49,985 - INFO - Checking for Refund 
-2023-07-26 12:30:50,204 - DEBUG - Empty Refund
-2023-07-26 12:30:50,204 - DEBUG - Action for transaction ID:250723O17-E96556A8-2B46-47DC-A925-588F24A1F22F - Refund
-2023-07-26 12:30:50,204 - INFO - -------------------------------------------------------
-2023-07-26 12:30:50,204 - INFO - Running URL Query
-2023-07-26 12:31:32,473 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Tai&ssl_company=Rice+Building+1871%2c+LLC&ssl_phone=9414126104&ssl_approval_code=025609&ssl_email=ltai1948%40gmail.com&ssl_amount=9.00&ssl_avs_zip=07920&uid=5a9ac2f6-c916-4809-bff6-bcefa91f27c6&ssl_exp_date=0224&ssl_card_short_description=VISA&merchant_defined_data2=4570342&merchant_defined_data1=516680&ssl_country=USA&ssl_avs_address=38+LAUNCELOT+LN&ssl_state=NJ&ssl_city=BASKING+RIDGE&ssl_first_name=Luther&ssl_invoice_number=516680&application_profile_id=2&ssl_txn_id=250723C1B-DF7FE37B-610E-4646-9105-CFFE279DBADF&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=44**********1985&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+08%3a52%3a35+AM&Uid=4c9841f8-ad9b-44d7-ab91-ac62f997b49f
-2023-07-26 12:31:32,473 - INFO - Extracting DOS ID
-2023-07-26 12:31:32,473 - DEBUG - DOS ID found: - 4570342
-2023-07-26 12:31:32,473 - INFO - Running Date Query
-2023-07-26 12:31:33,427 - DEBUG - date found for 4570342: - 2023-07-25
-2023-07-26 12:31:33,428 - INFO - Building reprocess URL
-2023-07-26 12:31:33,428 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Tai&ssl_company=Rice+Building+1871%2c+LLC&ssl_phone=9414126104&ssl_approval_code=025609&ssl_email=ltai1948%40gmail.com&ssl_amount=9.00&ssl_avs_zip=07920&uid=5a9ac2f6-c916-4809-bff6-bcefa91f27c6&ssl_exp_date=0224&ssl_card_short_description=VISA&merchant_defined_data2=4570342&merchant_defined_data1=516680&ssl_country=USA&ssl_avs_address=38+LAUNCELOT+LN&ssl_state=NJ&ssl_city=BASKING+RIDGE&ssl_first_name=Luther&ssl_invoice_number=516680&application_profile_id=2&ssl_txn_id=250723C1B-DF7FE37B-610E-4646-9105-CFFE279DBADF&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=44**********1985&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+08%3a52%3a35+AM&Uid=4c9841f8-ad9b-44d7-ab91-ac62f997b49f
-2023-07-26 12:31:33,428 - INFO - Assigning Actions
-2023-07-26 12:31:33,429 - INFO - Checking for Refund 
-2023-07-26 12:31:33,662 - DEBUG - Empty Refund
-2023-07-26 12:31:33,662 - DEBUG - Action for transaction ID:250723C1B-DF7FE37B-610E-4646-9105-CFFE279DBADF - Refund
-2023-07-26 12:31:33,662 - INFO - -------------------------------------------------------
-2023-07-26 12:31:33,662 - INFO - Running URL Query
-2023-07-26 12:32:16,671 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=McGraw&ssl_company=Vanguard&ssl_phone=3154226031&ssl_approval_code=09033G&ssl_email=courtney.shampine%40vgrti.com&ssl_amount=9.00&ssl_avs_zip=13202&uid=fee3ca89-fabb-4fbb-888e-328abcc2382f&ssl_exp_date=0228&ssl_card_short_description=VISA&merchant_defined_data2=5734643&merchant_defined_data1=516681&ssl_country=USA&ssl_avs_address=407+South+Warren+Street&ssl_state=NY&ssl_city=Syracuse&ssl_first_name=Tim&ssl_invoice_number=516681&application_profile_id=2&ssl_txn_id=250723O10-353E0303-CD9E-474E-855F-0A5DB99B8876&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********5644&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+08%3a53%3a00+AM&Uid=0e910c55-2c25-46f4-9580-cd7b290630a2
-2023-07-26 12:32:16,671 - INFO - Extracting DOS ID
-2023-07-26 12:32:16,671 - DEBUG - DOS ID found: - 5734643
-2023-07-26 12:32:16,671 - INFO - Running Date Query
-2023-07-26 12:32:17,582 - DEBUG - date found for 5734643: - 2023-07-25
-2023-07-26 12:32:17,582 - INFO - Building reprocess URL
-2023-07-26 12:32:17,582 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=McGraw&ssl_company=Vanguard&ssl_phone=3154226031&ssl_approval_code=09033G&ssl_email=courtney.shampine%40vgrti.com&ssl_amount=9.00&ssl_avs_zip=13202&uid=fee3ca89-fabb-4fbb-888e-328abcc2382f&ssl_exp_date=0228&ssl_card_short_description=VISA&merchant_defined_data2=5734643&merchant_defined_data1=516681&ssl_country=USA&ssl_avs_address=407+South+Warren+Street&ssl_state=NY&ssl_city=Syracuse&ssl_first_name=Tim&ssl_invoice_number=516681&application_profile_id=2&ssl_txn_id=250723O10-353E0303-CD9E-474E-855F-0A5DB99B8876&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********5644&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+08%3a53%3a00+AM&Uid=0e910c55-2c25-46f4-9580-cd7b290630a2
-2023-07-26 12:32:17,582 - INFO - Assigning Actions
-2023-07-26 12:32:17,583 - INFO - Checking for Refund 
-2023-07-26 12:32:17,761 - DEBUG - Empty Refund
-2023-07-26 12:32:17,762 - DEBUG - Action for transaction ID:250723O10-353E0303-CD9E-474E-855F-0A5DB99B8876 - Refund
-2023-07-26 12:32:17,762 - INFO - -------------------------------------------------------
-2023-07-26 12:32:17,762 - DEBUG - no action needed: - AUTHONLY
-2023-07-26 12:32:17,762 - INFO - -------------------------------------------------------
-2023-07-26 12:32:17,762 - INFO - Running URL Query
-2023-07-26 12:32:58,180 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Book&ssl_company=WJB+Anesthesia+Services+PLLC&ssl_phone=9176200711&ssl_approval_code=226628&ssl_email=jeffbook%40me.com&ssl_amount=9.00&ssl_avs_zip=10583&uid=87eb44e2-206d-4fa9-a8fb-9df87fdf4596&ssl_exp_date=0328&ssl_card_short_description=AMEX&merchant_defined_data2=5590035&merchant_defined_data1=516688&ssl_country=USA&ssl_avs_address=22+Kempster+Rd&ssl_state=NY&ssl_city=Scarsdale&ssl_first_name=William&ssl_invoice_number=516688&application_profile_id=2&ssl_txn_id=250723C18-09D24F54-77E2-48AC-8942-993BFDE05411&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=37**********1003&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a03%3a54+AM&Uid=e53c989f-9b18-4e1f-9868-33f99e7a0eda
-2023-07-26 12:32:58,180 - INFO - Extracting DOS ID
-2023-07-26 12:32:58,180 - DEBUG - DOS ID found: - 5590035
-2023-07-26 12:32:58,180 - INFO - Running Date Query
-2023-07-26 12:32:59,049 - DEBUG - date found for 5590035: - 2023-07-25
-2023-07-26 12:32:59,049 - INFO - Building reprocess URL
-2023-07-26 12:32:59,049 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Book&ssl_company=WJB+Anesthesia+Services+PLLC&ssl_phone=9176200711&ssl_approval_code=226628&ssl_email=jeffbook%40me.com&ssl_amount=9.00&ssl_avs_zip=10583&uid=87eb44e2-206d-4fa9-a8fb-9df87fdf4596&ssl_exp_date=0328&ssl_card_short_description=AMEX&merchant_defined_data2=5590035&merchant_defined_data1=516688&ssl_country=USA&ssl_avs_address=22+Kempster+Rd&ssl_state=NY&ssl_city=Scarsdale&ssl_first_name=William&ssl_invoice_number=516688&application_profile_id=2&ssl_txn_id=250723C18-09D24F54-77E2-48AC-8942-993BFDE05411&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=37**********1003&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a03%3a54+AM&Uid=e53c989f-9b18-4e1f-9868-33f99e7a0eda
-2023-07-26 12:32:59,049 - INFO - Assigning Actions
-2023-07-26 12:32:59,050 - INFO - Checking for Refund 
-2023-07-26 12:32:59,304 - DEBUG - Empty Refund
-2023-07-26 12:32:59,304 - DEBUG - Action for transaction ID:250723C18-09D24F54-77E2-48AC-8942-993BFDE05411 - Refund
-2023-07-26 12:32:59,304 - INFO - -------------------------------------------------------
-2023-07-26 12:32:59,304 - INFO - Running URL Query
-2023-07-26 12:33:41,917 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Book&ssl_company=WJB+Anesthesia+Services+PLLC&ssl_phone=9176200711&ssl_approval_code=295818&ssl_email=jeffbook%40me.com&ssl_amount=9.00&ssl_avs_zip=10583&uid=589e008d-3b1a-4549-bb80-d4aa244babb3&ssl_exp_date=0328&ssl_card_short_description=AMEX&merchant_defined_data2=5590035&merchant_defined_data1=516691&ssl_country=USA&ssl_avs_address=22+Kempster+Rd&ssl_state=NY&ssl_city=Scarsdale&ssl_first_name=William&ssl_invoice_number=516691&application_profile_id=2&ssl_txn_id=250723O3B-E73103A9-FC3E-4780-86CD-7764FE1835B6&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=37**********1003&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a08%3a35+AM&Uid=903a1340-761a-442d-ae5f-b007ab3caeb9
-2023-07-26 12:33:41,917 - INFO - Extracting DOS ID
-2023-07-26 12:33:41,917 - DEBUG - DOS ID found: - 5590035
-2023-07-26 12:33:41,917 - INFO - Running Date Query
-2023-07-26 12:33:43,127 - DEBUG - date found for 5590035: - 2023-07-25
-2023-07-26 12:33:43,127 - INFO - Building reprocess URL
-2023-07-26 12:33:43,127 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Book&ssl_company=WJB+Anesthesia+Services+PLLC&ssl_phone=9176200711&ssl_approval_code=295818&ssl_email=jeffbook%40me.com&ssl_amount=9.00&ssl_avs_zip=10583&uid=589e008d-3b1a-4549-bb80-d4aa244babb3&ssl_exp_date=0328&ssl_card_short_description=AMEX&merchant_defined_data2=5590035&merchant_defined_data1=516691&ssl_country=USA&ssl_avs_address=22+Kempster+Rd&ssl_state=NY&ssl_city=Scarsdale&ssl_first_name=William&ssl_invoice_number=516691&application_profile_id=2&ssl_txn_id=250723O3B-E73103A9-FC3E-4780-86CD-7764FE1835B6&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=37**********1003&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a08%3a35+AM&Uid=903a1340-761a-442d-ae5f-b007ab3caeb9
-2023-07-26 12:33:43,127 - INFO - Assigning Actions
-2023-07-26 12:33:43,128 - INFO - Checking for Refund 
-2023-07-26 12:33:43,438 - DEBUG - Empty Refund
-2023-07-26 12:33:43,438 - DEBUG - Action for transaction ID:250723O3B-E73103A9-FC3E-4780-86CD-7764FE1835B6 - Refund
-2023-07-26 12:33:43,438 - INFO - -------------------------------------------------------
-2023-07-26 12:33:43,438 - INFO - Running URL Query
-2023-07-26 12:34:30,695 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=FATA&ssl_company=C.P.S.&ssl_phone=9162443826&ssl_approval_code=07745D&ssl_email=INFO2%40CPS-FILINGS.COM&ssl_amount=9.00&ssl_avs_zip=48917&uid=0f51aade-d2cd-4991-bcdd-7af9ca093ebd&ssl_exp_date=0624&ssl_card_short_description=VISA&merchant_defined_data2=5141281&merchant_defined_data1=516692&ssl_country=USA&ssl_avs_address=7718+NORTHPORT+DRIVE&ssl_state=MI&ssl_city=LANSING&ssl_first_name=STEVE&ssl_invoice_number=516692&application_profile_id=2&ssl_txn_id=250723O3A-DFC6E832-4B6E-47D3-946A-65A81B510346&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=43**********3895&ssl_avs_response=N&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a09%3a24+AM&Uid=f6d4e7eb-4f82-4a59-9a5e-1dcd815daf3e
-2023-07-26 12:34:30,695 - INFO - Extracting DOS ID
-2023-07-26 12:34:30,695 - DEBUG - DOS ID found: - 5141281
-2023-07-26 12:34:30,695 - INFO - Running Date Query
-2023-07-26 12:34:31,854 - DEBUG - date found for 5141281: - 2023-07-25
-2023-07-26 12:34:31,854 - INFO - Building reprocess URL
-2023-07-26 12:34:31,854 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=FATA&ssl_company=C.P.S.&ssl_phone=9162443826&ssl_approval_code=07745D&ssl_email=INFO2%40CPS-FILINGS.COM&ssl_amount=9.00&ssl_avs_zip=48917&uid=0f51aade-d2cd-4991-bcdd-7af9ca093ebd&ssl_exp_date=0624&ssl_card_short_description=VISA&merchant_defined_data2=5141281&merchant_defined_data1=516692&ssl_country=USA&ssl_avs_address=7718+NORTHPORT+DRIVE&ssl_state=MI&ssl_city=LANSING&ssl_first_name=STEVE&ssl_invoice_number=516692&application_profile_id=2&ssl_txn_id=250723O3A-DFC6E832-4B6E-47D3-946A-65A81B510346&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=43**********3895&ssl_avs_response=N&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a09%3a24+AM&Uid=f6d4e7eb-4f82-4a59-9a5e-1dcd815daf3e
-2023-07-26 12:34:31,854 - INFO - Assigning Actions
-2023-07-26 12:34:31,855 - INFO - Checking for Refund 
-2023-07-26 12:34:32,058 - DEBUG - Empty Refund
-2023-07-26 12:34:32,058 - DEBUG - Action for transaction ID:250723O3A-DFC6E832-4B6E-47D3-946A-65A81B510346 - Refund
-2023-07-26 12:34:32,058 - INFO - -------------------------------------------------------
-2023-07-26 12:34:32,058 - INFO - Running URL Query
-2023-07-26 12:35:11,690 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=EFARMS&ssl_company=Wolters+Kluwer&ssl_phone=5164910183&ssl_approval_code=023847&ssl_email=CLS-CTARMSevidence%40wolterskluwer.com&ssl_amount=9.00&ssl_avs_zip=10005&uid=30958547-d9dc-41d2-abb7-6f1f4034cd6e&ssl_exp_date=0626&ssl_card_short_description=MC&merchant_defined_data2=2306676&merchant_defined_data1=516697&ssl_country=USA&ssl_avs_address=28+LIBERTY+STREET&ssl_state=NY&ssl_city=NEW+YORK&ssl_first_name=FCOE&ssl_invoice_number=516697&application_profile_id=2&ssl_txn_id=250723C29-F4FB478E-FCFE-4422-9311-59196A39C2F9&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=54**********5613&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a10%3a28+AM&Uid=d4c24866-9a7f-4a4d-b734-96892e452a13
-2023-07-26 12:35:11,690 - INFO - Extracting DOS ID
-2023-07-26 12:35:11,690 - DEBUG - DOS ID found: - 2306676
-2023-07-26 12:35:11,690 - INFO - Running Date Query
-2023-07-26 12:35:12,543 - DEBUG - date found for 2306676: - 2023-07-25
-2023-07-26 12:35:12,543 - INFO - Building reprocess URL
-2023-07-26 12:35:12,543 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=EFARMS&ssl_company=Wolters+Kluwer&ssl_phone=5164910183&ssl_approval_code=023847&ssl_email=CLS-CTARMSevidence%40wolterskluwer.com&ssl_amount=9.00&ssl_avs_zip=10005&uid=30958547-d9dc-41d2-abb7-6f1f4034cd6e&ssl_exp_date=0626&ssl_card_short_description=MC&merchant_defined_data2=2306676&merchant_defined_data1=516697&ssl_country=USA&ssl_avs_address=28+LIBERTY+STREET&ssl_state=NY&ssl_city=NEW+YORK&ssl_first_name=FCOE&ssl_invoice_number=516697&application_profile_id=2&ssl_txn_id=250723C29-F4FB478E-FCFE-4422-9311-59196A39C2F9&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=54**********5613&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a10%3a28+AM&Uid=d4c24866-9a7f-4a4d-b734-96892e452a13
-2023-07-26 12:35:12,543 - INFO - Assigning Actions
-2023-07-26 12:35:12,544 - INFO - Checking for Refund 
-2023-07-26 12:35:12,822 - DEBUG - Empty Refund
-2023-07-26 12:35:12,822 - DEBUG - Action for transaction ID:250723C29-F4FB478E-FCFE-4422-9311-59196A39C2F9 - Refund
-2023-07-26 12:35:12,822 - INFO - -------------------------------------------------------
-2023-07-26 12:35:12,822 - INFO - Running URL Query
-2023-07-26 12:35:52,148 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=KIRSCH&ssl_phone=5184632051&ssl_approval_code=04335Z&ssl_email=corps%40weinbergpc.com&ssl_amount=9.00&ssl_avs_zip=12207&uid=c3b7d5bf-d617-4e8b-8a64-2ac5d5bc15e9&ssl_exp_date=0525&ssl_card_short_description=MC&ssl_address2=SUITE+700&merchant_defined_data2=4844451&merchant_defined_data1=516707&ssl_country=USA&ssl_avs_address=41+STATE+STREET&ssl_state=NY&ssl_city=ALBANY&ssl_first_name=LAWRENCE&ssl_invoice_number=516707&application_profile_id=2&ssl_txn_id=250723O2D-C5960E8E-6F01-4ED6-B51C-F9CEAF5F4E9E&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=55**********4792&ssl_avs_response=N&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a18%3a10+AM&Uid=2aeefdba-5d7c-4f7c-ba14-d9c55dc40873
-2023-07-26 12:35:52,148 - INFO - Extracting DOS ID
-2023-07-26 12:35:52,148 - DEBUG - DOS ID found: - 4844451
-2023-07-26 12:35:52,148 - INFO - Running Date Query
-2023-07-26 12:35:53,016 - DEBUG - date found for 4844451: - 2023-07-26
-2023-07-26 12:35:53,016 - INFO - Building reprocess URL
-2023-07-26 12:35:53,016 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=KIRSCH&ssl_phone=5184632051&ssl_approval_code=04335Z&ssl_email=corps%40weinbergpc.com&ssl_amount=9.00&ssl_avs_zip=12207&uid=c3b7d5bf-d617-4e8b-8a64-2ac5d5bc15e9&ssl_exp_date=0525&ssl_card_short_description=MC&ssl_address2=SUITE+700&merchant_defined_data2=4844451&merchant_defined_data1=516707&ssl_country=USA&ssl_avs_address=41+STATE+STREET&ssl_state=NY&ssl_city=ALBANY&ssl_first_name=LAWRENCE&ssl_invoice_number=516707&application_profile_id=2&ssl_txn_id=250723O2D-C5960E8E-6F01-4ED6-B51C-F9CEAF5F4E9E&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=55**********4792&ssl_avs_response=N&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a18%3a10+AM&Uid=2aeefdba-5d7c-4f7c-ba14-d9c55dc40873
-2023-07-26 12:35:53,016 - INFO - Assigning Actions
-2023-07-26 12:35:53,017 - INFO - Checking for Refund 
-2023-07-26 12:35:53,209 - DEBUG - Empty Refund
-2023-07-26 12:35:53,209 - DEBUG - Action for transaction ID:250723O2D-C5960E8E-6F01-4ED6-B51C-F9CEAF5F4E9E - Refund
-2023-07-26 12:35:53,209 - INFO - -------------------------------------------------------
-2023-07-26 12:35:53,209 - INFO - Running URL Query
-2023-07-26 12:36:32,577 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=FATA&ssl_company=C.P.S.&ssl_phone=9162443826&ssl_approval_code=03610D&ssl_email=INFO2%40CPS-FILINGS.COM&ssl_amount=9.00&ssl_avs_zip=48917&uid=ac027769-f7fa-4622-a695-f08f4fabf340&ssl_exp_date=0624&ssl_card_short_description=VISA&merchant_defined_data2=2936727&merchant_defined_data1=516708&ssl_country=USA&ssl_avs_address=7718+NORTHPORT+DRIVE&ssl_state=MI&ssl_city=LANSING&ssl_first_name=STEVE&ssl_invoice_number=516708&application_profile_id=2&ssl_txn_id=250723C2A-D86F3E2F-6149-42C5-8B01-DDEE30E2F9FD&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=43**********3895&ssl_avs_response=N&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a21%3a20+AM&Uid=86b86f5f-8bcf-47d0-a056-0de20b42f51a
-2023-07-26 12:36:32,577 - INFO - Extracting DOS ID
-2023-07-26 12:36:32,577 - DEBUG - DOS ID found: - 2936727
-2023-07-26 12:36:32,577 - INFO - Running Date Query
-2023-07-26 12:36:33,513 - DEBUG - date found for 2936727: - 2023-07-25
-2023-07-26 12:36:33,513 - INFO - Building reprocess URL
-2023-07-26 12:36:33,513 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=FATA&ssl_company=C.P.S.&ssl_phone=9162443826&ssl_approval_code=03610D&ssl_email=INFO2%40CPS-FILINGS.COM&ssl_amount=9.00&ssl_avs_zip=48917&uid=ac027769-f7fa-4622-a695-f08f4fabf340&ssl_exp_date=0624&ssl_card_short_description=VISA&merchant_defined_data2=2936727&merchant_defined_data1=516708&ssl_country=USA&ssl_avs_address=7718+NORTHPORT+DRIVE&ssl_state=MI&ssl_city=LANSING&ssl_first_name=STEVE&ssl_invoice_number=516708&application_profile_id=2&ssl_txn_id=250723C2A-D86F3E2F-6149-42C5-8B01-DDEE30E2F9FD&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=43**********3895&ssl_avs_response=N&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a21%3a20+AM&Uid=86b86f5f-8bcf-47d0-a056-0de20b42f51a
-2023-07-26 12:36:33,513 - INFO - Assigning Actions
-2023-07-26 12:36:33,514 - INFO - Checking for Refund 
-2023-07-26 12:36:33,751 - DEBUG - Empty Refund
-2023-07-26 12:36:33,751 - DEBUG - Action for transaction ID:250723C2A-D86F3E2F-6149-42C5-8B01-DDEE30E2F9FD - Refund
-2023-07-26 12:36:33,751 - INFO - -------------------------------------------------------
-2023-07-26 12:36:33,751 - INFO - Running URL Query
-2023-07-26 12:37:13,942 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=QAZI&ssl_phone=3477861034&ssl_approval_code=082409&ssl_email=AERAJ.TLC%40GMAIL.COM&ssl_amount=9.00&ssl_avs_zip=11355&uid=6b3ebdd3-8b64-4b5e-a631-885b848093a9&ssl_exp_date=0927&ssl_card_short_description=VISA&merchant_defined_data2=4947403&merchant_defined_data1=516711&ssl_country=USA&ssl_avs_address=14703+CHERRY+AVE.&ssl_state=NY&ssl_city=FLUSHING&ssl_first_name=AERAJ&ssl_invoice_number=516711&application_profile_id=2&ssl_txn_id=250723O10-7B60133B-C7A9-42B3-834F-1DD87CDB4F55&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=45**********7549&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a24%3a18+AM&Uid=848f2ea2-0179-425a-a29d-8f91153ad081
-2023-07-26 12:37:13,942 - INFO - Extracting DOS ID
-2023-07-26 12:37:13,942 - DEBUG - DOS ID found: - 4947403
-2023-07-26 12:37:13,942 - INFO - Running Date Query
-2023-07-26 12:37:14,827 - DEBUG - date found for 4947403: - 2023-07-25
-2023-07-26 12:37:14,827 - INFO - Building reprocess URL
-2023-07-26 12:37:14,827 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=QAZI&ssl_phone=3477861034&ssl_approval_code=082409&ssl_email=AERAJ.TLC%40GMAIL.COM&ssl_amount=9.00&ssl_avs_zip=11355&uid=6b3ebdd3-8b64-4b5e-a631-885b848093a9&ssl_exp_date=0927&ssl_card_short_description=VISA&merchant_defined_data2=4947403&merchant_defined_data1=516711&ssl_country=USA&ssl_avs_address=14703+CHERRY+AVE.&ssl_state=NY&ssl_city=FLUSHING&ssl_first_name=AERAJ&ssl_invoice_number=516711&application_profile_id=2&ssl_txn_id=250723O10-7B60133B-C7A9-42B3-834F-1DD87CDB4F55&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=45**********7549&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a24%3a18+AM&Uid=848f2ea2-0179-425a-a29d-8f91153ad081
-2023-07-26 12:37:14,827 - INFO - Assigning Actions
-2023-07-26 12:37:14,828 - INFO - Checking for Refund 
-2023-07-26 12:37:15,040 - DEBUG - Empty Refund
-2023-07-26 12:37:15,040 - DEBUG - Action for transaction ID:250723O10-7B60133B-C7A9-42B3-834F-1DD87CDB4F55 - Refund
-2023-07-26 12:37:15,040 - INFO - -------------------------------------------------------
-2023-07-26 12:37:15,040 - INFO - Running URL Query
-2023-07-26 12:37:56,127 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Santana&ssl_phone=6469601113&ssl_approval_code=023009&ssl_email=alexis.santana%40vnshealth.org&ssl_amount=9.00&ssl_avs_zip=11580&uid=533d0436-8e12-4916-9c18-27b8743283b7&ssl_exp_date=0626&ssl_card_short_description=VISA&merchant_defined_data2=6223201&merchant_defined_data1=516718&ssl_country=USA&ssl_avs_address=175+Cedar+Street&ssl_state=NY&ssl_city=Valley+Stream&ssl_first_name=Alexis&ssl_invoice_number=516718&application_profile_id=2&ssl_txn_id=250723C18-8ED3A38C-E32B-43FF-B831-2FFC08F87CF4&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********7908&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a30%3a41+AM&Uid=54bd5d7e-11a5-459e-aa4b-82f4c6258c9a
-2023-07-26 12:37:56,127 - INFO - Extracting DOS ID
-2023-07-26 12:37:56,127 - DEBUG - DOS ID found: - 6223201
-2023-07-26 12:37:56,127 - INFO - Running Date Query
-2023-07-26 12:37:57,033 - DEBUG - date found for 6223201: - 2023-07-25
-2023-07-26 12:37:57,033 - INFO - Building reprocess URL
-2023-07-26 12:37:57,033 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Santana&ssl_phone=6469601113&ssl_approval_code=023009&ssl_email=alexis.santana%40vnshealth.org&ssl_amount=9.00&ssl_avs_zip=11580&uid=533d0436-8e12-4916-9c18-27b8743283b7&ssl_exp_date=0626&ssl_card_short_description=VISA&merchant_defined_data2=6223201&merchant_defined_data1=516718&ssl_country=USA&ssl_avs_address=175+Cedar+Street&ssl_state=NY&ssl_city=Valley+Stream&ssl_first_name=Alexis&ssl_invoice_number=516718&application_profile_id=2&ssl_txn_id=250723C18-8ED3A38C-E32B-43FF-B831-2FFC08F87CF4&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********7908&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a30%3a41+AM&Uid=54bd5d7e-11a5-459e-aa4b-82f4c6258c9a
-2023-07-26 12:37:57,033 - INFO - Assigning Actions
-2023-07-26 12:37:57,034 - INFO - Checking for Refund 
-2023-07-26 12:37:57,271 - DEBUG - Empty Refund
-2023-07-26 12:37:57,271 - DEBUG - Action for transaction ID:250723C18-8ED3A38C-E32B-43FF-B831-2FFC08F87CF4 - Refund
-2023-07-26 12:37:57,271 - INFO - -------------------------------------------------------
-2023-07-26 12:37:57,271 - INFO - Running URL Query
-2023-07-26 12:38:37,589 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Nitz&ssl_company=Dig+Soft%2c+Inc&ssl_phone=15184915851&ssl_approval_code=06721D&ssl_email=digsoftinc%40outlook.com&ssl_amount=9.00&ssl_avs_zip=12180&uid=d63eabac-18d6-4aa2-811d-9b3168fe57cc&ssl_exp_date=1026&ssl_card_short_description=VISA&merchant_defined_data2=5278674&merchant_defined_data1=516719&ssl_country=USA&ssl_avs_address=105+Smith+Hill+Road&ssl_state=NY&ssl_city=Troy&ssl_first_name=Sarah&ssl_invoice_number=516719&application_profile_id=2&ssl_txn_id=250723C2A-31E2B479-8381-4C1F-B28B-5DDBC6F23008&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=41**********2249&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a32%3a23+AM&Uid=c532302f-29a7-44ef-a813-efb5863900d3
-2023-07-26 12:38:37,589 - INFO - Extracting DOS ID
-2023-07-26 12:38:37,589 - DEBUG - DOS ID found: - 5278674
-2023-07-26 12:38:37,589 - INFO - Running Date Query
-2023-07-26 12:38:38,548 - DEBUG - date found for 5278674: - 2023-07-25
-2023-07-26 12:38:38,548 - INFO - Building reprocess URL
-2023-07-26 12:38:38,548 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Nitz&ssl_company=Dig+Soft%2c+Inc&ssl_phone=15184915851&ssl_approval_code=06721D&ssl_email=digsoftinc%40outlook.com&ssl_amount=9.00&ssl_avs_zip=12180&uid=d63eabac-18d6-4aa2-811d-9b3168fe57cc&ssl_exp_date=1026&ssl_card_short_description=VISA&merchant_defined_data2=5278674&merchant_defined_data1=516719&ssl_country=USA&ssl_avs_address=105+Smith+Hill+Road&ssl_state=NY&ssl_city=Troy&ssl_first_name=Sarah&ssl_invoice_number=516719&application_profile_id=2&ssl_txn_id=250723C2A-31E2B479-8381-4C1F-B28B-5DDBC6F23008&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=41**********2249&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a32%3a23+AM&Uid=c532302f-29a7-44ef-a813-efb5863900d3
-2023-07-26 12:38:38,548 - INFO - Assigning Actions
-2023-07-26 12:38:38,549 - INFO - Checking for Refund 
-2023-07-26 12:38:38,804 - DEBUG - Empty Refund
-2023-07-26 12:38:38,804 - DEBUG - Action for transaction ID:250723C2A-31E2B479-8381-4C1F-B28B-5DDBC6F23008 - Refund
-2023-07-26 12:38:38,804 - INFO - -------------------------------------------------------
-2023-07-26 12:38:38,804 - DEBUG - no action needed: - AUTHONLY
-2023-07-26 12:38:38,804 - INFO - -------------------------------------------------------
-2023-07-26 12:38:38,804 - INFO - Running URL Query
-2023-07-26 12:39:20,958 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Jacobson&ssl_company=VanguardFine&ssl_phone=5188620861&ssl_approval_code=09802J&ssl_email=mgmt%40vanguardfine.com&ssl_amount=9.00&ssl_avs_zip=12203&uid=83f01449-b07f-47b6-b6a3-92da4edbd1cf&ssl_exp_date=0527&ssl_card_short_description=MC&merchant_defined_data2=4621844&merchant_defined_data1=516728&ssl_country=USA&ssl_avs_address=1529+Western+Ave+Suite+102&ssl_state=NY&ssl_city=Albany&ssl_first_name=Michele&ssl_invoice_number=516728&application_profile_id=2&ssl_txn_id=250723O39-E60AC6F1-8C57-4228-AE4B-93F8E2C1CBA8&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=55**********3295&ssl_avs_response=Z&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a36%3a59+AM&Uid=0d5f9dc2-171b-482d-a17d-319620e4a5ad
-2023-07-26 12:39:20,958 - INFO - Extracting DOS ID
-2023-07-26 12:39:20,958 - DEBUG - DOS ID found: - 4621844
-2023-07-26 12:39:20,958 - INFO - Running Date Query
-2023-07-26 12:39:21,898 - DEBUG - date found for 4621844: - 2023-07-25
-2023-07-26 12:39:21,898 - INFO - Building reprocess URL
-2023-07-26 12:39:21,898 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Jacobson&ssl_company=VanguardFine&ssl_phone=5188620861&ssl_approval_code=09802J&ssl_email=mgmt%40vanguardfine.com&ssl_amount=9.00&ssl_avs_zip=12203&uid=83f01449-b07f-47b6-b6a3-92da4edbd1cf&ssl_exp_date=0527&ssl_card_short_description=MC&merchant_defined_data2=4621844&merchant_defined_data1=516728&ssl_country=USA&ssl_avs_address=1529+Western+Ave+Suite+102&ssl_state=NY&ssl_city=Albany&ssl_first_name=Michele&ssl_invoice_number=516728&application_profile_id=2&ssl_txn_id=250723O39-E60AC6F1-8C57-4228-AE4B-93F8E2C1CBA8&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=55**********3295&ssl_avs_response=Z&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a36%3a59+AM&Uid=0d5f9dc2-171b-482d-a17d-319620e4a5ad
-2023-07-26 12:39:21,898 - INFO - Assigning Actions
-2023-07-26 12:39:21,899 - INFO - Checking for Refund 
-2023-07-26 12:39:22,150 - DEBUG - Empty Refund
-2023-07-26 12:39:22,150 - DEBUG - Action for transaction ID:250723O39-E60AC6F1-8C57-4228-AE4B-93F8E2C1CBA8 - Refund
-2023-07-26 12:39:22,150 - INFO - -------------------------------------------------------
-2023-07-26 12:39:22,150 - INFO - Running URL Query
-2023-07-26 12:40:04,264 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=pankin&ssl_company=Premier+Corporate+Service&ssl_phone=2013669727&ssl_approval_code=206615&ssl_email=GIANA%40PREMIERCFS.COM&ssl_amount=9.00&ssl_avs_zip=07601&uid=813a9479-dbf6-4639-be12-c34a9fa3fd74&ssl_exp_date=0226&ssl_card_short_description=AMEX&ssl_address2=STE+3-4&merchant_defined_data2=5046226&merchant_defined_data1=516737&ssl_country=USA&ssl_avs_address=560+HUDSON+STREET&ssl_state=NJ&ssl_city=HACKENSACK&ssl_first_name=darin&ssl_invoice_number=516737&application_profile_id=2&ssl_txn_id=250723C2A-31EA29E1-AC08-4123-B734-2B293C842C01&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=37**********4006&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a42%3a19+AM&Uid=9648116e-b1f9-48dd-9812-4a9b65c61315
-2023-07-26 12:40:04,264 - INFO - Extracting DOS ID
-2023-07-26 12:40:04,264 - DEBUG - DOS ID found: - 5046226
-2023-07-26 12:40:04,264 - INFO - Running Date Query
-2023-07-26 12:40:05,149 - DEBUG - date found for 5046226: - 2023-07-25
-2023-07-26 12:40:05,149 - INFO - Building reprocess URL
-2023-07-26 12:40:05,149 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=pankin&ssl_company=Premier+Corporate+Service&ssl_phone=2013669727&ssl_approval_code=206615&ssl_email=GIANA%40PREMIERCFS.COM&ssl_amount=9.00&ssl_avs_zip=07601&uid=813a9479-dbf6-4639-be12-c34a9fa3fd74&ssl_exp_date=0226&ssl_card_short_description=AMEX&ssl_address2=STE+3-4&merchant_defined_data2=5046226&merchant_defined_data1=516737&ssl_country=USA&ssl_avs_address=560+HUDSON+STREET&ssl_state=NJ&ssl_city=HACKENSACK&ssl_first_name=darin&ssl_invoice_number=516737&application_profile_id=2&ssl_txn_id=250723C2A-31EA29E1-AC08-4123-B734-2B293C842C01&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=37**********4006&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a42%3a19+AM&Uid=9648116e-b1f9-48dd-9812-4a9b65c61315
-2023-07-26 12:40:05,149 - INFO - Assigning Actions
-2023-07-26 12:40:05,150 - INFO - Checking for Refund 
-2023-07-26 12:40:05,483 - DEBUG - Empty Refund
-2023-07-26 12:40:05,483 - DEBUG - Action for transaction ID:250723C2A-31EA29E1-AC08-4123-B734-2B293C842C01 - Refund
-2023-07-26 12:40:05,483 - INFO - -------------------------------------------------------
-2023-07-26 12:40:05,483 - INFO - Running URL Query
-2023-07-26 12:40:45,557 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Peckham&ssl_company=Grapevine+Enterprises+LLC&ssl_phone=6074253605&ssl_approval_code=033469&ssl_email=mpeckham%40rochester.rr.com&ssl_amount=9.00&ssl_avs_zip=14860&uid=008a6188-4547-44a7-a97f-5de3ac02f4c0&ssl_exp_date=1125&ssl_card_short_description=MC&ssl_address2=mpeckham%40rochester.rr.com&merchant_defined_data2=5596289&merchant_defined_data1=516735&ssl_country=USA&ssl_avs_address=8180+Lower+Lake+Rd.&ssl_state=NY&ssl_city=Lodi&ssl_first_name=Michael&ssl_invoice_number=516735&application_profile_id=2&ssl_txn_id=250723O2D-AE8CDCF1-5A56-44F8-A610-8AD218DFF74F&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=51**********1583&ssl_avs_response=Z&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a44%3a08+AM&Uid=00406534-9467-40af-9f62-feec66f9c585
-2023-07-26 12:40:45,557 - INFO - Extracting DOS ID
-2023-07-26 12:40:45,557 - DEBUG - DOS ID found: - 5596289
-2023-07-26 12:40:45,557 - INFO - Running Date Query
-2023-07-26 12:40:46,439 - DEBUG - date found for 5596289: - 2023-07-25
-2023-07-26 12:40:46,439 - INFO - Building reprocess URL
-2023-07-26 12:40:46,439 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Peckham&ssl_company=Grapevine+Enterprises+LLC&ssl_phone=6074253605&ssl_approval_code=033469&ssl_email=mpeckham%40rochester.rr.com&ssl_amount=9.00&ssl_avs_zip=14860&uid=008a6188-4547-44a7-a97f-5de3ac02f4c0&ssl_exp_date=1125&ssl_card_short_description=MC&ssl_address2=mpeckham%40rochester.rr.com&merchant_defined_data2=5596289&merchant_defined_data1=516735&ssl_country=USA&ssl_avs_address=8180+Lower+Lake+Rd.&ssl_state=NY&ssl_city=Lodi&ssl_first_name=Michael&ssl_invoice_number=516735&application_profile_id=2&ssl_txn_id=250723O2D-AE8CDCF1-5A56-44F8-A610-8AD218DFF74F&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=51**********1583&ssl_avs_response=Z&ssl_cvv2_response=M&ssl_txn_time=07%2f25%2f2023+09%3a44%3a08+AM&Uid=00406534-9467-40af-9f62-feec66f9c585
-2023-07-26 12:40:46,439 - INFO - Assigning Actions
-2023-07-26 12:40:46,440 - INFO - Checking for Refund 
-2023-07-26 12:40:46,627 - DEBUG - Empty Refund
-2023-07-26 12:40:46,627 - DEBUG - Action for transaction ID:250723O2D-AE8CDCF1-5A56-44F8-A610-8AD218DFF74F - Refund
-2023-07-26 12:40:46,627 - INFO - -------------------------------------------------------
-2023-07-26 12:40:46,627 - INFO - Sending Email
-2023-07-26 12:40:46,778 - DEBUG - 250723O18-02052B02-1DA7-400F-8B91-CCB456F951D6,No Action
-2023-07-26 12:40:46,778 - DEBUG - 250723O17-DF1BC714-E057-4E24-8FAD-5A454FF904AA,No Action
-2023-07-26 12:40:46,778 - DEBUG - 250723C1A-1176CB69-CE03-4641-8D24-55BBE7B72E26,No Action
-2023-07-26 12:40:46,778 - DEBUG - 250723O2D-938FFD4D-FF21-4D47-B521-53219B0FBA32,Refund
-2023-07-26 12:40:46,778 - DEBUG - 250723O13-BFFEB042-D159-4190-977A-45D342D1D059,Refund
-2023-07-26 12:40:46,778 - DEBUG - 250723O3B-DA51280A-56C0-4E4D-A473-92A5CD346DF3,Refund
-2023-07-26 12:40:46,778 - DEBUG - 250723O10-4ED98690-098E-4D73-9BEE-CDEA3FBB16F3,Refund
-2023-07-26 12:40:46,778 - DEBUG - 250723O17-E96556A8-2B46-47DC-A925-588F24A1F22F,Refund
-2023-07-26 12:40:46,778 - DEBUG - 250723C1B-DF7FE37B-610E-4646-9105-CFFE279DBADF,Refund
-2023-07-26 12:40:46,778 - DEBUG - 250723O10-353E0303-CD9E-474E-855F-0A5DB99B8876,Refund
-2023-07-26 12:40:46,778 - DEBUG - 250723C2A-015A45E0-6593-40C8-84F1-EFC4CCE3EDC2,No Action
-2023-07-26 12:40:46,778 - DEBUG - 250723C18-09D24F54-77E2-48AC-8942-993BFDE05411,Refund
-2023-07-26 12:40:46,778 - DEBUG - 250723O3B-E73103A9-FC3E-4780-86CD-7764FE1835B6,Refund
-2023-07-26 12:40:46,778 - DEBUG - 250723O3A-DFC6E832-4B6E-47D3-946A-65A81B510346,Refund
-2023-07-26 12:40:46,779 - DEBUG - 250723C29-F4FB478E-FCFE-4422-9311-59196A39C2F9,Refund
-2023-07-26 12:40:46,779 - DEBUG - 250723O2D-C5960E8E-6F01-4ED6-B51C-F9CEAF5F4E9E,Refund
-2023-07-26 12:40:46,779 - DEBUG - 250723C2A-D86F3E2F-6149-42C5-8B01-DDEE30E2F9FD,Refund
-2023-07-26 12:40:46,779 - DEBUG - 250723O10-7B60133B-C7A9-42B3-834F-1DD87CDB4F55,Refund
-2023-07-26 12:40:46,779 - DEBUG - 250723C18-8ED3A38C-E32B-43FF-B831-2FFC08F87CF4,Refund
-2023-07-26 12:40:46,779 - DEBUG - 250723C2A-31E2B479-8381-4C1F-B28B-5DDBC6F23008,Refund
-2023-07-26 12:40:46,779 - DEBUG - 250723O39-D8D1ABBD-A1C6-44DB-8086-8A09C688564A,No Action
-2023-07-26 12:40:46,779 - DEBUG - 250723O39-E60AC6F1-8C57-4228-AE4B-93F8E2C1CBA8,Refund
-2023-07-26 12:40:46,779 - DEBUG - 250723C2A-31EA29E1-AC08-4123-B734-2B293C842C01,Refund
-2023-07-26 12:40:46,779 - DEBUG - 250723O2D-AE8CDCF1-5A56-44F8-A610-8AD218DFF74F,Refund
-2023-07-26 12:40:46,820 - INFO - Email Sent
-2023-07-26 12:40:46,820 - INFO - Removing Saved files
-2023-07-26 12:40:46,823 - DEBUG - Total Files Deleted:  - 2
-2023-07-26 12:40:46,823 - WARNING - EBiennial Reprocessing Complete
+2023-08-02 15:56:21,477 - WARNING - Began EBiennial Reprocessing
+2023-08-02 15:56:21,479 - INFO - Retrieving Attachments
+2023-08-02 15:56:21,480 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (08/01/2023 12:00:00 AM - 08/01/2023 11:59:59 PM)%'
+2023-08-02 15:56:22,634 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (08/01/2023 12:00:00 AM - 08/01/2023 11:59:59 PM)
+2023-08-02 15:56:22,634 - DEBUG - Sender: - Interface Team
+2023-08-02 15:56:22,634 - DEBUG - Received Time: - 2023-08-02 09:14:11.468000+00:00
+2023-08-02 15:56:22,679 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-08-02_Summary.xlsx
+2023-08-02 15:56:22,697 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-08-02_Discrepancy.xlsx
+2023-08-02 15:56:22,708 - DEBUG - Subject: - RE: PROD: Ebiennial Payment Reports (08/01/2023 12:00:00 AM - 08/01/2023 11:59:59 PM)
+2023-08-02 15:56:22,708 - DEBUG - Sender: - Desalvatore, Daniel (ITS)
+2023-08-02 15:56:22,708 - DEBUG - Received Time: - 2023-08-02 09:49:15.994000+00:00
+2023-08-02 15:56:22,716 - INFO - extracting data from saved attachments
+2023-08-02 15:56:26,104 - INFO - checking Summary
+2023-08-02 15:56:26,106 - WARNING - Transaction type is not SALE | Current Value is : 'AUTHONLY'
+2023-08-02 15:56:26,114 - DEBUG - Checking for payment data in DB for transaction 010823O3B-0D819EEF-77CC-46D6-91A2-8A5038CF3D2B
+2023-08-02 15:56:26,115 - INFO - Checking for Payment data
+2023-08-02 15:56:26,439 - DEBUG - Data Found convert to sale
+2023-08-02 15:56:26,441 - INFO - reading data From Discrepancy
+2023-08-02 15:56:26,464 - DEBUG - Reading data from: - Ebiennial PaymentReport_2023-08-02_Discrepancy.xlsx
+2023-08-02 15:56:26,464 - DEBUG - transaction found: - 010823C1D-912A95AE-E365-4EC0-8929-8DBD0A458280,521141,AUTHONLY
+2023-08-02 15:56:26,464 - DEBUG - transaction found: - 010823C2B-D98CAA2F-8AFE-4F8A-B97E-2CA692F0B3CB,524715,AUTHONLY
+2023-08-02 15:56:26,465 - DEBUG - transaction found: - 010823O2D-A4289E27-F44B-4AE0-B852-5395BFD2BA08,523030,VOID
+2023-08-02 15:56:26,465 - DEBUG - transaction found: - 010823O2D-E39AAFDA-AFCE-479F-B282-8EE3C6FF8D45,524129,VOID
+2023-08-02 15:56:26,465 - DEBUG - transaction found: - 010823C2A-A29B0085-262B-4524-B2C1-246C9D9DA7A1,525071,SALE
+2023-08-02 15:56:26,465 - DEBUG - transaction found: - 010823O39-4C3245B8-93FB-4590-BBB2-4A22E2EA03E0,521516,VOID
+2023-08-02 15:56:26,465 - DEBUG - transaction found: - 010823C2A-42A20214-11CC-4BED-B1B6-A35F49C947DC,522549,VOID
+2023-08-02 15:56:29,318 - INFO - checking Summary
+2023-08-02 15:56:29,320 - WARNING - Transaction type is not SALE | Current Value is : 'AUTHONLY'
+2023-08-02 15:56:29,328 - DEBUG - Checking for payment data in DB for transaction 010823O3B-0D819EEF-77CC-46D6-91A2-8A5038CF3D2B
+2023-08-02 15:56:29,328 - INFO - Checking for Payment data
+2023-08-02 15:56:29,534 - DEBUG - Data Found convert to sale
+2023-08-02 15:56:29,535 - DEBUG - Checking for payment data in DB for transaction 010823O3B-0D819EEF-77CC-46D6-91A2-8A5038CF3D2B
+2023-08-02 15:56:29,535 - INFO - Checking for Payment data
+2023-08-02 15:56:29,757 - DEBUG - Data Found convert to sale
+2023-08-02 15:56:29,759 - INFO - Reprocessing EBiennial Transactions
+2023-08-02 15:56:29,759 - INFO - Building Objects
+2023-08-02 15:56:29,759 - INFO - -------------------------------------------------------
+2023-08-02 15:56:29,759 - DEBUG - no action needed: - AUTHONLY
+2023-08-02 15:56:29,759 - INFO - -------------------------------------------------------
+2023-08-02 15:56:29,759 - DEBUG - no action needed: - AUTHONLY
+2023-08-02 15:56:29,759 - INFO - -------------------------------------------------------
+2023-08-02 15:56:29,759 - DEBUG - no action needed: - VOID
+2023-08-02 15:56:29,760 - INFO - -------------------------------------------------------
+2023-08-02 15:56:29,760 - DEBUG - no action needed: - VOID
+2023-08-02 15:56:29,760 - INFO - -------------------------------------------------------
+2023-08-02 15:56:29,760 - INFO - Running URL Query
+2023-08-02 15:57:09,903 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Messina&ssl_company=My+Human+N+Me&ssl_phone=9176743523&ssl_approval_code=70101B&ssl_email=kimmessina%40aol.com&ssl_amount=9.00&ssl_avs_zip=11778&uid=f7f1d186-243a-4c5c-ac81-1cec9181fff2&ssl_exp_date=0826&ssl_card_short_description=MC&merchant_defined_data2=4812533&merchant_defined_data1=525071&ssl_country=USA&ssl_avs_address=3+FERNDALE+ROAD&ssl_state=NY&ssl_city=ROCKY+POINT&ssl_first_name=Kim&ssl_invoice_number=525071&application_profile_id=2&ssl_txn_id=010823C2A-A29B0085-262B-4524-B2C1-246C9D9DA7A1&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=54**********7354&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=08%2f01%2f2023+04%3a27%3a16+PM&Uid=4cfc7116-b199-47b2-b151-d179b98e37b7
+2023-08-02 15:57:09,903 - INFO - Extracting DOS ID
+2023-08-02 15:57:09,903 - DEBUG - DOS ID found: - 4812533
+2023-08-02 15:57:09,903 - INFO - Running Date Query
+2023-08-02 15:57:10,798 - DEBUG - date found for 4812533: - 2023-08-02
+2023-08-02 15:57:10,798 - INFO - Building reprocess URL
+2023-08-02 15:57:10,798 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Messina&ssl_company=My+Human+N+Me&ssl_phone=9176743523&ssl_approval_code=70101B&ssl_email=kimmessina%40aol.com&ssl_amount=9.00&ssl_avs_zip=11778&uid=f7f1d186-243a-4c5c-ac81-1cec9181fff2&ssl_exp_date=0826&ssl_card_short_description=MC&merchant_defined_data2=4812533&merchant_defined_data1=525071&ssl_country=USA&ssl_avs_address=3+FERNDALE+ROAD&ssl_state=NY&ssl_city=ROCKY+POINT&ssl_first_name=Kim&ssl_invoice_number=525071&application_profile_id=2&ssl_txn_id=010823C2A-A29B0085-262B-4524-B2C1-246C9D9DA7A1&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=54**********7354&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=08%2f01%2f2023+04%3a27%3a16+PM&Uid=4cfc7116-b199-47b2-b151-d179b98e37b7
+2023-08-02 15:57:10,799 - INFO - Assigning Actions
+2023-08-02 15:57:10,800 - INFO - Checking for Refund 
+2023-08-02 15:57:11,118 - DEBUG - Data Found Do not refund
+2023-08-02 15:57:11,118 - DEBUG - Action for transaction ID:010823C2A-A29B0085-262B-4524-B2C1-246C9D9DA7A1 - Do Not Refund
+2023-08-02 15:57:11,118 - INFO - -------------------------------------------------------
+2023-08-02 15:57:11,118 - DEBUG - no action needed: - VOID
+2023-08-02 15:57:11,118 - INFO - -------------------------------------------------------
+2023-08-02 15:57:11,118 - DEBUG - no action needed: - VOID
+2023-08-02 15:57:11,118 - INFO - -------------------------------------------------------
+2023-08-02 15:57:11,119 - INFO - Sending Email
+2023-08-02 15:57:14,143 - DEBUG - 010823C1D-912A95AE-E365-4EC0-8929-8DBD0A458280,No Action
+2023-08-02 15:57:14,144 - DEBUG - 010823C2B-D98CAA2F-8AFE-4F8A-B97E-2CA692F0B3CB,No Action
+2023-08-02 15:57:14,144 - DEBUG - 010823O2D-A4289E27-F44B-4AE0-B852-5395BFD2BA08,No Action
+2023-08-02 15:57:14,144 - DEBUG - 010823O2D-E39AAFDA-AFCE-479F-B282-8EE3C6FF8D45,No Action
+2023-08-02 15:57:14,144 - DEBUG - 010823C2A-A29B0085-262B-4524-B2C1-246C9D9DA7A1,Do Not Refund
+2023-08-02 15:57:14,144 - DEBUG - 010823O39-4C3245B8-93FB-4590-BBB2-4A22E2EA03E0,No Action
+2023-08-02 15:57:14,144 - DEBUG - 010823C2A-42A20214-11CC-4BED-B1B6-A35F49C947DC,No Action
+2023-08-02 15:57:14,183 - INFO - Email Sent
+2023-08-02 15:57:14,183 - INFO - Removing Saved files
+2023-08-02 15:57:14,191 - DEBUG - Total Files Deleted:  - 2
+2023-08-02 15:57:14,191 - WARNING - EBiennial Reprocessing Complete

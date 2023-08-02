@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from log_builder import MyLogger 
 from datetime import datetime, timedelta, date
 import requests
+from EBiennial_attachment_processing import EBiennial_emails_processing
 class process_EBiennial:
     def __init__(self) -> None:
         self.transactions=[] #store transactions from EBiennial_emails_processing
@@ -14,15 +15,16 @@ class process_EBiennial:
         self.EVUN=os.getenv('DBUN')
         self.logger = MyLogger()
         
-    def reprocess_transactions(self,transactions):
+    def reprocess_transactions(self,transactions,sum):
         self.logger.info("Reprocessing EBiennial Transactions")
         try:
+            
             self.build_transaction_object(transactions)
-            self.send_email(transactions)
+            self.send_email(transactions,sum)
         except ValueError as e:
             self.logger.error("there was an error reading transactions: ",e)
 
-    def send_email(self, transactions):
+    def send_email(self, transactions,sum):
             #send the email to PROD with proper coloring and actions assinged 
             self.logger.info("Sending Email")
             folder_path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EBiennial Processing Automation\EBiennial_email_attachments" # Specify the folder path where the Excel files are located
@@ -155,6 +157,11 @@ class process_EBiennial:
                 body +=  "<li>Yellow: No Action</li>"
             if 'red' in body:
                 body += "<li>Red: Refund</li>"
+            if len(sum)!=0:
+                for transaction in sum:
+                    print(transaction[0])
+                    
+
             body +=""" 
             </ul>               
                 </body>
