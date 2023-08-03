@@ -9,7 +9,7 @@ class execute_EBiennial:
         self.process_attachments = EBiennial_emails_processing()
         self.process_EBiennial = process_EBiennial()
         self.logger = MyLogger()
-          
+          #test commit
     def run(self):
             print('running')
             self.logger.warning("Began EBiennial Reprocessing")
