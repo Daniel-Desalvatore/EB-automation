@@ -202,14 +202,14 @@ class process_EBiennial:
         #find the base URL for the transaction 
         self.logger.info("Running URL Query")
         try:
-            Prod_sharedServices_query = f"Select * from [Prod_SharedServices].[metrics].[Request] where url like '%{Transaction_ID}%'"
+            Prod_sharedServices_query = f"Select * from [QA_SharedServices].[metrics].[Request] where url like '%{Transaction_ID}%'"
             # Establish a connection to the SQL Server
             conn = pyodbc.connect(
             "Driver={SQL Server};"
-            "Server=EDS0085PW5SQLV\P17SO50364,50364"
-            "Database=Prod_SharedServices"
-            f"UID={self.EVUN}"
-            f"PWD={self.EVPW}")
+            "Server=EDS0046DW5SQL\T17SO50072"
+            "Database=QA_SharedServices"
+            f"UID=SVC\_DDesalvatore"
+            f"PWD= F952462367396r")
             #commit test
             # Create a cursor object to interact with the database
             cursor = conn.cursor()
@@ -247,7 +247,7 @@ Inner join corp.Business B with(Nolock) on bf.businessid = b.businessid
 inner join [corp].[BusinessFilingType] bft with(nolock) on bf.BusinessFilingTypeId = bft.BusinessFilingTypeId
 where b.EntityNumber = {DOS_ID}'''
             # Establish a connection to the SQL Server
-            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
+            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0046DW5SQL\T17SO50072}; Database={Stage_CORP_APPDB} ; trusted_connection="yes"')
             # Create a cursor object to interact with the database
             cursor = conn.cursor()
             cursor.execute(date_query)
@@ -335,7 +335,7 @@ where b.EntityNumber = {DOS_ID}'''
     def reset_verification(self,Invoice_Number):
         try:
             reset_transaction_query = f'SELECT IS_PROCESSED FROM [Prod_NETAPPS].[dbo].[EBIENNIAL_TRANSACTION_TEMP] WHERE TRANSACTION_ID = {Invoice_Number};'
-            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_NETAPPS} ; trusted_connection="yes"')
+            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0046DW5SQL\T17SO50072}; Database={Stage_NETAPPS} ; trusted_connection="yes"')
             # Create a cursor object to interact with the database
             cursor = conn.cursor()
             # Execute query
@@ -374,7 +374,7 @@ Inner join corp.Business B with(Nolock) on bf.businessid = b.businessid
 inner join [corp].[BusinessFilingType] bft with(nolock) on bf.BusinessFilingTypeId = bft.BusinessFilingTypeId
 where b.EntityNumber = {transaction.DOS_ID}'''
             # Establish a connection to the SQL Server
-            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
+            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0046DW5SQL\T17SO50072}; Database={Stage_CORP_APPDB} ; trusted_connection="yes"')
             # Create a cursor object to interact with the database
             cursor = conn.cursor()
             cursor.execute(date_query)
@@ -407,7 +407,7 @@ where b.EntityNumber = {transaction.DOS_ID}'''
             refund_query = f"SELECT * FROM CORP.WORKORDERPAY WHERE PaymentTransactionID ='{transaction}'"
             # Establish a connection to the SQL Server
             #commit test
-            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
+            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0046DW5SQL\T17SO50072}; Database={Stage_CORP_APPDB} ; trusted_connection="yes"')
             # Create a cursor object to interact with the database
             cursor = conn.cursor()
             cursor.execute(refund_query)

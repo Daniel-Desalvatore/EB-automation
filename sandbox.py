@@ -30,16 +30,19 @@ class Sandbox:
         today_str = today.strftime("%m/%d/%Y")
         print(f"PROD: Ebiennial Payment Reports ({yesterday_str} 12:00:00 AM - {yesterday_str} 11:59:59 PM)")
         print(self.inbox.Name)
-    def database_connect(self,DOS_ID):
+
+
+    def database_connect(self,Transaction_ID):
             EVPW = os.getenv('DBPW')
             EVUN = os.getenv('DBUN')
-            date_query = f'''select bf.FilingDateTime,bf.filingno, bft.[Description] AS FilingType from [corp].[businessfiling] bF with(nolock) 
-Inner join corp.Business B with(Nolock) on bf.businessid = b.businessid
-inner join [corp].[BusinessFilingType] bft with(nolock) on bf.BusinessFilingTypeId = bft.BusinessFilingTypeId
-where b.EntityNumber = {DOS_ID}'''
+            date_query = f'''Select * from [QA_SharedServices].[metrics].[Request] where url like '%{Transaction_ID}%'''
             # Establish a connection to the SQL Server
             #commit test
-            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
+            conn = pyodbc.connect(
+            "Driver={SQL Server};"
+            "Server=EDS0046DW5SQL\T17SO50072"
+            "Database=master"
+            'trusted_connection="yes"')
 
             # Create a cursor object to interact with the database
             print(conn)
@@ -62,6 +65,9 @@ where b.EntityNumber = {DOS_ID}'''
             print(formatted_most_recent_date)
             #print(date)
             return 
+    
+
+
     def env_vars(self):
          EVPW = os.getenv('DBUN')
          print(EVPW)  
@@ -143,9 +149,9 @@ where b.EntityNumber = {DOS_ID}'''
          print(response.text)
          
 Sandbox = Sandbox()
-#Sandbox.database_connect(2895138)
+Sandbox.database_connect('030823O2D-FBA2FE63-FE39-4359-998A-AE202E17605D')
 #Sandbox.env_vars()
 #Sandbox.refund_db_check('280523C1A-CBCB042C-0BB1-4FF5-8C37-694D8BC56CC1')
 #Sandbox.send_log()
-Sandbox.reset_transaction_verify(502912)
-Sandbox.run_reprocess_url('')
+#Sandbox.reset_transaction_verify(502912)
+#Sandbox.run_reprocess_url('')
