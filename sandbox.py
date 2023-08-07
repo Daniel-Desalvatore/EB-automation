@@ -33,16 +33,17 @@ class Sandbox:
 
 
     def database_connect(self,Transaction_ID):
+            
             EVPW = os.getenv('DBPW')
             EVUN = os.getenv('DBUN')
             date_query = f'''Select * from [QA_SharedServices].[metrics].[Request] where url like '%{Transaction_ID}%'''
             # Establish a connection to the SQL Server
+            #DRIVER={{sql server}};SERVER={"EDS0046DW5SQL\T17SO50072"};DATABASE={"master"};
+            #DRIVER={{sql server}};SERVER={"EDS0046DW5SQL\T17SO50072"};DATABASE={"master"};UID={"SVC_ddesalvatore"};PWD={"password"}
             #commit test
-            conn = pyodbc.connect(
-            "Driver={SQL Server};"
-            "Server=EDS0046DW5SQL\T17SO50072"
-            "Database=master"
-            'trusted_connection="yes"')
+            connection_string = 'DRIVER={SQL Server};SERVER="EDS0046DW5SQL\T17SO50072";DATABASE="master";Trusted_Connection=yes' 
+
+            conn = pyodbc.connect(connection_string)
 
             # Create a cursor object to interact with the database
             print(conn)
