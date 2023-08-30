@@ -13,11 +13,11 @@ class Sandbox:
         load_dotenv()
 
 
-        self.outlook_app = win32.Dispatch("Outlook.Application")
+        #self.outlook_app = win32.Dispatch("Outlook.Application")
 
-        self.namespace = self.outlook_app.GetNamespace("MAPI")
+        #self.namespace = self.outlook_app.GetNamespace("MAPI")
 
-        self.inbox = self.namespace.GetDefaultFolder(6)  # "6" refers to the Inbox folder
+        #self.inbox = self.namespace.GetDefaultFolder(6)  # "6" refers to the Inbox folder
 
         self.attachment_folder_path = "C:\\Users\\DDesalvatore\\OneDrive - New York State Office of Information Technology Services\\Documents\\Python\EBiennial Processing Automation\EBiennial_email_attachments"
 
@@ -41,7 +41,7 @@ class Sandbox:
             #DRIVER={{sql server}};SERVER={"EDS0046DW5SQL\T17SO50072"};DATABASE={"master"};
             #DRIVER={{sql server}};SERVER={"EDS0046DW5SQL\T17SO50072"};DATABASE={"master"};UID={"SVC_ddesalvatore"};PWD={"password"}
             #commit test
-            connection_string = 'DRIVER={SQL Server};SERVER="EDS0046DW5SQL\T17SO50072";DATABASE="master";Trusted_Connection=yes' 
+            connection_string = 'DRIVER={sql server};SERVER={"EDS0046DW5SQL\T17SO50072"};DATABASE={"master"};UID={"SVC_ddesalvatore"};PWD={"y965242923749S"}' 
 
             conn = pyodbc.connect(connection_string)
 
