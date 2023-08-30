@@ -1,67 +1,81 @@
-2023-08-04 16:05:25,110 - WARNING - Began EBiennial Reprocessing
-2023-08-04 16:05:25,110 - INFO - Retrieving Attachments
-2023-08-04 16:05:25,111 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (08/03/2023 12:00:00 AM - 08/03/2023 03:59:59 PM)%'
-2023-08-04 16:05:27,427 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (08/04/2023 12:00:00 AM - 08/04/2023 03:59:59 PM)
-2023-08-04 16:05:27,427 - DEBUG - Sender: - Interface Team
-2023-08-04 16:05:27,427 - DEBUG - Received Time: - 2023-08-04 16:03:37.953000+00:00
-2023-08-04 16:05:27,444 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-08-04_Summary.xlsx
-2023-08-04 16:05:27,458 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-08-04_Discrepancy.xlsx
-2023-08-04 16:05:27,460 - INFO - extracting data from saved attachments
-2023-08-04 16:05:28,013 - INFO - checking Summary
-2023-08-04 16:05:28,013 - DEBUG - All values are SALE
-2023-08-04 16:05:28,013 - INFO - reading data From Discrepancy
-2023-08-04 16:05:28,022 - DEBUG - Reading data from: - Ebiennial PaymentReport_2023-08-04_Discrepancy.xlsx
-2023-08-04 16:05:28,022 - DEBUG - transaction found: - 040823C18-28104B56-A429-440F-8667-28EDEC2F9657,528936,SALE
-2023-08-04 16:05:28,022 - DEBUG - transaction found: - 040823C18-CA7B418A-9255-4694-8C3F-DE873C3D3D6B,529012,SALE
-2023-08-04 16:05:28,022 - DEBUG - transaction found: - 040823O2D-E1851C40-8551-4AA2-A6B0-F8F14AC49659,529134,SALE
-2023-08-04 16:05:28,184 - INFO - checking Summary
-2023-08-04 16:05:28,184 - DEBUG - All values are SALE
-2023-08-04 16:05:28,185 - INFO - Reprocessing EBiennial Transactions
-2023-08-04 16:05:28,185 - INFO - Building Objects
-2023-08-04 16:05:28,185 - INFO - -------------------------------------------------------
-2023-08-04 16:05:28,185 - INFO - Running URL Query
-2023-08-04 16:06:09,569 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=JAJAN&ssl_company=JAJA+N+%26+ASSOCIATES%2c+PLLC&ssl_phone=2123528616&ssl_approval_code=07767G&ssl_email=reception%40jajanlaw.com&ssl_amount=9.00&ssl_avs_zip=10005&uid=677bf8df-665f-48ce-a984-5038af9ed8d1&ssl_exp_date=0124&ssl_card_short_description=VISA&merchant_defined_data2=4883332&merchant_defined_data1=528936&ssl_country=USA&ssl_avs_address=40+WALL+STREET+25TH+FLOOR&ssl_state=NY&ssl_city=AUTHORIZED+PERSON&ssl_first_name=MARTIN&ssl_invoice_number=528936&application_profile_id=2&ssl_txn_id=040823C18-28104B56-A429-440F-8667-28EDEC2F9657&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=48**********6875&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=08%2f04%2f2023+11%3a32%3a58+AM&Uid=77868bf5-8678-47d9-90c1-6b4f981a12b0
-2023-08-04 16:06:09,569 - INFO - Extracting DOS ID
-2023-08-04 16:06:09,569 - DEBUG - DOS ID found: - 4883332
-2023-08-04 16:06:09,569 - INFO - Running Date Query
-2023-08-04 16:06:10,614 - DEBUG - date found for 4883332: - 2023-08-04
-2023-08-04 16:06:10,614 - INFO - Building reprocess URL
-2023-08-04 16:06:10,614 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=JAJAN&ssl_company=JAJA+N+%26+ASSOCIATES%2c+PLLC&ssl_phone=2123528616&ssl_approval_code=07767G&ssl_email=reception%40jajanlaw.com&ssl_amount=9.00&ssl_avs_zip=10005&uid=677bf8df-665f-48ce-a984-5038af9ed8d1&ssl_exp_date=0124&ssl_card_short_description=VISA&merchant_defined_data2=4883332&merchant_defined_data1=528936&ssl_country=USA&ssl_avs_address=40+WALL+STREET+25TH+FLOOR&ssl_state=NY&ssl_city=AUTHORIZED+PERSON&ssl_first_name=MARTIN&ssl_invoice_number=528936&application_profile_id=2&ssl_txn_id=040823C18-28104B56-A429-440F-8667-28EDEC2F9657&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=48**********6875&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=08%2f04%2f2023+11%3a32%3a58+AM&Uid=77868bf5-8678-47d9-90c1-6b4f981a12b0
-2023-08-04 16:06:10,614 - INFO - Assigning Actions
-2023-08-04 16:06:10,614 - INFO - Checking for Refund 
-2023-08-04 16:06:11,296 - DEBUG - Empty Refund
-2023-08-04 16:06:11,296 - DEBUG - Action for transaction ID:040823C18-28104B56-A429-440F-8667-28EDEC2F9657 - Refund
-2023-08-04 16:06:11,296 - INFO - -------------------------------------------------------
-2023-08-04 16:06:11,296 - INFO - Running URL Query
-2023-08-04 16:06:51,857 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Reyes&ssl_company=Lerco+Electric%2c+LLC&ssl_phone=7185855529&ssl_approval_code=055269&ssl_email=lercoelect%40yahoo.com&ssl_amount=9.00&ssl_avs_zip=10455&uid=f074e631-8749-4d48-8064-f208644dc63d&ssl_exp_date=0228&ssl_card_short_description=VISA&merchant_defined_data2=3206303&merchant_defined_data1=529012&ssl_country=USA&ssl_avs_address=370+E+146+STREET&ssl_state=NY&ssl_city=Bronx&ssl_first_name=Leoncio&ssl_invoice_number=529012&application_profile_id=2&ssl_txn_id=040823C18-CA7B418A-9255-4694-8C3F-DE873C3D3D6B&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=48**********2133&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=08%2f04%2f2023+12%3a05%3a17+PM&Uid=6a6ba070-ee60-44ca-a484-fb1361062668
-2023-08-04 16:06:51,857 - INFO - Extracting DOS ID
-2023-08-04 16:06:51,857 - DEBUG - DOS ID found: - 3206303
-2023-08-04 16:06:51,857 - INFO - Running Date Query
-2023-08-04 16:06:52,719 - DEBUG - date found for 3206303: - 2021-12-23
-2023-08-04 16:06:52,719 - INFO - Building reprocess URL
-2023-08-04 16:06:52,719 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Reyes&ssl_company=Lerco+Electric%2c+LLC&ssl_phone=7185855529&ssl_approval_code=055269&ssl_email=lercoelect%40yahoo.com&ssl_amount=9.00&ssl_avs_zip=10455&uid=f074e631-8749-4d48-8064-f208644dc63d&ssl_exp_date=0228&ssl_card_short_description=VISA&merchant_defined_data2=3206303&merchant_defined_data1=529012&ssl_country=USA&ssl_avs_address=370+E+146+STREET&ssl_state=NY&ssl_city=Bronx&ssl_first_name=Leoncio&ssl_invoice_number=529012&application_profile_id=2&ssl_txn_id=040823C18-CA7B418A-9255-4694-8C3F-DE873C3D3D6B&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=48**********2133&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=08%2f04%2f2023+12%3a05%3a17+PM&Uid=6a6ba070-ee60-44ca-a484-fb1361062668
-2023-08-04 16:06:52,719 - INFO - Assigning Actions
-2023-08-04 16:06:52,720 - DEBUG - Action for transaction ID:040823C18-CA7B418A-9255-4694-8C3F-DE873C3D3D6B - Process
-2023-08-04 16:06:52,720 - WARNING - reseting transaction
-2023-08-04 16:06:52,760 - DEBUG - Reset Successful for invoice number :529012
-2023-08-04 16:06:52,760 - INFO - Running Date Query
-2023-08-04 16:06:53,618 - DEBUG - date found for 3206303: - 2021-12-23
-2023-08-04 16:06:53,618 - CRITICAL - reprocessing Failed: Old Date2021-12-23 New date: 2021-12-23
-2023-08-04 16:06:53,618 - INFO - -------------------------------------------------------
-2023-08-04 16:06:53,618 - INFO - Running URL Query
-2023-08-04 16:07:32,621 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=wilmlington+arpf&ssl_phone=8009279801&ssl_approval_code=003050&ssl_email=annualreports%40cscglobal.com&ssl_amount=9.00&ssl_avs_zip=19808&uid=fb1e6ce1-752c-4cc1-b953-72024150774f&ssl_exp_date=0226&ssl_card_short_description=MC&merchant_defined_data2=2365756&merchant_defined_data1=529134&ssl_country=USA&ssl_avs_address=251+LITTLE+FALLS+DRIVE&ssl_state=DE&ssl_city=WILMINGTON&ssl_first_name=csc&ssl_invoice_number=529134&application_profile_id=2&ssl_txn_id=040823O2D-E1851C40-8551-4AA2-A6B0-F8F14AC49659&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=55**********8975&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=08%2f04%2f2023+12%3a57%3a39+PM&Uid=5b2704c6-e449-41fb-b9e5-4fdebd0c27e8
-2023-08-04 16:07:32,621 - INFO - Extracting DOS ID
-2023-08-04 16:07:32,621 - DEBUG - DOS ID found: - 2365756
-2023-08-04 16:07:32,621 - INFO - Running Date Query
-2023-08-04 16:07:33,485 - DEBUG - date found for 2365756: - 2023-08-04
-2023-08-04 16:07:33,485 - INFO - Building reprocess URL
-2023-08-04 16:07:33,485 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=wilmlington+arpf&ssl_phone=8009279801&ssl_approval_code=003050&ssl_email=annualreports%40cscglobal.com&ssl_amount=9.00&ssl_avs_zip=19808&uid=fb1e6ce1-752c-4cc1-b953-72024150774f&ssl_exp_date=0226&ssl_card_short_description=MC&merchant_defined_data2=2365756&merchant_defined_data1=529134&ssl_country=USA&ssl_avs_address=251+LITTLE+FALLS+DRIVE&ssl_state=DE&ssl_city=WILMINGTON&ssl_first_name=csc&ssl_invoice_number=529134&application_profile_id=2&ssl_txn_id=040823O2D-E1851C40-8551-4AA2-A6B0-F8F14AC49659&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=55**********8975&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=08%2f04%2f2023+12%3a57%3a39+PM&Uid=5b2704c6-e449-41fb-b9e5-4fdebd0c27e8
-2023-08-04 16:07:33,485 - INFO - Assigning Actions
-2023-08-04 16:07:33,485 - INFO - Checking for Refund 
-2023-08-04 16:07:33,713 - DEBUG - Empty Refund
-2023-08-04 16:07:33,713 - DEBUG - Action for transaction ID:040823O2D-E1851C40-8551-4AA2-A6B0-F8F14AC49659 - Refund
-2023-08-04 16:07:33,713 - INFO - -------------------------------------------------------
-2023-08-04 16:07:33,713 - INFO - Sending Email
-2023-08-04 16:07:33,938 - DEBUG - 040823C18-28104B56-A429-440F-8667-28EDEC2F9657,Refund
-2023-08-04 16:07:33,938 - DEBUG - 040823C18-CA7B418A-9255-4694-8C3F-DE873C3D3D6B,Process
-2023-08-04 16:07:33,938 - DEBUG - 040823O2D-E1851C40-8551-4AA2-A6B0-F8F14AC49659,Refund
+2023-08-30 13:16:02,870 - WARNING - Began EBiennial Reprocessing
+2023-08-30 13:16:02,870 - INFO - Retrieving Attachments
+2023-08-30 13:16:02,871 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (08/28/2023 12:00:00 AM - 08/28/2023 03:59:59 PM)%'
+2023-08-30 13:16:04,030 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (08/28/2023 12:00:00 AM - 08/28/2023 03:59:59 PM)
+2023-08-30 13:16:04,030 - DEBUG - Sender: - Interface Team
+2023-08-30 13:16:04,030 - DEBUG - Received Time: - 2023-08-28 16:06:01.464000+00:00
+2023-08-30 13:16:04,084 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-08-28_Summary.xlsx
+2023-08-30 13:16:04,119 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-08-28_Discrepancy.xlsx
+2023-08-30 13:16:04,137 - DEBUG - Subject: - RE: PROD: Ebiennial Payment Reports (08/28/2023 12:00:00 AM - 08/28/2023 03:59:59 PM)
+2023-08-30 13:16:04,137 - DEBUG - Sender: - Desalvatore, Daniel (ITS)
+2023-08-30 13:16:04,137 - DEBUG - Received Time: - 2023-08-28 16:16:35.466000+00:00
+2023-08-30 13:16:04,158 - DEBUG - Subject: - RE: PROD: Ebiennial Payment Reports (08/28/2023 12:00:00 AM - 08/28/2023 03:59:59 PM)
+2023-08-30 13:16:04,158 - DEBUG - Sender: - Stolow-Bedard, Jenifer (ITS)
+2023-08-30 13:16:04,158 - DEBUG - Received Time: - 2023-08-28 16:17:57.540000+00:00
+2023-08-30 13:16:04,170 - DEBUG - Subject: - RE: PROD: Ebiennial Payment Reports (08/28/2023 12:00:00 AM - 08/28/2023 03:59:59 PM)
+2023-08-30 13:16:04,170 - DEBUG - Sender: - Stolow-Bedard, Jenifer (ITS)
+2023-08-30 13:16:04,170 - DEBUG - Received Time: - 2023-08-28 16:46:50.568000+00:00
+2023-08-30 13:16:04,184 - INFO - extracting data from saved attachments
+2023-08-30 13:16:04,693 - INFO - checking Summary
+2023-08-30 13:16:04,694 - DEBUG - All values are SALE
+2023-08-30 13:16:04,694 - INFO - reading data From Discrepancy
+2023-08-30 13:16:04,704 - DEBUG - Reading data from: - Ebiennial PaymentReport_2023-08-28_Discrepancy.xlsx
+2023-08-30 13:16:04,705 - DEBUG - transaction found: - 280823O2C-810E1DC1-1675-4FFB-8A5F-95B00A369CD7,550406,RETURN
+2023-08-30 13:16:04,705 - DEBUG - transaction found: - 280823C2B-DD83D2D1-46FD-47B0-B623-C4CDC5FA2B2E,550869,SALE
+2023-08-30 13:16:04,705 - DEBUG - transaction found: - 280823O3A-17378222-9DA4-4BDE-8294-420A37D393BB,551001,SALE
+2023-08-30 13:16:04,705 - DEBUG - transaction found: - 280823O13-BA532858-7F10-4181-9D0D-0314ABF8C72A,551208,SALE
+2023-08-30 13:16:04,817 - INFO - checking Summary
+2023-08-30 13:16:04,817 - DEBUG - All values are SALE
+2023-08-30 13:16:04,817 - INFO - Reprocessing EBiennial Transactions
+2023-08-30 13:16:04,817 - INFO - Building Objects
+2023-08-30 13:16:04,817 - INFO - -------------------------------------------------------
+2023-08-30 13:16:04,817 - DEBUG - no action needed: - RETURN
+2023-08-30 13:16:04,817 - INFO - -------------------------------------------------------
+2023-08-30 13:16:04,817 - INFO - Running URL Query
+2023-08-30 13:16:56,211 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Liben&ssl_company=Metro+Waterworks+Inc&ssl_phone=9179395688&ssl_approval_code=240010&ssl_email=stuart%40nycph.com&ssl_amount=9.00&ssl_avs_zip=11206&uid=b6c67a0e-2166-4fa8-8f66-c84b24b9f17d&ssl_exp_date=1124&ssl_card_short_description=AMEX&merchant_defined_data2=4097078&merchant_defined_data1=550869&ssl_country=USA&ssl_avs_address=219+Johnson+Ave&ssl_state=New+York&ssl_city=Brooklyn&ssl_first_name=Stuart&ssl_invoice_number=550869&application_profile_id=2&ssl_txn_id=280823C2B-DD83D2D1-46FD-47B0-B623-C4CDC5FA2B2E&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=37**********3009&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=08%2f28%2f2023+06%3a46%3a47+AM&Uid=862db4cb-f0b8-4f5d-8030-d3b98aacb471
+2023-08-30 13:16:56,211 - INFO - Extracting DOS ID
+2023-08-30 13:16:56,211 - DEBUG - DOS ID found: - 4097078
+2023-08-30 13:16:56,211 - INFO - Running Date Query
+2023-08-30 13:16:57,129 - DEBUG - date found for 4097078: - 2023-08-28
+2023-08-30 13:16:57,129 - INFO - Building reprocess URL
+2023-08-30 13:16:57,129 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Liben&ssl_company=Metro+Waterworks+Inc&ssl_phone=9179395688&ssl_approval_code=240010&ssl_email=stuart%40nycph.com&ssl_amount=9.00&ssl_avs_zip=11206&uid=b6c67a0e-2166-4fa8-8f66-c84b24b9f17d&ssl_exp_date=1124&ssl_card_short_description=AMEX&merchant_defined_data2=4097078&merchant_defined_data1=550869&ssl_country=USA&ssl_avs_address=219+Johnson+Ave&ssl_state=New+York&ssl_city=Brooklyn&ssl_first_name=Stuart&ssl_invoice_number=550869&application_profile_id=2&ssl_txn_id=280823C2B-DD83D2D1-46FD-47B0-B623-C4CDC5FA2B2E&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=37**********3009&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=08%2f28%2f2023+06%3a46%3a47+AM&Uid=862db4cb-f0b8-4f5d-8030-d3b98aacb471
+2023-08-30 13:16:57,129 - INFO - Assigning Actions
+2023-08-30 13:16:57,130 - INFO - Checking for Refund 
+2023-08-30 13:16:57,428 - DEBUG - Empty Refund
+2023-08-30 13:16:57,428 - DEBUG - Action for transaction ID:280823C2B-DD83D2D1-46FD-47B0-B623-C4CDC5FA2B2E - Refund
+2023-08-30 13:16:57,428 - INFO - -------------------------------------------------------
+2023-08-30 13:16:57,428 - INFO - Running URL Query
+2023-08-30 13:17:47,318 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=YI&ssl_company=PINK+PUSSYCAT+BOUTIQUE+NEW+YORK+INC.&ssl_phone=5514278799&ssl_approval_code=018272&ssl_email=kl%40kimleecpasllp.com&ssl_amount=9.00&ssl_avs_zip=07624&uid=5c19a32f-5c73-4584-b5ec-aaaf6e13eff4&ssl_exp_date=1125&ssl_card_short_description=VISA&merchant_defined_data2=3711907&merchant_defined_data1=551001&ssl_country=USA&ssl_avs_address=1+ALPINE+DR&ssl_state=NJ&ssl_city=CLOSTER&ssl_first_name=SANG&ssl_invoice_number=551001&application_profile_id=2&ssl_txn_id=280823O3A-17378222-9DA4-4BDE-8294-420A37D393BB&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=48**********1750&ssl_avs_response=N&ssl_cvv2_response=M&ssl_txn_time=08%2f28%2f2023+11%3a27%3a48+AM&Uid=e4f0efce-5572-4a98-b95d-2eb44c3c44ab
+2023-08-30 13:17:47,318 - INFO - Extracting DOS ID
+2023-08-30 13:17:47,318 - DEBUG - DOS ID found: - 3711907
+2023-08-30 13:17:47,318 - INFO - Running Date Query
+2023-08-30 13:17:48,190 - DEBUG - date found for 3711907: - 2023-08-28
+2023-08-30 13:17:48,190 - INFO - Building reprocess URL
+2023-08-30 13:17:48,190 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=YI&ssl_company=PINK+PUSSYCAT+BOUTIQUE+NEW+YORK+INC.&ssl_phone=5514278799&ssl_approval_code=018272&ssl_email=kl%40kimleecpasllp.com&ssl_amount=9.00&ssl_avs_zip=07624&uid=5c19a32f-5c73-4584-b5ec-aaaf6e13eff4&ssl_exp_date=1125&ssl_card_short_description=VISA&merchant_defined_data2=3711907&merchant_defined_data1=551001&ssl_country=USA&ssl_avs_address=1+ALPINE+DR&ssl_state=NJ&ssl_city=CLOSTER&ssl_first_name=SANG&ssl_invoice_number=551001&application_profile_id=2&ssl_txn_id=280823O3A-17378222-9DA4-4BDE-8294-420A37D393BB&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=48**********1750&ssl_avs_response=N&ssl_cvv2_response=M&ssl_txn_time=08%2f28%2f2023+11%3a27%3a48+AM&Uid=e4f0efce-5572-4a98-b95d-2eb44c3c44ab
+2023-08-30 13:17:48,190 - INFO - Assigning Actions
+2023-08-30 13:17:48,194 - INFO - Checking for Refund 
+2023-08-30 13:17:48,419 - DEBUG - Data Found Do not refund
+2023-08-30 13:17:48,419 - DEBUG - Action for transaction ID:280823O3A-17378222-9DA4-4BDE-8294-420A37D393BB - Do Not Refund
+2023-08-30 13:17:48,419 - INFO - -------------------------------------------------------
+2023-08-30 13:17:48,419 - INFO - Running URL Query
+2023-08-30 13:18:36,317 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Schlenk&ssl_company=market+Communications+LLC&ssl_phone=6462897100&ssl_approval_code=064913&ssl_email=cmartin%40orgroup.net&ssl_amount=9.00&ssl_avs_zip=10018&uid=df91ed79-ad57-4a6c-9151-9fc28c32522e&ssl_exp_date=0826&ssl_card_short_description=VISA&ssl_address2=Suite+17B&merchant_defined_data2=2267138&merchant_defined_data1=551208&ssl_country=USA&ssl_avs_address=135+W+36th+Street&ssl_state=New+York&ssl_city=New+York&ssl_first_name=James&ssl_invoice_number=551208&application_profile_id=2&ssl_txn_id=280823O13-BA532858-7F10-4181-9D0D-0314ABF8C72A&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=45**********6844&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=08%2f28%2f2023+01%3a49%3a45+PM&Uid=daafe128-499c-43e4-8b2f-74ce41a365ee
+2023-08-30 13:18:36,317 - INFO - Extracting DOS ID
+2023-08-30 13:18:36,317 - DEBUG - DOS ID found: - 2267138
+2023-08-30 13:18:36,317 - INFO - Running Date Query
+2023-08-30 13:18:37,443 - DEBUG - date found for 2267138: - 2023-08-28
+2023-08-30 13:18:37,443 - INFO - Building reprocess URL
+2023-08-30 13:18:37,443 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Schlenk&ssl_company=market+Communications+LLC&ssl_phone=6462897100&ssl_approval_code=064913&ssl_email=cmartin%40orgroup.net&ssl_amount=9.00&ssl_avs_zip=10018&uid=df91ed79-ad57-4a6c-9151-9fc28c32522e&ssl_exp_date=0826&ssl_card_short_description=VISA&ssl_address2=Suite+17B&merchant_defined_data2=2267138&merchant_defined_data1=551208&ssl_country=USA&ssl_avs_address=135+W+36th+Street&ssl_state=New+York&ssl_city=New+York&ssl_first_name=James&ssl_invoice_number=551208&application_profile_id=2&ssl_txn_id=280823O13-BA532858-7F10-4181-9D0D-0314ABF8C72A&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=45**********6844&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=08%2f28%2f2023+01%3a49%3a45+PM&Uid=daafe128-499c-43e4-8b2f-74ce41a365ee
+2023-08-30 13:18:37,443 - INFO - Assigning Actions
+2023-08-30 13:18:37,444 - INFO - Checking for Refund 
+2023-08-30 13:18:37,662 - DEBUG - Data Found Do not refund
+2023-08-30 13:18:37,662 - DEBUG - Action for transaction ID:280823O13-BA532858-7F10-4181-9D0D-0314ABF8C72A - Do Not Refund
+2023-08-30 13:18:37,662 - INFO - -------------------------------------------------------
+2023-08-30 13:18:37,663 - INFO - Sending Email
+2023-08-30 13:18:37,765 - DEBUG - 280823O2C-810E1DC1-1675-4FFB-8A5F-95B00A369CD7,No Action
+2023-08-30 13:18:37,765 - DEBUG - 280823C2B-DD83D2D1-46FD-47B0-B623-C4CDC5FA2B2E,Refund
+2023-08-30 13:18:37,765 - DEBUG - 280823O3A-17378222-9DA4-4BDE-8294-420A37D393BB,Do Not Refund
+2023-08-30 13:18:37,765 - DEBUG - 280823O13-BA532858-7F10-4181-9D0D-0314ABF8C72A,Do Not Refund
+2023-08-30 13:18:37,799 - INFO - Email Sent
+2023-08-30 13:18:37,799 - INFO - Removing Saved files
+2023-08-30 13:18:37,801 - DEBUG - Total Files Deleted:  - 2
+2023-08-30 13:18:37,801 - WARNING - EBiennial Reprocessing Complete

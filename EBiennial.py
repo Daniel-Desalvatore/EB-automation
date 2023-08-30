@@ -15,11 +15,11 @@ class process_EBiennial:
         self.EVUN=os.getenv('DBUN')
         self.logger = MyLogger()
         
-    def reprocess_transactions(self,transactions,sum):
+    def reprocess_transactions(self,transactions,sum,date):
         self.logger.info("Reprocessing EBiennial Transactions")
         try:
             
-            self.build_transaction_object(transactions)
+            self.build_transaction_object(transactions,date)
             self.send_email(transactions,sum)
         except ValueError as e:
             self.logger.error("there was an error reading transactions: ",e)
@@ -157,9 +157,11 @@ class process_EBiennial:
                 body +=  "<li>Yellow: No Action</li>"
             if 'red' in body:
                 body += "<li>Red: Refund</li>"
-            if len(sum)!=0:
+
+            #for sum report
+            """if len(sum)!=0:
                 for transaction in sum:
-                    print(transaction[0])
+                    print(transaction[0])"""
                     
 
             body +=""" 
@@ -175,7 +177,7 @@ class process_EBiennial:
             self.logger.info("Email Sent")  
             self.delete_files()
                 
-    def build_transaction_object(self,transactions):
+    def build_transaction_object(self,transactions,date):
             #build the transaction objects
             self.logger.info("Building Objects")
             try: 
@@ -189,7 +191,7 @@ class process_EBiennial:
                         transaction.DOS_ID = self.extract_dos_id(transaction.URL)
                         transaction.Transaction_Date = self.date_query(transaction.DOS_ID)
                         transaction.Reprocess_URL = self.build_reprocess_url(transaction.URL)
-                        transaction.Action = self.action_check(transaction)
+                        transaction.Action = self.action_check(transaction,date)
                     if transaction.Action == 'Process':
                         self.reset_transaction(transaction.Invoice_Number)
                         if not self.reprocess_date_verify(transaction):
@@ -283,12 +285,16 @@ where b.EntityNumber = {DOS_ID}'''
         except ValueError as e:
             self.logger.error("there was an error creating Reprocess URL: ",e)
 
-    def action_check(self,transaction):
+    def action_check(self,transaction,date):
         #check and assign the action to be taken for the transaction
         self.logger.info("Assigning Actions")
         try:
             #check if the date is recent 
-            today = date.today()
+            date = date.replace('Ebiennial PaymentReport_','')
+            date = date[0:10]
+            print(date)
+            today = datetime.strptime(date, '%Y-%m-%d').date()
+            print(today)
             two_days_ago = today - timedelta(days=2)
             print(two_days_ago, "non string") 
             print(str(two_days_ago), 'string')  
