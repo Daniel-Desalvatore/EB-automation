@@ -68,10 +68,10 @@ where b.EntityNumber = {DOS_ID}'''
     def refund_db_check(self,transaction_id):
             EVPW = os.getenv('DBPW')
             EVUN = os.getenv('DBUN')
-            date_query = f"SELECT * FROM CORP.WORKORDERPAY WHERE PaymentTransactionID ='{transaction_id}'"
+            date_query = f"Select * from [Prod_SharedServices].[metrics].[Request] where url like '%{transaction_id}%'"
             # Establish a connection to the SQL Server
             #commit test
-            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
+            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_SharedServices}; trusted_connection="yes"')
 
             # Create a cursor object to interact with the database
             print(conn)
@@ -79,7 +79,7 @@ where b.EntityNumber = {DOS_ID}'''
             print(cursor)
             cursor.execute(date_query)
             rows = cursor.fetchall()
-            print(rows)
+            print(rows[0][5])
             # Print the retrieved data
 
             for row in rows:
@@ -122,7 +122,7 @@ where b.EntityNumber = {DOS_ID}'''
         #no currently working 
         try:
             reset_transaction_verify_query = f'SELECT IS_PROCESSED FROM [Prod_NETAPPS].[dbo].[EBIENNIAL_TRANSACTION_TEMP] WHERE TRANSACTION_ID = {Invoice_Number};'
-            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
+            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_NETAPPS} ; trusted_connection="yes"')
             # Create a cursor object to interact with the database
             cursor = conn.cursor()
             # Execute query
@@ -145,7 +145,7 @@ where b.EntityNumber = {DOS_ID}'''
 Sandbox = Sandbox()
 #Sandbox.database_connect(2895138)
 #Sandbox.env_vars()
-Sandbox.refund_db_check('250823C18-BDEA6FE1-F4E7-48FD-AB99-47943E353333')
+Sandbox.refund_db_check('241023C1D-CD741BC3-90B4-4D01-AE15-23287227B809')
 #Sandbox.send_log()
 #Sandbox.reset_transaction_verify(502912)
 #Sandbox.run_reprocess_url('')

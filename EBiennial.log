@@ -1,56 +1,49 @@
-2023-08-30 16:14:19,246 - WARNING - Began EBiennial Reprocessing
-2023-08-30 16:14:19,246 - INFO - Retrieving Attachments
-2023-08-30 16:14:19,246 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (08/30/2023 12:00:00 AM - 08/30/2023 03:59:59 PM)%'
-2023-08-30 16:14:21,118 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (08/30/2023 12:00:00 AM - 08/30/2023 03:59:59 PM)
-2023-08-30 16:14:21,119 - DEBUG - Sender: - Interface Team
-2023-08-30 16:14:21,119 - DEBUG - Received Time: - 2023-08-30 16:12:07.121000+00:00
-2023-08-30 16:14:21,167 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-08-30_Summary.xlsx
-2023-08-30 16:14:21,179 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-08-30_Discrepancy.xlsx
-2023-08-30 16:14:21,182 - INFO - extracting data from saved attachments
-2023-08-30 16:14:21,778 - INFO - checking Summary
-2023-08-30 16:14:21,780 - DEBUG - All values are SALE
-2023-08-30 16:14:21,780 - INFO - reading data From Discrepancy
-2023-08-30 16:14:21,787 - DEBUG - Reading data from: - Ebiennial PaymentReport_2023-08-30_Discrepancy.xlsx
-2023-08-30 16:14:21,788 - DEBUG - transaction found: - 300823O3B-F87A54CC-F74B-4DAE-8142-2CEEA189EDEE,552346,SALE
-2023-08-30 16:14:21,788 - DEBUG - transaction found: - 300823C19-9A40EB98-AEFA-459F-A54C-B622151900E2,552914,SALE
-2023-08-30 16:14:21,938 - INFO - checking Summary
-2023-08-30 16:14:21,939 - DEBUG - All values are SALE
-2023-08-30 16:14:21,939 - INFO - Reprocessing EBiennial Transactions
-2023-08-30 16:14:21,939 - INFO - Building Objects
-2023-08-30 16:14:21,939 - INFO - -------------------------------------------------------
-2023-08-30 16:14:21,939 - INFO - Running URL Query
-2023-08-30 16:15:08,304 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Markowitz&ssl_phone=9172427589&ssl_approval_code=01276G&ssl_email=sendymark%40gmail.com&ssl_amount=9.00&ssl_avs_zip=11219&uid=42aac699-fc7c-4ecf-b64d-ca70ae90546d&ssl_exp_date=0328&ssl_card_short_description=VISA&merchant_defined_data2=6218942&merchant_defined_data1=552346&ssl_country=USA&ssl_avs_address=1529+47st&ssl_state=NY&ssl_city=Brooklyn&ssl_first_name=Sendy&ssl_invoice_number=552346&application_profile_id=2&ssl_txn_id=300823O3B-F87A54CC-F74B-4DAE-8142-2CEEA189EDEE&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********8315&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=08%2f30%2f2023+07%3a47%3a09+AM&Uid=d2343680-90eb-41d5-bc49-66143b004091
-2023-08-30 16:15:08,304 - INFO - Extracting DOS ID
-2023-08-30 16:15:08,304 - DEBUG - DOS ID found: - 6218942
-2023-08-30 16:15:08,304 - INFO - Running Date Query
-2023-08-30 16:15:09,235 - DEBUG - date found for 6218942: - 2023-08-30
-2023-08-30 16:15:09,235 - INFO - Building reprocess URL
-2023-08-30 16:15:09,235 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Markowitz&ssl_phone=9172427589&ssl_approval_code=01276G&ssl_email=sendymark%40gmail.com&ssl_amount=9.00&ssl_avs_zip=11219&uid=42aac699-fc7c-4ecf-b64d-ca70ae90546d&ssl_exp_date=0328&ssl_card_short_description=VISA&merchant_defined_data2=6218942&merchant_defined_data1=552346&ssl_country=USA&ssl_avs_address=1529+47st&ssl_state=NY&ssl_city=Brooklyn&ssl_first_name=Sendy&ssl_invoice_number=552346&application_profile_id=2&ssl_txn_id=300823O3B-F87A54CC-F74B-4DAE-8142-2CEEA189EDEE&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********8315&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=08%2f30%2f2023+07%3a47%3a09+AM&Uid=d2343680-90eb-41d5-bc49-66143b004091
-2023-08-30 16:15:09,235 - INFO - Assigning Actions
-2023-08-30 16:15:09,236 - INFO - Checking for Refund 
-2023-08-30 16:15:09,704 - DEBUG - Empty Refund
-2023-08-30 16:15:09,704 - DEBUG - Action for transaction ID:300823O3B-F87A54CC-F74B-4DAE-8142-2CEEA189EDEE - Refund
-2023-08-30 16:15:09,704 - INFO - -------------------------------------------------------
-2023-08-30 16:15:09,704 - INFO - Running URL Query
-2023-08-30 16:15:52,619 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Saperston&ssl_approval_code=55595Z&ssl_email=jstearns%40saperstonmanagement.com&ssl_amount=9.00&ssl_avs_zip=34239&uid=648b35d7-fdb2-4363-8445-6ed578921ee6&ssl_exp_date=0626&ssl_card_short_description=MC&merchant_defined_data2=5223121&merchant_defined_data1=552914&ssl_country=USA&ssl_avs_address=1966+Hillview+Street&ssl_state=florida&ssl_city=Sarasota&ssl_first_name=Karen&ssl_invoice_number=552914&application_profile_id=2&ssl_txn_id=300823C19-9A40EB98-AEFA-459F-A54C-B622151900E2&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=51**********8406&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=08%2f30%2f2023+01%3a28%3a53+PM&Uid=90439766-2f13-40b3-9400-4020836d1284
-2023-08-30 16:15:52,619 - INFO - Extracting DOS ID
-2023-08-30 16:15:52,619 - DEBUG - DOS ID found: - 5223121
-2023-08-30 16:15:52,619 - INFO - Running Date Query
-2023-08-30 16:15:54,246 - DEBUG - date found for 5223121: - 2018-01-26
-2023-08-30 16:15:54,246 - INFO - Building reprocess URL
-2023-08-30 16:15:54,246 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Saperston&ssl_approval_code=55595Z&ssl_email=jstearns%40saperstonmanagement.com&ssl_amount=9.00&ssl_avs_zip=34239&uid=648b35d7-fdb2-4363-8445-6ed578921ee6&ssl_exp_date=0626&ssl_card_short_description=MC&merchant_defined_data2=5223121&merchant_defined_data1=552914&ssl_country=USA&ssl_avs_address=1966+Hillview+Street&ssl_state=florida&ssl_city=Sarasota&ssl_first_name=Karen&ssl_invoice_number=552914&application_profile_id=2&ssl_txn_id=300823C19-9A40EB98-AEFA-459F-A54C-B622151900E2&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=51**********8406&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=08%2f30%2f2023+01%3a28%3a53+PM&Uid=90439766-2f13-40b3-9400-4020836d1284
-2023-08-30 16:15:54,247 - INFO - Assigning Actions
-2023-08-30 16:15:54,248 - DEBUG - Action for transaction ID:300823C19-9A40EB98-AEFA-459F-A54C-B622151900E2 - Process
-2023-08-30 16:15:54,248 - WARNING - reseting transaction
-2023-08-30 16:15:54,291 - DEBUG - Reset Successful for invoice number :552914
-2023-08-30 16:15:54,292 - INFO - Running Date Query
-2023-08-30 16:15:55,881 - DEBUG - date found for 5223121: - 2018-01-26
-2023-08-30 16:15:55,881 - CRITICAL - reprocessing Failed: Old Date2018-01-26 New date: 2018-01-26
-2023-08-30 16:15:55,881 - INFO - -------------------------------------------------------
-2023-08-30 16:15:55,881 - INFO - Sending Email
-2023-08-30 16:15:56,058 - DEBUG - 300823O3B-F87A54CC-F74B-4DAE-8142-2CEEA189EDEE,Refund
-2023-08-30 16:15:56,058 - DEBUG - 300823C19-9A40EB98-AEFA-459F-A54C-B622151900E2,Process
-2023-08-30 16:15:56,093 - INFO - Email Sent
-2023-08-30 16:15:56,093 - INFO - Removing Saved files
-2023-08-30 16:15:56,096 - DEBUG - Total Files Deleted:  - 2
-2023-08-30 16:15:56,096 - WARNING - EBiennial Reprocessing Complete
+2023-11-28 10:27:15,323 - WARNING - Began EBiennial Reprocessing
+2023-11-28 10:27:15,323 - INFO - Retrieving Attachments
+2023-11-28 10:27:15,323 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (11/27/2023 12:00:00 AM - 11/27/2023 11:59:59 PM)%'
+2023-11-28 10:27:16,325 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (11/27/2023 12:00:00 AM - 11/27/2023 11:59:59 PM)
+2023-11-28 10:27:16,325 - DEBUG - Sender: - Interface Team
+2023-11-28 10:27:16,325 - DEBUG - Received Time: - 2023-11-28 09:11:50.484000+00:00
+2023-11-28 10:27:16,382 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-11-28_Summary.xlsx
+2023-11-28 10:27:16,399 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-11-28_Discrepancy.xlsx
+2023-11-28 10:27:16,402 - INFO - extracting data from saved attachments
+2023-11-28 10:27:16,969 - INFO - checking Summary
+2023-11-28 10:27:16,970 - DEBUG - All values are SALE
+2023-11-28 10:27:16,970 - INFO - reading data From Discrepancy
+2023-11-28 10:27:16,981 - DEBUG - Reading data from: - Ebiennial PaymentReport_2023-11-28_Discrepancy.xlsx
+2023-11-28 10:27:16,981 - DEBUG - transaction found: - 271123O18-60C471F2-B252-4E6E-BF15-2D7ABED08DD4,630040,RETURN
+2023-11-28 10:27:16,982 - DEBUG - transaction found: - 271123C1B-D4FE3E0A-9D1A-4617-99BA-BD4656829E75,630628,AUTHONLY
+2023-11-28 10:27:16,982 - DEBUG - transaction found: - 271123C18-B0C51A27-BD2A-4503-88DA-6ACC73F11B9F,630857,SALE
+2023-11-28 10:27:17,128 - INFO - checking Summary
+2023-11-28 10:27:17,129 - DEBUG - All values are SALE
+2023-11-28 10:27:17,129 - INFO - Reprocessing EBiennial Transactions
+2023-11-28 10:27:17,129 - INFO - Building Objects
+2023-11-28 10:27:17,129 - INFO - -------------------------------------------------------
+2023-11-28 10:27:17,129 - DEBUG - no action needed: - RETURN
+2023-11-28 10:27:17,129 - INFO - -------------------------------------------------------
+2023-11-28 10:27:17,129 - DEBUG - no action needed: - AUTHONLY
+2023-11-28 10:27:17,129 - INFO - -------------------------------------------------------
+2023-11-28 10:27:17,129 - INFO - Running URL Query
+2023-11-28 10:28:07,195 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Tapia&ssl_company=Approved+Tax+Solutions%2c+Inc.&ssl_phone=7187727063&ssl_approval_code=770177&ssl_email=approved1040%40gmail.com&ssl_amount=9.00&ssl_avs_zip=10704&uid=4f891791-9f54-446c-8b64-4e1e39353556&ssl_exp_date=0328&ssl_card_short_description=MC&ssl_address2=5B&merchant_defined_data2=6336425&merchant_defined_data1=630857&ssl_country=USA&ssl_avs_address=55+Halley+St&ssl_state=NY&ssl_city=Yonkers&ssl_first_name=Carlos&ssl_invoice_number=630857&application_profile_id=2&ssl_txn_id=271123C18-B0C51A27-BD2A-4503-88DA-6ACC73F11B9F&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=55**********0786&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=11%2f27%2f2023+05%3a16%3a47+PM&Uid=810f31c2-ad5d-4390-9628-0d332bd8d74b
+2023-11-28 10:28:07,195 - INFO - Extracting DOS ID
+2023-11-28 10:28:07,195 - DEBUG - DOS ID found: - 6336425
+2023-11-28 10:28:07,195 - INFO - Running Date Query
+2023-11-28 10:28:08,182 - DEBUG - date found for 6336425: - 2021-11-27
+2023-11-28 10:28:08,182 - INFO - Building reprocess URL
+2023-11-28 10:28:08,182 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Tapia&ssl_company=Approved+Tax+Solutions%2c+Inc.&ssl_phone=7187727063&ssl_approval_code=770177&ssl_email=approved1040%40gmail.com&ssl_amount=9.00&ssl_avs_zip=10704&uid=4f891791-9f54-446c-8b64-4e1e39353556&ssl_exp_date=0328&ssl_card_short_description=MC&ssl_address2=5B&merchant_defined_data2=6336425&merchant_defined_data1=630857&ssl_country=USA&ssl_avs_address=55+Halley+St&ssl_state=NY&ssl_city=Yonkers&ssl_first_name=Carlos&ssl_invoice_number=630857&application_profile_id=2&ssl_txn_id=271123C18-B0C51A27-BD2A-4503-88DA-6ACC73F11B9F&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=55**********0786&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=11%2f27%2f2023+05%3a16%3a47+PM&Uid=810f31c2-ad5d-4390-9628-0d332bd8d74b
+2023-11-28 10:28:08,182 - INFO - Assigning Actions
+2023-11-28 10:28:08,182 - DEBUG - Action for transaction ID:271123C18-B0C51A27-BD2A-4503-88DA-6ACC73F11B9F - Process
+2023-11-28 10:28:08,182 - WARNING - reseting transaction
+2023-11-28 10:28:08,242 - DEBUG - Reset Successful for invoice number :630857
+2023-11-28 10:28:08,243 - INFO - Running Date Query
+2023-11-28 10:28:09,116 - DEBUG - date found for 6336425: - 2021-11-27
+2023-11-28 10:28:09,116 - CRITICAL - reprocessing Failed: Old Date2021-11-27 New date: 2021-11-27
+2023-11-28 10:28:09,116 - INFO - -------------------------------------------------------
+2023-11-28 10:28:09,116 - INFO - Sending Email
+2023-11-28 10:28:09,292 - DEBUG - 271123O18-60C471F2-B252-4E6E-BF15-2D7ABED08DD4,No Action
+2023-11-28 10:28:09,292 - DEBUG - 271123C1B-D4FE3E0A-9D1A-4617-99BA-BD4656829E75,No Action
+2023-11-28 10:28:09,292 - DEBUG - 271123C18-B0C51A27-BD2A-4503-88DA-6ACC73F11B9F,Process
+2023-11-28 10:28:09,324 - INFO - Email Sent
+2023-11-28 10:28:09,324 - INFO - Removing Saved files
+2023-11-28 10:28:09,324 - DEBUG - Total Files Deleted:  - 2
+2023-11-28 10:28:09,324 - WARNING - EBiennial Reprocessing Complete

@@ -82,15 +82,17 @@ class EBiennial_emails_processing:
                         sumfile_name = folder[-1]
                         sum_file_path = os.path.join(folder_path, sumfile_name)
                         sumdata_frame = pd.read_excel(sum_file_path, skiprows=3)
-                        sumheaderlist=["Transaction Type"] 
+                        sumheaderlist=["Transaction Type","Error Message"] 
                         self.logger.info("checking Summary")
                         headers=sumdata_frame.columns.to_list()
                         for header in headers:
                             if header in sumheaderlist:
                                 sumcolumndata = sumdata_frame[header].tolist()
                                 for sumvalue in sumcolumndata:
+
                                     if pd.isna(sumvalue): # Check if value is blank
                                         break
+                                    
                                     if sumvalue != "SALE":
                                         index = sumcolumndata.index(sumvalue)
                                         self.non_sale_sum_transaction_indexs.append(index)
