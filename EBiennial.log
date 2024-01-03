@@ -1,49 +1,167 @@
-2023-11-28 10:27:15,323 - WARNING - Began EBiennial Reprocessing
-2023-11-28 10:27:15,323 - INFO - Retrieving Attachments
-2023-11-28 10:27:15,323 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (11/27/2023 12:00:00 AM - 11/27/2023 11:59:59 PM)%'
-2023-11-28 10:27:16,325 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (11/27/2023 12:00:00 AM - 11/27/2023 11:59:59 PM)
-2023-11-28 10:27:16,325 - DEBUG - Sender: - Interface Team
-2023-11-28 10:27:16,325 - DEBUG - Received Time: - 2023-11-28 09:11:50.484000+00:00
-2023-11-28 10:27:16,382 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-11-28_Summary.xlsx
-2023-11-28 10:27:16,399 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2023-11-28_Discrepancy.xlsx
-2023-11-28 10:27:16,402 - INFO - extracting data from saved attachments
-2023-11-28 10:27:16,969 - INFO - checking Summary
-2023-11-28 10:27:16,970 - DEBUG - All values are SALE
-2023-11-28 10:27:16,970 - INFO - reading data From Discrepancy
-2023-11-28 10:27:16,981 - DEBUG - Reading data from: - Ebiennial PaymentReport_2023-11-28_Discrepancy.xlsx
-2023-11-28 10:27:16,981 - DEBUG - transaction found: - 271123O18-60C471F2-B252-4E6E-BF15-2D7ABED08DD4,630040,RETURN
-2023-11-28 10:27:16,982 - DEBUG - transaction found: - 271123C1B-D4FE3E0A-9D1A-4617-99BA-BD4656829E75,630628,AUTHONLY
-2023-11-28 10:27:16,982 - DEBUG - transaction found: - 271123C18-B0C51A27-BD2A-4503-88DA-6ACC73F11B9F,630857,SALE
-2023-11-28 10:27:17,128 - INFO - checking Summary
-2023-11-28 10:27:17,129 - DEBUG - All values are SALE
-2023-11-28 10:27:17,129 - INFO - Reprocessing EBiennial Transactions
-2023-11-28 10:27:17,129 - INFO - Building Objects
-2023-11-28 10:27:17,129 - INFO - -------------------------------------------------------
-2023-11-28 10:27:17,129 - DEBUG - no action needed: - RETURN
-2023-11-28 10:27:17,129 - INFO - -------------------------------------------------------
-2023-11-28 10:27:17,129 - DEBUG - no action needed: - AUTHONLY
-2023-11-28 10:27:17,129 - INFO - -------------------------------------------------------
-2023-11-28 10:27:17,129 - INFO - Running URL Query
-2023-11-28 10:28:07,195 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Tapia&ssl_company=Approved+Tax+Solutions%2c+Inc.&ssl_phone=7187727063&ssl_approval_code=770177&ssl_email=approved1040%40gmail.com&ssl_amount=9.00&ssl_avs_zip=10704&uid=4f891791-9f54-446c-8b64-4e1e39353556&ssl_exp_date=0328&ssl_card_short_description=MC&ssl_address2=5B&merchant_defined_data2=6336425&merchant_defined_data1=630857&ssl_country=USA&ssl_avs_address=55+Halley+St&ssl_state=NY&ssl_city=Yonkers&ssl_first_name=Carlos&ssl_invoice_number=630857&application_profile_id=2&ssl_txn_id=271123C18-B0C51A27-BD2A-4503-88DA-6ACC73F11B9F&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=55**********0786&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=11%2f27%2f2023+05%3a16%3a47+PM&Uid=810f31c2-ad5d-4390-9628-0d332bd8d74b
-2023-11-28 10:28:07,195 - INFO - Extracting DOS ID
-2023-11-28 10:28:07,195 - DEBUG - DOS ID found: - 6336425
-2023-11-28 10:28:07,195 - INFO - Running Date Query
-2023-11-28 10:28:08,182 - DEBUG - date found for 6336425: - 2021-11-27
-2023-11-28 10:28:08,182 - INFO - Building reprocess URL
-2023-11-28 10:28:08,182 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Tapia&ssl_company=Approved+Tax+Solutions%2c+Inc.&ssl_phone=7187727063&ssl_approval_code=770177&ssl_email=approved1040%40gmail.com&ssl_amount=9.00&ssl_avs_zip=10704&uid=4f891791-9f54-446c-8b64-4e1e39353556&ssl_exp_date=0328&ssl_card_short_description=MC&ssl_address2=5B&merchant_defined_data2=6336425&merchant_defined_data1=630857&ssl_country=USA&ssl_avs_address=55+Halley+St&ssl_state=NY&ssl_city=Yonkers&ssl_first_name=Carlos&ssl_invoice_number=630857&application_profile_id=2&ssl_txn_id=271123C18-B0C51A27-BD2A-4503-88DA-6ACC73F11B9F&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=55**********0786&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=11%2f27%2f2023+05%3a16%3a47+PM&Uid=810f31c2-ad5d-4390-9628-0d332bd8d74b
-2023-11-28 10:28:08,182 - INFO - Assigning Actions
-2023-11-28 10:28:08,182 - DEBUG - Action for transaction ID:271123C18-B0C51A27-BD2A-4503-88DA-6ACC73F11B9F - Process
-2023-11-28 10:28:08,182 - WARNING - reseting transaction
-2023-11-28 10:28:08,242 - DEBUG - Reset Successful for invoice number :630857
-2023-11-28 10:28:08,243 - INFO - Running Date Query
-2023-11-28 10:28:09,116 - DEBUG - date found for 6336425: - 2021-11-27
-2023-11-28 10:28:09,116 - CRITICAL - reprocessing Failed: Old Date2021-11-27 New date: 2021-11-27
-2023-11-28 10:28:09,116 - INFO - -------------------------------------------------------
-2023-11-28 10:28:09,116 - INFO - Sending Email
-2023-11-28 10:28:09,292 - DEBUG - 271123O18-60C471F2-B252-4E6E-BF15-2D7ABED08DD4,No Action
-2023-11-28 10:28:09,292 - DEBUG - 271123C1B-D4FE3E0A-9D1A-4617-99BA-BD4656829E75,No Action
-2023-11-28 10:28:09,292 - DEBUG - 271123C18-B0C51A27-BD2A-4503-88DA-6ACC73F11B9F,Process
-2023-11-28 10:28:09,324 - INFO - Email Sent
-2023-11-28 10:28:09,324 - INFO - Removing Saved files
-2023-11-28 10:28:09,324 - DEBUG - Total Files Deleted:  - 2
-2023-11-28 10:28:09,324 - WARNING - EBiennial Reprocessing Complete
+2024-01-03 09:32:24,699 - WARNING - Began EBiennial Reprocessing
+2024-01-03 09:32:24,699 - INFO - Retrieving Attachments
+2024-01-03 09:32:24,699 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (01/02/2024 12:00:00 AM - 01/02/2024 11:59:59 PM)%'
+2024-01-03 09:32:25,669 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (01/02/2024 12:00:00 AM - 01/02/2024 11:59:59 PM)
+2024-01-03 09:32:25,669 - DEBUG - Sender: - Interface Team
+2024-01-03 09:32:25,669 - DEBUG - Received Time: - 2024-01-03 09:13:28.284000+00:00
+2024-01-03 09:32:25,729 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2024-01-03_Summary.xlsx
+2024-01-03 09:32:25,744 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2024-01-03_Discrepancy.xlsx
+2024-01-03 09:32:25,748 - INFO - extracting data from saved attachments
+2024-01-03 09:32:26,966 - INFO - checking Summary
+2024-01-03 09:32:26,969 - WARNING - Transaction type is not SALE | Current Value is : 'nan'
+2024-01-03 09:32:26,969 - DEBUG - Checking for payment data in DB for transaction 020124C1C-E1AE8574-C0B4-4940-B562-72FC38AEC027
+2024-01-03 09:32:26,969 - INFO - Checking for Payment data
+2024-01-03 09:32:27,770 - DEBUG - Data Found convert to sale
+2024-01-03 09:32:27,770 - WARNING - Transaction type is not SALE | Current Value is : 'nan'
+2024-01-03 09:32:27,770 - DEBUG - Checking for payment data in DB for transaction 020124C1C-E1AE8574-C0B4-4940-B562-72FC38AEC027
+2024-01-03 09:32:27,770 - INFO - Checking for Payment data
+2024-01-03 09:32:28,004 - DEBUG - Data Found convert to sale
+2024-01-03 09:32:28,004 - INFO - reading data From Discrepancy
+2024-01-03 09:32:28,020 - DEBUG - Reading data from: - Ebiennial PaymentReport_2024-01-03_Discrepancy.xlsx
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O18-606BC6F7-B185-4C3C-9645-9BE644D2FF77,660447,RETURN
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O18-6ABB86BA-4C59-4CD6-9175-8F7BA073C8EB,660448,RETURN
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O13-FC66FDFC-819A-4D17-BAAF-F3EC23BF6D1C,661826,RETURN
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O2C-8033D47E-C47D-4C3D-88A8-D179D1F05554,663560,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O10-E24713FD-8D83-41D2-BA09-BEA4D540B30C,663555,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O39-CB5791E0-5D19-446F-8E24-CD77044C6401,663566,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O39-685CB962-2F35-41C7-BE02-9B90048B70C8,663559,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C18-71626A6C-B2C7-42A8-B0C8-9702637E0639,663558,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O2C-15E4D2FE-A9E4-4696-A14D-D8DFEC8B73E7,663564,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C1D-AD8B23A6-C591-4843-A13C-FE16D10CD628,663582,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O18-F3D46BF4-43E9-435F-ADBC-B9A96E9E66F9,663579,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O2D-3AC4F5E8-2B96-4AE0-BC2E-2B005983D2C2,663588,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C1D-C698B69C-8FC1-409A-B226-2CCF7B45722C,663569,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C2A-817B7AC8-45B5-4B7F-AA29-51754BDDD2AE,663587,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C29-7F307B09-3155-4008-849C-506F079B1596,663599,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C19-EF358D0E-D1DB-41A7-B679-413F561FA2AC,663596,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C19-14710F1E-5497-4CE2-9DD4-800AF57CF5D2,665883,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C1C-A92FC620-B2B2-46BA-9F36-7D4643335F00,665879,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C1B-A7DE79C2-0016-4043-8108-0D84B27B1349,665875,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C1A-AEB7A684-7B21-4DBE-928C-BDA12C4BDA2E,663411,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C2B-4AC14809-C375-4BAC-8665-F0431F8C4F3C,663593,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C29-C6407DA7-3D5A-4F87-84C0-0C5836F55BD1,663677,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C29-A78CC6E3-7548-4DDF-A016-577CF1626AEE,664452,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O17-35D9C181-C72B-415E-9CEF-DF74ADAA9864,663586,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O13-2C2589AC-B7F1-459E-BD03-A2C67170CA6D,663572,VOID
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C1D-1995C303-4671-4722-9483-EFC6A004C9E1,666796,SALE
+2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C2B-17B87402-44EB-432E-AF5C-737CF1285B60,667013,AUTHONLY
+2024-01-03 09:32:28,723 - INFO - checking Summary
+2024-01-03 09:32:28,723 - WARNING - Transaction type is not SALE | Current Value is : 'nan'
+2024-01-03 09:32:28,723 - DEBUG - Checking for payment data in DB for transaction 020124C1C-E1AE8574-C0B4-4940-B562-72FC38AEC027
+2024-01-03 09:32:28,723 - INFO - Checking for Payment data
+2024-01-03 09:32:29,025 - DEBUG - Data Found convert to sale
+2024-01-03 09:32:29,025 - WARNING - Transaction type is not SALE | Current Value is : 'nan'
+2024-01-03 09:32:29,025 - DEBUG - Checking for payment data in DB for transaction 020124C1C-E1AE8574-C0B4-4940-B562-72FC38AEC027
+2024-01-03 09:32:29,025 - INFO - Checking for Payment data
+2024-01-03 09:32:29,332 - DEBUG - Data Found convert to sale
+2024-01-03 09:32:29,332 - WARNING - Transaction type is not SALE | Current Value is : 'nan'
+2024-01-03 09:32:29,332 - DEBUG - Checking for payment data in DB for transaction 020124C1C-E1AE8574-C0B4-4940-B562-72FC38AEC027
+2024-01-03 09:32:29,332 - INFO - Checking for Payment data
+2024-01-03 09:32:29,614 - DEBUG - Data Found convert to sale
+2024-01-03 09:32:29,614 - WARNING - Transaction type is not SALE | Current Value is : 'nan'
+2024-01-03 09:32:29,614 - DEBUG - Checking for payment data in DB for transaction 020124C1C-E1AE8574-C0B4-4940-B562-72FC38AEC027
+2024-01-03 09:32:29,614 - INFO - Checking for Payment data
+2024-01-03 09:32:29,900 - DEBUG - Data Found convert to sale
+2024-01-03 09:32:29,900 - INFO - Reprocessing EBiennial Transactions
+2024-01-03 09:32:29,901 - INFO - Building Objects
+2024-01-03 09:32:29,901 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,901 - DEBUG - no action needed: - RETURN
+2024-01-03 09:32:29,901 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,901 - DEBUG - no action needed: - RETURN
+2024-01-03 09:32:29,901 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,901 - DEBUG - no action needed: - RETURN
+2024-01-03 09:32:29,901 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,901 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,901 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,901 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,901 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,901 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,901 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,901 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,901 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,901 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,903 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,903 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,903 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,903 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,903 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,903 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,903 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,903 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,903 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,903 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,903 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,903 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,903 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,903 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,903 - DEBUG - no action needed: - VOID
+2024-01-03 09:32:29,903 - INFO - -------------------------------------------------------
+2024-01-03 09:32:29,903 - INFO - Running URL Query
+2024-01-03 09:33:27,021 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=EFARMS&ssl_company=Wolters+Kluwer&ssl_phone=5164910183&ssl_approval_code=003398&ssl_email=CLS-CTARMSEvidence%40wolterskluwer.com&ssl_amount=9.00&ssl_avs_zip=10005&uid=ae7fafd7-ce7c-469d-b3e3-a97d8b0de679&ssl_exp_date=0626&ssl_card_short_description=MC&merchant_defined_data2=2718123&merchant_defined_data1=666796&ssl_country=USA&ssl_avs_address=28+Liberty+Street&ssl_state=NY&ssl_city=New+York&ssl_first_name=FCOE&ssl_invoice_number=666796&application_profile_id=2&ssl_txn_id=020124C1D-1995C303-4671-4722-9483-EFC6A004C9E1&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=54**********5613&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=01%2f02%2f2024+06%3a29%3a10+PM&Uid=11f33a3e-d2ee-42fb-b537-78fa8b3f7369
+2024-01-03 09:33:27,021 - INFO - Extracting DOS ID
+2024-01-03 09:33:27,021 - DEBUG - DOS ID found: - 2718123
+2024-01-03 09:33:27,021 - INFO - Running Date Query
+2024-01-03 09:33:28,129 - DEBUG - date found for 2718123: - 2022-08-24
+2024-01-03 09:33:28,129 - INFO - Building reprocess URL
+2024-01-03 09:33:28,129 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=EFARMS&ssl_company=Wolters+Kluwer&ssl_phone=5164910183&ssl_approval_code=003398&ssl_email=CLS-CTARMSEvidence%40wolterskluwer.com&ssl_amount=9.00&ssl_avs_zip=10005&uid=ae7fafd7-ce7c-469d-b3e3-a97d8b0de679&ssl_exp_date=0626&ssl_card_short_description=MC&merchant_defined_data2=2718123&merchant_defined_data1=666796&ssl_country=USA&ssl_avs_address=28+Liberty+Street&ssl_state=NY&ssl_city=New+York&ssl_first_name=FCOE&ssl_invoice_number=666796&application_profile_id=2&ssl_txn_id=020124C1D-1995C303-4671-4722-9483-EFC6A004C9E1&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=54**********5613&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=01%2f02%2f2024+06%3a29%3a10+PM&Uid=11f33a3e-d2ee-42fb-b537-78fa8b3f7369
+2024-01-03 09:33:28,129 - INFO - Assigning Actions
+2024-01-03 09:33:28,129 - DEBUG - Action for transaction ID:020124C1D-1995C303-4671-4722-9483-EFC6A004C9E1 - Process
+2024-01-03 09:33:28,129 - WARNING - reseting transaction
+2024-01-03 09:33:28,185 - DEBUG - Reset Successful for invoice number :666796
+2024-01-03 09:33:28,186 - INFO - Running Date Query
+2024-01-03 09:33:29,052 - DEBUG - date found for 2718123: - 2022-08-24
+2024-01-03 09:33:29,052 - CRITICAL - reprocessing Failed: Old Date2022-08-24 New date: 2022-08-24
+2024-01-03 09:33:29,052 - INFO - -------------------------------------------------------
+2024-01-03 09:33:29,052 - DEBUG - no action needed: - AUTHONLY
+2024-01-03 09:33:29,052 - INFO - -------------------------------------------------------
+2024-01-03 09:33:29,052 - INFO - Sending Email
+2024-01-03 09:33:29,763 - DEBUG - 020124O18-606BC6F7-B185-4C3C-9645-9BE644D2FF77,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124O18-6ABB86BA-4C59-4CD6-9175-8F7BA073C8EB,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124O13-FC66FDFC-819A-4D17-BAAF-F3EC23BF6D1C,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124O2C-8033D47E-C47D-4C3D-88A8-D179D1F05554,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124O10-E24713FD-8D83-41D2-BA09-BEA4D540B30C,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124O39-CB5791E0-5D19-446F-8E24-CD77044C6401,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124O39-685CB962-2F35-41C7-BE02-9B90048B70C8,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124C18-71626A6C-B2C7-42A8-B0C8-9702637E0639,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124O2C-15E4D2FE-A9E4-4696-A14D-D8DFEC8B73E7,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124C1D-AD8B23A6-C591-4843-A13C-FE16D10CD628,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124O18-F3D46BF4-43E9-435F-ADBC-B9A96E9E66F9,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124O2D-3AC4F5E8-2B96-4AE0-BC2E-2B005983D2C2,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124C1D-C698B69C-8FC1-409A-B226-2CCF7B45722C,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124C2A-817B7AC8-45B5-4B7F-AA29-51754BDDD2AE,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124C29-7F307B09-3155-4008-849C-506F079B1596,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124C19-EF358D0E-D1DB-41A7-B679-413F561FA2AC,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124C19-14710F1E-5497-4CE2-9DD4-800AF57CF5D2,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124C1C-A92FC620-B2B2-46BA-9F36-7D4643335F00,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124C1B-A7DE79C2-0016-4043-8108-0D84B27B1349,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124C1A-AEB7A684-7B21-4DBE-928C-BDA12C4BDA2E,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124C2B-4AC14809-C375-4BAC-8665-F0431F8C4F3C,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124C29-C6407DA7-3D5A-4F87-84C0-0C5836F55BD1,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124C29-A78CC6E3-7548-4DDF-A016-577CF1626AEE,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124O17-35D9C181-C72B-415E-9CEF-DF74ADAA9864,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124O13-2C2589AC-B7F1-459E-BD03-A2C67170CA6D,No Action
+2024-01-03 09:33:29,763 - DEBUG - 020124C1D-1995C303-4671-4722-9483-EFC6A004C9E1,Process
+2024-01-03 09:33:29,763 - DEBUG - 020124C2B-17B87402-44EB-432E-AF5C-737CF1285B60,No Action
+2024-01-03 09:33:29,848 - INFO - Email Sent
+2024-01-03 09:33:29,848 - INFO - Removing Saved files
+2024-01-03 09:33:29,852 - DEBUG - Total Files Deleted:  - 2
+2024-01-03 09:33:29,852 - WARNING - EBiennial Reprocessing Complete
