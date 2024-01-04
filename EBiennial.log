@@ -1,167 +1,107 @@
-2024-01-03 09:32:24,699 - WARNING - Began EBiennial Reprocessing
-2024-01-03 09:32:24,699 - INFO - Retrieving Attachments
-2024-01-03 09:32:24,699 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (01/02/2024 12:00:00 AM - 01/02/2024 11:59:59 PM)%'
-2024-01-03 09:32:25,669 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (01/02/2024 12:00:00 AM - 01/02/2024 11:59:59 PM)
-2024-01-03 09:32:25,669 - DEBUG - Sender: - Interface Team
-2024-01-03 09:32:25,669 - DEBUG - Received Time: - 2024-01-03 09:13:28.284000+00:00
-2024-01-03 09:32:25,729 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2024-01-03_Summary.xlsx
-2024-01-03 09:32:25,744 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2024-01-03_Discrepancy.xlsx
-2024-01-03 09:32:25,748 - INFO - extracting data from saved attachments
-2024-01-03 09:32:26,966 - INFO - checking Summary
-2024-01-03 09:32:26,969 - WARNING - Transaction type is not SALE | Current Value is : 'nan'
-2024-01-03 09:32:26,969 - DEBUG - Checking for payment data in DB for transaction 020124C1C-E1AE8574-C0B4-4940-B562-72FC38AEC027
-2024-01-03 09:32:26,969 - INFO - Checking for Payment data
-2024-01-03 09:32:27,770 - DEBUG - Data Found convert to sale
-2024-01-03 09:32:27,770 - WARNING - Transaction type is not SALE | Current Value is : 'nan'
-2024-01-03 09:32:27,770 - DEBUG - Checking for payment data in DB for transaction 020124C1C-E1AE8574-C0B4-4940-B562-72FC38AEC027
-2024-01-03 09:32:27,770 - INFO - Checking for Payment data
-2024-01-03 09:32:28,004 - DEBUG - Data Found convert to sale
-2024-01-03 09:32:28,004 - INFO - reading data From Discrepancy
-2024-01-03 09:32:28,020 - DEBUG - Reading data from: - Ebiennial PaymentReport_2024-01-03_Discrepancy.xlsx
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O18-606BC6F7-B185-4C3C-9645-9BE644D2FF77,660447,RETURN
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O18-6ABB86BA-4C59-4CD6-9175-8F7BA073C8EB,660448,RETURN
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O13-FC66FDFC-819A-4D17-BAAF-F3EC23BF6D1C,661826,RETURN
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O2C-8033D47E-C47D-4C3D-88A8-D179D1F05554,663560,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O10-E24713FD-8D83-41D2-BA09-BEA4D540B30C,663555,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O39-CB5791E0-5D19-446F-8E24-CD77044C6401,663566,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O39-685CB962-2F35-41C7-BE02-9B90048B70C8,663559,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C18-71626A6C-B2C7-42A8-B0C8-9702637E0639,663558,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O2C-15E4D2FE-A9E4-4696-A14D-D8DFEC8B73E7,663564,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C1D-AD8B23A6-C591-4843-A13C-FE16D10CD628,663582,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O18-F3D46BF4-43E9-435F-ADBC-B9A96E9E66F9,663579,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O2D-3AC4F5E8-2B96-4AE0-BC2E-2B005983D2C2,663588,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C1D-C698B69C-8FC1-409A-B226-2CCF7B45722C,663569,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C2A-817B7AC8-45B5-4B7F-AA29-51754BDDD2AE,663587,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C29-7F307B09-3155-4008-849C-506F079B1596,663599,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C19-EF358D0E-D1DB-41A7-B679-413F561FA2AC,663596,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C19-14710F1E-5497-4CE2-9DD4-800AF57CF5D2,665883,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C1C-A92FC620-B2B2-46BA-9F36-7D4643335F00,665879,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C1B-A7DE79C2-0016-4043-8108-0D84B27B1349,665875,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C1A-AEB7A684-7B21-4DBE-928C-BDA12C4BDA2E,663411,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C2B-4AC14809-C375-4BAC-8665-F0431F8C4F3C,663593,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C29-C6407DA7-3D5A-4F87-84C0-0C5836F55BD1,663677,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C29-A78CC6E3-7548-4DDF-A016-577CF1626AEE,664452,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O17-35D9C181-C72B-415E-9CEF-DF74ADAA9864,663586,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124O13-2C2589AC-B7F1-459E-BD03-A2C67170CA6D,663572,VOID
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C1D-1995C303-4671-4722-9483-EFC6A004C9E1,666796,SALE
-2024-01-03 09:32:28,020 - DEBUG - transaction found: - 020124C2B-17B87402-44EB-432E-AF5C-737CF1285B60,667013,AUTHONLY
-2024-01-03 09:32:28,723 - INFO - checking Summary
-2024-01-03 09:32:28,723 - WARNING - Transaction type is not SALE | Current Value is : 'nan'
-2024-01-03 09:32:28,723 - DEBUG - Checking for payment data in DB for transaction 020124C1C-E1AE8574-C0B4-4940-B562-72FC38AEC027
-2024-01-03 09:32:28,723 - INFO - Checking for Payment data
-2024-01-03 09:32:29,025 - DEBUG - Data Found convert to sale
-2024-01-03 09:32:29,025 - WARNING - Transaction type is not SALE | Current Value is : 'nan'
-2024-01-03 09:32:29,025 - DEBUG - Checking for payment data in DB for transaction 020124C1C-E1AE8574-C0B4-4940-B562-72FC38AEC027
-2024-01-03 09:32:29,025 - INFO - Checking for Payment data
-2024-01-03 09:32:29,332 - DEBUG - Data Found convert to sale
-2024-01-03 09:32:29,332 - WARNING - Transaction type is not SALE | Current Value is : 'nan'
-2024-01-03 09:32:29,332 - DEBUG - Checking for payment data in DB for transaction 020124C1C-E1AE8574-C0B4-4940-B562-72FC38AEC027
-2024-01-03 09:32:29,332 - INFO - Checking for Payment data
-2024-01-03 09:32:29,614 - DEBUG - Data Found convert to sale
-2024-01-03 09:32:29,614 - WARNING - Transaction type is not SALE | Current Value is : 'nan'
-2024-01-03 09:32:29,614 - DEBUG - Checking for payment data in DB for transaction 020124C1C-E1AE8574-C0B4-4940-B562-72FC38AEC027
-2024-01-03 09:32:29,614 - INFO - Checking for Payment data
-2024-01-03 09:32:29,900 - DEBUG - Data Found convert to sale
-2024-01-03 09:32:29,900 - INFO - Reprocessing EBiennial Transactions
-2024-01-03 09:32:29,901 - INFO - Building Objects
-2024-01-03 09:32:29,901 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,901 - DEBUG - no action needed: - RETURN
-2024-01-03 09:32:29,901 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,901 - DEBUG - no action needed: - RETURN
-2024-01-03 09:32:29,901 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,901 - DEBUG - no action needed: - RETURN
-2024-01-03 09:32:29,901 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,901 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,901 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,901 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,901 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,901 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,901 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,901 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,901 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,901 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,902 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,902 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,903 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,903 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,903 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,903 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,903 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,903 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,903 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,903 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,903 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,903 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,903 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,903 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,903 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,903 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,903 - DEBUG - no action needed: - VOID
-2024-01-03 09:32:29,903 - INFO - -------------------------------------------------------
-2024-01-03 09:32:29,903 - INFO - Running URL Query
-2024-01-03 09:33:27,021 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=EFARMS&ssl_company=Wolters+Kluwer&ssl_phone=5164910183&ssl_approval_code=003398&ssl_email=CLS-CTARMSEvidence%40wolterskluwer.com&ssl_amount=9.00&ssl_avs_zip=10005&uid=ae7fafd7-ce7c-469d-b3e3-a97d8b0de679&ssl_exp_date=0626&ssl_card_short_description=MC&merchant_defined_data2=2718123&merchant_defined_data1=666796&ssl_country=USA&ssl_avs_address=28+Liberty+Street&ssl_state=NY&ssl_city=New+York&ssl_first_name=FCOE&ssl_invoice_number=666796&application_profile_id=2&ssl_txn_id=020124C1D-1995C303-4671-4722-9483-EFC6A004C9E1&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=54**********5613&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=01%2f02%2f2024+06%3a29%3a10+PM&Uid=11f33a3e-d2ee-42fb-b537-78fa8b3f7369
-2024-01-03 09:33:27,021 - INFO - Extracting DOS ID
-2024-01-03 09:33:27,021 - DEBUG - DOS ID found: - 2718123
-2024-01-03 09:33:27,021 - INFO - Running Date Query
-2024-01-03 09:33:28,129 - DEBUG - date found for 2718123: - 2022-08-24
-2024-01-03 09:33:28,129 - INFO - Building reprocess URL
-2024-01-03 09:33:28,129 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=EFARMS&ssl_company=Wolters+Kluwer&ssl_phone=5164910183&ssl_approval_code=003398&ssl_email=CLS-CTARMSEvidence%40wolterskluwer.com&ssl_amount=9.00&ssl_avs_zip=10005&uid=ae7fafd7-ce7c-469d-b3e3-a97d8b0de679&ssl_exp_date=0626&ssl_card_short_description=MC&merchant_defined_data2=2718123&merchant_defined_data1=666796&ssl_country=USA&ssl_avs_address=28+Liberty+Street&ssl_state=NY&ssl_city=New+York&ssl_first_name=FCOE&ssl_invoice_number=666796&application_profile_id=2&ssl_txn_id=020124C1D-1995C303-4671-4722-9483-EFC6A004C9E1&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=54**********5613&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=01%2f02%2f2024+06%3a29%3a10+PM&Uid=11f33a3e-d2ee-42fb-b537-78fa8b3f7369
-2024-01-03 09:33:28,129 - INFO - Assigning Actions
-2024-01-03 09:33:28,129 - DEBUG - Action for transaction ID:020124C1D-1995C303-4671-4722-9483-EFC6A004C9E1 - Process
-2024-01-03 09:33:28,129 - WARNING - reseting transaction
-2024-01-03 09:33:28,185 - DEBUG - Reset Successful for invoice number :666796
-2024-01-03 09:33:28,186 - INFO - Running Date Query
-2024-01-03 09:33:29,052 - DEBUG - date found for 2718123: - 2022-08-24
-2024-01-03 09:33:29,052 - CRITICAL - reprocessing Failed: Old Date2022-08-24 New date: 2022-08-24
-2024-01-03 09:33:29,052 - INFO - -------------------------------------------------------
-2024-01-03 09:33:29,052 - DEBUG - no action needed: - AUTHONLY
-2024-01-03 09:33:29,052 - INFO - -------------------------------------------------------
-2024-01-03 09:33:29,052 - INFO - Sending Email
-2024-01-03 09:33:29,763 - DEBUG - 020124O18-606BC6F7-B185-4C3C-9645-9BE644D2FF77,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124O18-6ABB86BA-4C59-4CD6-9175-8F7BA073C8EB,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124O13-FC66FDFC-819A-4D17-BAAF-F3EC23BF6D1C,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124O2C-8033D47E-C47D-4C3D-88A8-D179D1F05554,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124O10-E24713FD-8D83-41D2-BA09-BEA4D540B30C,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124O39-CB5791E0-5D19-446F-8E24-CD77044C6401,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124O39-685CB962-2F35-41C7-BE02-9B90048B70C8,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124C18-71626A6C-B2C7-42A8-B0C8-9702637E0639,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124O2C-15E4D2FE-A9E4-4696-A14D-D8DFEC8B73E7,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124C1D-AD8B23A6-C591-4843-A13C-FE16D10CD628,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124O18-F3D46BF4-43E9-435F-ADBC-B9A96E9E66F9,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124O2D-3AC4F5E8-2B96-4AE0-BC2E-2B005983D2C2,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124C1D-C698B69C-8FC1-409A-B226-2CCF7B45722C,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124C2A-817B7AC8-45B5-4B7F-AA29-51754BDDD2AE,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124C29-7F307B09-3155-4008-849C-506F079B1596,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124C19-EF358D0E-D1DB-41A7-B679-413F561FA2AC,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124C19-14710F1E-5497-4CE2-9DD4-800AF57CF5D2,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124C1C-A92FC620-B2B2-46BA-9F36-7D4643335F00,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124C1B-A7DE79C2-0016-4043-8108-0D84B27B1349,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124C1A-AEB7A684-7B21-4DBE-928C-BDA12C4BDA2E,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124C2B-4AC14809-C375-4BAC-8665-F0431F8C4F3C,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124C29-C6407DA7-3D5A-4F87-84C0-0C5836F55BD1,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124C29-A78CC6E3-7548-4DDF-A016-577CF1626AEE,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124O17-35D9C181-C72B-415E-9CEF-DF74ADAA9864,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124O13-2C2589AC-B7F1-459E-BD03-A2C67170CA6D,No Action
-2024-01-03 09:33:29,763 - DEBUG - 020124C1D-1995C303-4671-4722-9483-EFC6A004C9E1,Process
-2024-01-03 09:33:29,763 - DEBUG - 020124C2B-17B87402-44EB-432E-AF5C-737CF1285B60,No Action
-2024-01-03 09:33:29,848 - INFO - Email Sent
-2024-01-03 09:33:29,848 - INFO - Removing Saved files
-2024-01-03 09:33:29,852 - DEBUG - Total Files Deleted:  - 2
-2024-01-03 09:33:29,852 - WARNING - EBiennial Reprocessing Complete
+2024-01-03 16:05:16,953 - WARNING - Began EBiennial Reprocessing
+2024-01-03 16:05:16,953 - INFO - Retrieving Attachments
+2024-01-03 16:05:16,954 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (01/03/2024 12:00:00 AM - 01/03/2024 03:59:59 PM)%'
+2024-01-03 16:05:17,948 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (01/03/2024 12:00:00 AM - 01/03/2024 03:59:59 PM)
+2024-01-03 16:05:17,948 - DEBUG - Sender: - Interface Team
+2024-01-03 16:05:17,948 - DEBUG - Received Time: - 2024-01-03 16:03:56.290000+00:00
+2024-01-03 16:05:18,005 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2024-01-03_Summary.xlsx
+2024-01-03 16:05:18,021 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2024-01-03_Discrepancy.xlsx
+2024-01-03 16:05:18,025 - INFO - extracting data from saved attachments
+2024-01-03 16:05:19,108 - INFO - checking Summary
+2024-01-03 16:05:19,112 - DEBUG - All values are SALE
+2024-01-03 16:05:19,113 - INFO - reading data From Discrepancy
+2024-01-03 16:05:19,121 - DEBUG - Reading data from: - Ebiennial PaymentReport_2024-01-03_Discrepancy.xlsx
+2024-01-03 16:05:19,121 - DEBUG - transaction found: - 030124C29-C08ACFA4-999A-42DA-86E1-E5725DDC6DE0,667558,SALE
+2024-01-03 16:05:19,122 - DEBUG - transaction found: - 030124O3B-E0088D6D-D3BC-4111-BC04-479072F29601,667669,SALE
+2024-01-03 16:05:19,123 - DEBUG - transaction found: - 030124C1B-9AF46680-4998-4E02-9CA7-ECA07AA3244C,668011,SALE
+2024-01-03 16:05:19,123 - DEBUG - transaction found: - 030124C2B-7A193F20-0350-4D83-A583-BD4BF7AE1BEE,667998,SALE
+2024-01-03 16:05:19,123 - DEBUG - transaction found: - 030124C1C-F7E0B889-219C-42CD-8332-97A1441239B4,668368,SALE
+2024-01-03 16:05:19,420 - INFO - checking Summary
+2024-01-03 16:05:19,420 - DEBUG - All values are SALE
+2024-01-03 16:05:19,420 - INFO - Reprocessing EBiennial Transactions
+2024-01-03 16:05:19,420 - INFO - Building Objects
+2024-01-03 16:05:19,420 - INFO - -------------------------------------------------------
+2024-01-03 16:05:19,420 - INFO - Running URL Query
+2024-01-03 16:06:38,682 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Razza&ssl_phone=9149633508&ssl_approval_code=06493G&ssl_email=gem.realty%40outlook.com&ssl_amount=9.00&ssl_avs_zip=10704&uid=8e3208b3-8367-4306-9bff-8fd8cd073078&ssl_exp_date=1228&ssl_card_short_description=VISA&merchant_defined_data2=3621367&merchant_defined_data1=667558&ssl_country=USA&ssl_avs_address=PO+Box+198&ssl_state=NY&ssl_city=Yonkers&ssl_first_name=Joan&ssl_invoice_number=667558&application_profile_id=2&ssl_txn_id=030124C29-C08ACFA4-999A-42DA-86E1-E5725DDC6DE0&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********8622&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=01%2f03%2f2024+10%3a15%3a49+AM&Uid=334070e1-307a-4a5a-b5cb-02c5eb72bf95
+2024-01-03 16:06:38,682 - INFO - Extracting DOS ID
+2024-01-03 16:06:38,682 - DEBUG - DOS ID found: - 3621367
+2024-01-03 16:06:38,682 - INFO - Running Date Query
+2024-01-03 16:06:39,808 - DEBUG - date found for 3621367: - 2024-01-03
+2024-01-03 16:06:39,808 - INFO - Building reprocess URL
+2024-01-03 16:06:39,808 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Razza&ssl_phone=9149633508&ssl_approval_code=06493G&ssl_email=gem.realty%40outlook.com&ssl_amount=9.00&ssl_avs_zip=10704&uid=8e3208b3-8367-4306-9bff-8fd8cd073078&ssl_exp_date=1228&ssl_card_short_description=VISA&merchant_defined_data2=3621367&merchant_defined_data1=667558&ssl_country=USA&ssl_avs_address=PO+Box+198&ssl_state=NY&ssl_city=Yonkers&ssl_first_name=Joan&ssl_invoice_number=667558&application_profile_id=2&ssl_txn_id=030124C29-C08ACFA4-999A-42DA-86E1-E5725DDC6DE0&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********8622&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=01%2f03%2f2024+10%3a15%3a49+AM&Uid=334070e1-307a-4a5a-b5cb-02c5eb72bf95
+2024-01-03 16:06:39,808 - INFO - Assigning Actions
+2024-01-03 16:06:39,808 - INFO - Checking for Refund 
+2024-01-03 16:06:40,265 - DEBUG - Empty Refund
+2024-01-03 16:06:40,265 - DEBUG - Action for transaction ID:030124C29-C08ACFA4-999A-42DA-86E1-E5725DDC6DE0 - Refund
+2024-01-03 16:06:40,265 - INFO - -------------------------------------------------------
+2024-01-03 16:06:40,265 - INFO - Running URL Query
+2024-01-03 16:07:35,275 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Narsingh&ssl_company=AJ+Santye+%26+Company&ssl_phone=908-704-1400&ssl_approval_code=275353&ssl_email=arichmond%40santye.com&ssl_amount=9.00&ssl_avs_zip=08876&uid=ed832e1f-90ed-469a-8e96-4ca9096cab93&ssl_exp_date=0327&ssl_card_short_description=AMEX&merchant_defined_data2=6334377&merchant_defined_data1=667669&ssl_country=USA&ssl_avs_address=36+East+Main+Street&ssl_state=New+Jersey&ssl_city=Somerville&ssl_first_name=Nadira&ssl_invoice_number=667669&application_profile_id=2&ssl_txn_id=030124O3B-E0088D6D-D3BC-4111-BC04-479072F29601&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=37**********1076&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=01%2f03%2f2024+10%3a46%3a08+AM&Uid=5e90e27e-795a-4a2d-9a4a-da5f3d8cc941
+2024-01-03 16:07:35,275 - INFO - Extracting DOS ID
+2024-01-03 16:07:35,275 - DEBUG - DOS ID found: - 6334377
+2024-01-03 16:07:35,275 - INFO - Running Date Query
+2024-01-03 16:07:36,309 - DEBUG - date found for 6334377: - 2022-02-04
+2024-01-03 16:07:36,309 - INFO - Building reprocess URL
+2024-01-03 16:07:36,309 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Narsingh&ssl_company=AJ+Santye+%26+Company&ssl_phone=908-704-1400&ssl_approval_code=275353&ssl_email=arichmond%40santye.com&ssl_amount=9.00&ssl_avs_zip=08876&uid=ed832e1f-90ed-469a-8e96-4ca9096cab93&ssl_exp_date=0327&ssl_card_short_description=AMEX&merchant_defined_data2=6334377&merchant_defined_data1=667669&ssl_country=USA&ssl_avs_address=36+East+Main+Street&ssl_state=New+Jersey&ssl_city=Somerville&ssl_first_name=Nadira&ssl_invoice_number=667669&application_profile_id=2&ssl_txn_id=030124O3B-E0088D6D-D3BC-4111-BC04-479072F29601&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=37**********1076&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=01%2f03%2f2024+10%3a46%3a08+AM&Uid=5e90e27e-795a-4a2d-9a4a-da5f3d8cc941
+2024-01-03 16:07:36,309 - INFO - Assigning Actions
+2024-01-03 16:07:36,309 - DEBUG - Action for transaction ID:030124O3B-E0088D6D-D3BC-4111-BC04-479072F29601 - Process
+2024-01-03 16:07:36,309 - WARNING - reseting transaction
+2024-01-03 16:07:36,355 - DEBUG - Reset Successful for invoice number :667669
+2024-01-03 16:07:36,355 - INFO - Running Date Query
+2024-01-03 16:07:37,414 - DEBUG - date found for 6334377: - 2022-02-04
+2024-01-03 16:07:37,414 - CRITICAL - reprocessing Failed: Old Date2022-02-04 New date: 2022-02-04
+2024-01-03 16:07:37,414 - INFO - -------------------------------------------------------
+2024-01-03 16:07:37,414 - INFO - Running URL Query
+2024-01-03 16:08:34,909 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=GHOSTCARD&ssl_company=MyCorporation&ssl_phone=8776926772&ssl_approval_code=012312&ssl_amount=9.00&ssl_avs_zip=55402&uid=d04a57d4-1f7f-46a5-90b0-ed1228b45589&ssl_exp_date=0924&ssl_card_short_description=VISA&merchant_defined_data2=5700290&merchant_defined_data1=668011&ssl_country=USA&ssl_avs_address=801+S.+Marquette+Ave.&ssl_state=MN&ssl_city=Minneapolis&ssl_first_name=MYCORPORATION&ssl_invoice_number=668011&application_profile_id=2&ssl_txn_id=030124C1B-9AF46680-4998-4E02-9CA7-ECA07AA3244C&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=48**********7007&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=01%2f03%2f2024+11%3a56%3a47+AM&Uid=c589c476-c365-4eeb-a56f-0f6341745523
+2024-01-03 16:08:34,910 - INFO - Extracting DOS ID
+2024-01-03 16:08:34,910 - DEBUG - DOS ID found: - 5700290
+2024-01-03 16:08:34,910 - INFO - Running Date Query
+2024-01-03 16:08:36,719 - DEBUG - date found for 5700290: - 2022-01-05
+2024-01-03 16:08:36,719 - INFO - Building reprocess URL
+2024-01-03 16:08:36,719 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=GHOSTCARD&ssl_company=MyCorporation&ssl_phone=8776926772&ssl_approval_code=012312&ssl_amount=9.00&ssl_avs_zip=55402&uid=d04a57d4-1f7f-46a5-90b0-ed1228b45589&ssl_exp_date=0924&ssl_card_short_description=VISA&merchant_defined_data2=5700290&merchant_defined_data1=668011&ssl_country=USA&ssl_avs_address=801+S.+Marquette+Ave.&ssl_state=MN&ssl_city=Minneapolis&ssl_first_name=MYCORPORATION&ssl_invoice_number=668011&application_profile_id=2&ssl_txn_id=030124C1B-9AF46680-4998-4E02-9CA7-ECA07AA3244C&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=48**********7007&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=01%2f03%2f2024+11%3a56%3a47+AM&Uid=c589c476-c365-4eeb-a56f-0f6341745523
+2024-01-03 16:08:36,719 - INFO - Assigning Actions
+2024-01-03 16:08:36,721 - DEBUG - Action for transaction ID:030124C1B-9AF46680-4998-4E02-9CA7-ECA07AA3244C - Process
+2024-01-03 16:08:36,721 - WARNING - reseting transaction
+2024-01-03 16:08:36,733 - CRITICAL - Reset failed for invoice number :668011
+2024-01-03 16:08:36,733 - INFO - Running Date Query
+2024-01-03 16:08:38,334 - DEBUG - date found for 5700290: - 2022-01-05
+2024-01-03 16:08:38,334 - CRITICAL - reprocessing Failed: Old Date2022-01-05 New date: 2022-01-05
+2024-01-03 16:08:38,334 - INFO - -------------------------------------------------------
+2024-01-03 16:08:38,334 - INFO - Running URL Query
+2024-01-03 16:09:43,330 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Bostock-Hudy&ssl_company=CBH+Business+Services%2c+Inc&ssl_phone=518-793-8546&ssl_approval_code=09480Z&ssl_email=cbhudy%40cbhbusserv.com&ssl_amount=9.00&ssl_avs_zip=05774&uid=c1a62ee6-4d6a-42ee-9261-c91756ffa274&ssl_exp_date=0926&ssl_card_short_description=MC&merchant_defined_data2=2997440&merchant_defined_data1=667998&ssl_country=USA&ssl_avs_address=1130+River+Road&ssl_state=VT&ssl_city=Wells&ssl_first_name=Catherine&ssl_invoice_number=667998&application_profile_id=2&ssl_txn_id=030124C2B-7A193F20-0350-4D83-A583-BD4BF7AE1BEE&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=52**********0299&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=01%2f03%2f2024+11%3a56%3a49+AM&Uid=a3723cdc-ae90-4126-b0b0-0760b7674863
+2024-01-03 16:09:43,330 - INFO - Extracting DOS ID
+2024-01-03 16:09:43,330 - DEBUG - DOS ID found: - 2997440
+2024-01-03 16:09:43,330 - INFO - Running Date Query
+2024-01-03 16:09:44,216 - DEBUG - date found for 2997440: - 2024-01-03
+2024-01-03 16:09:44,216 - INFO - Building reprocess URL
+2024-01-03 16:09:44,216 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Bostock-Hudy&ssl_company=CBH+Business+Services%2c+Inc&ssl_phone=518-793-8546&ssl_approval_code=09480Z&ssl_email=cbhudy%40cbhbusserv.com&ssl_amount=9.00&ssl_avs_zip=05774&uid=c1a62ee6-4d6a-42ee-9261-c91756ffa274&ssl_exp_date=0926&ssl_card_short_description=MC&merchant_defined_data2=2997440&merchant_defined_data1=667998&ssl_country=USA&ssl_avs_address=1130+River+Road&ssl_state=VT&ssl_city=Wells&ssl_first_name=Catherine&ssl_invoice_number=667998&application_profile_id=2&ssl_txn_id=030124C2B-7A193F20-0350-4D83-A583-BD4BF7AE1BEE&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=52**********0299&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=01%2f03%2f2024+11%3a56%3a49+AM&Uid=a3723cdc-ae90-4126-b0b0-0760b7674863
+2024-01-03 16:09:44,216 - INFO - Assigning Actions
+2024-01-03 16:09:44,216 - INFO - Checking for Refund 
+2024-01-03 16:09:44,454 - DEBUG - Empty Refund
+2024-01-03 16:09:44,454 - DEBUG - Action for transaction ID:030124C2B-7A193F20-0350-4D83-A583-BD4BF7AE1BEE - Refund
+2024-01-03 16:09:44,454 - INFO - -------------------------------------------------------
+2024-01-03 16:09:44,454 - INFO - Running URL Query
+2024-01-03 16:10:38,935 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Bostock-Hudy&ssl_company=CBH+Business+Services+Inc.&ssl_phone=518-793-8546&ssl_approval_code=04832Z&ssl_email=cbhudy%40cbhbusserv.com&ssl_amount=9.00&ssl_avs_zip=05774&uid=1e88f9a8-7307-4211-a085-934446b036de&ssl_exp_date=0926&ssl_card_short_description=MC&merchant_defined_data2=5682346&merchant_defined_data1=668368&ssl_country=USA&ssl_avs_address=1130+River+Road&ssl_state=VT&ssl_city=Wells&ssl_first_name=Catherine&ssl_invoice_number=668368&application_profile_id=2&ssl_txn_id=030124C1C-F7E0B889-219C-42CD-8332-97A1441239B4&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=52**********0299&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=01%2f03%2f2024+01%3a08%3a27+PM&Uid=232bf1a0-1962-47f3-a76c-472de6a6c677
+2024-01-03 16:10:38,935 - INFO - Extracting DOS ID
+2024-01-03 16:10:38,935 - DEBUG - DOS ID found: - 5682346
+2024-01-03 16:10:38,935 - INFO - Running Date Query
+2024-01-03 16:10:39,873 - DEBUG - date found for 5682346: - 2023-01-05
+2024-01-03 16:10:39,873 - INFO - Building reprocess URL
+2024-01-03 16:10:39,873 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Bostock-Hudy&ssl_company=CBH+Business+Services+Inc.&ssl_phone=518-793-8546&ssl_approval_code=04832Z&ssl_email=cbhudy%40cbhbusserv.com&ssl_amount=9.00&ssl_avs_zip=05774&uid=1e88f9a8-7307-4211-a085-934446b036de&ssl_exp_date=0926&ssl_card_short_description=MC&merchant_defined_data2=5682346&merchant_defined_data1=668368&ssl_country=USA&ssl_avs_address=1130+River+Road&ssl_state=VT&ssl_city=Wells&ssl_first_name=Catherine&ssl_invoice_number=668368&application_profile_id=2&ssl_txn_id=030124C1C-F7E0B889-219C-42CD-8332-97A1441239B4&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=52**********0299&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=01%2f03%2f2024+01%3a08%3a27+PM&Uid=232bf1a0-1962-47f3-a76c-472de6a6c677
+2024-01-03 16:10:39,873 - INFO - Assigning Actions
+2024-01-03 16:10:39,873 - DEBUG - Action for transaction ID:030124C1C-F7E0B889-219C-42CD-8332-97A1441239B4 - Process
+2024-01-03 16:10:39,873 - WARNING - reseting transaction
+2024-01-03 16:10:39,908 - DEBUG - Reset Successful for invoice number :668368
+2024-01-03 16:10:39,908 - INFO - Running Date Query
+2024-01-03 16:10:40,779 - DEBUG - date found for 5682346: - 2023-01-05
+2024-01-03 16:10:40,779 - CRITICAL - reprocessing Failed: Old Date2023-01-05 New date: 2023-01-05
+2024-01-03 16:10:40,779 - INFO - -------------------------------------------------------
+2024-01-03 16:10:40,779 - INFO - Sending Email
+2024-01-03 16:10:41,120 - DEBUG - 030124C29-C08ACFA4-999A-42DA-86E1-E5725DDC6DE0,Refund
+2024-01-03 16:10:41,120 - DEBUG - 030124O3B-E0088D6D-D3BC-4111-BC04-479072F29601,Process
+2024-01-03 16:10:41,120 - DEBUG - 030124C1B-9AF46680-4998-4E02-9CA7-ECA07AA3244C,Process
+2024-01-03 16:10:41,120 - DEBUG - 030124C2B-7A193F20-0350-4D83-A583-BD4BF7AE1BEE,Refund
+2024-01-03 16:10:41,120 - DEBUG - 030124C1C-F7E0B889-219C-42CD-8332-97A1441239B4,Process
+2024-01-03 16:10:41,188 - INFO - Email Sent
+2024-01-03 16:10:41,188 - INFO - Removing Saved files
+2024-01-03 16:10:41,188 - DEBUG - Total Files Deleted:  - 2
+2024-01-03 16:10:41,188 - WARNING - EBiennial Reprocessing Complete
