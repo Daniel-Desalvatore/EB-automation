@@ -217,7 +217,7 @@ class process_EBiennial:
             cursor = conn.cursor()
             cursor.execute(Prod_sharedServices_query)
             rows = cursor.fetchall()
-            url = rows[0][5]
+            url = rows[1][5]
             cursor.close()
             conn.close()
             self.logger.debug("URL found: ",url)

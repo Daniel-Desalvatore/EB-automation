@@ -1,42 +1,56 @@
-2024-02-29 09:15:13,916 - WARNING - Began EBiennial Reprocessing
-2024-02-29 09:15:13,916 - INFO - Retrieving Attachments
-2024-02-29 09:15:13,916 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (02/28/2024 12:00:00 AM - 02/28/2024 11:59:59 PM)%'
-2024-02-29 09:15:14,025 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (02/28/2024 12:00:00 AM - 02/28/2024 11:59:59 PM)
-2024-02-29 09:15:14,025 - DEBUG - Sender: - Interface Team
-2024-02-29 09:15:14,025 - DEBUG - Received Time: - 2024-02-29 09:11:47.347000+00:00
-2024-02-29 09:15:14,062 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2024-02-29_Summary.xlsx
-2024-02-29 09:15:14,077 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2024-02-29_Discrepancy.xlsx
-2024-02-29 09:15:14,080 - INFO - extracting data from saved attachments
-2024-02-29 09:15:14,724 - INFO - checking Summary
-2024-02-29 09:15:14,725 - DEBUG - All values are SALE
-2024-02-29 09:15:14,725 - INFO - reading data From Discrepancy
-2024-02-29 09:15:14,734 - DEBUG - Reading data from: - Ebiennial PaymentReport_2024-02-29_Discrepancy.xlsx
-2024-02-29 09:15:14,734 - DEBUG - transaction found: - 280224O18-88AC52A1-7D55-4AF5-8943-3A8B4AE62BB1,729115,RETURN
-2024-02-29 09:15:14,734 - DEBUG - transaction found: - 280224C1D-A0A3D277-400A-43E0-9D82-FCEA0F114BD6,730065,SALE
-2024-02-29 09:15:14,877 - INFO - checking Summary
-2024-02-29 09:15:14,878 - DEBUG - All values are SALE
-2024-02-29 09:15:14,878 - INFO - Reprocessing EBiennial Transactions
-2024-02-29 09:15:14,878 - INFO - Building Objects
-2024-02-29 09:15:14,878 - INFO - -------------------------------------------------------
-2024-02-29 09:15:14,878 - DEBUG - no action needed: - RETURN
-2024-02-29 09:15:14,878 - INFO - -------------------------------------------------------
-2024-02-29 09:15:14,878 - INFO - Running URL Query
-2024-02-29 09:16:18,189 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Thomas&ssl_company=Tra-Mac+Builders+Inc.&ssl_phone=585-392-5200&ssl_approval_code=03593G&ssl_email=todd%40tra-mac.com&ssl_amount=9.00&ssl_avs_zip=14468&uid=e28fa0b2-1033-4374-a709-ca37b24284e9&ssl_exp_date=0725&ssl_card_short_description=VISA&merchant_defined_data2=3911061&merchant_defined_data1=730065&ssl_country=USA&ssl_avs_address=55+Allied+Way&ssl_state=NY&ssl_city=Hilton&ssl_first_name=Wendy&ssl_invoice_number=730065&application_profile_id=2&ssl_txn_id=280224C1D-A0A3D277-400A-43E0-9D82-FCEA0F114BD6&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=41**********1522&ssl_avs_response=N&ssl_cvv2_response=M&ssl_txn_time=02%2f28%2f2024+05%3a17%3a34+PM&Uid=f7e07f73-49c9-4a97-92a2-6e957f9370bb
-2024-02-29 09:16:18,189 - INFO - Extracting DOS ID
-2024-02-29 09:16:18,190 - DEBUG - DOS ID found: - 3911061
-2024-02-29 09:16:18,190 - INFO - Running Date Query
-2024-02-29 09:16:19,437 - DEBUG - date found for 3911061: - 2024-02-28
-2024-02-29 09:16:19,437 - INFO - Building reprocess URL
-2024-02-29 09:16:19,437 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Thomas&ssl_company=Tra-Mac+Builders+Inc.&ssl_phone=585-392-5200&ssl_approval_code=03593G&ssl_email=todd%40tra-mac.com&ssl_amount=9.00&ssl_avs_zip=14468&uid=e28fa0b2-1033-4374-a709-ca37b24284e9&ssl_exp_date=0725&ssl_card_short_description=VISA&merchant_defined_data2=3911061&merchant_defined_data1=730065&ssl_country=USA&ssl_avs_address=55+Allied+Way&ssl_state=NY&ssl_city=Hilton&ssl_first_name=Wendy&ssl_invoice_number=730065&application_profile_id=2&ssl_txn_id=280224C1D-A0A3D277-400A-43E0-9D82-FCEA0F114BD6&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=41**********1522&ssl_avs_response=N&ssl_cvv2_response=M&ssl_txn_time=02%2f28%2f2024+05%3a17%3a34+PM&Uid=f7e07f73-49c9-4a97-92a2-6e957f9370bb
-2024-02-29 09:16:19,437 - INFO - Assigning Actions
-2024-02-29 09:16:19,445 - INFO - Checking for Refund 
-2024-02-29 09:16:20,018 - DEBUG - Empty Refund
-2024-02-29 09:16:20,019 - DEBUG - Action for transaction ID:280224C1D-A0A3D277-400A-43E0-9D82-FCEA0F114BD6 - Refund
-2024-02-29 09:16:20,019 - INFO - -------------------------------------------------------
-2024-02-29 09:16:20,019 - INFO - Sending Email
-2024-02-29 09:16:20,207 - DEBUG - 280224O18-88AC52A1-7D55-4AF5-8943-3A8B4AE62BB1,No Action
-2024-02-29 09:16:20,208 - DEBUG - 280224C1D-A0A3D277-400A-43E0-9D82-FCEA0F114BD6,Refund
-2024-02-29 09:16:20,245 - INFO - Email Sent
-2024-02-29 09:16:20,245 - INFO - Removing Saved files
-2024-02-29 09:16:20,247 - DEBUG - Total Files Deleted:  - 2
-2024-02-29 09:16:20,247 - WARNING - EBiennial Reprocessing Complete
+2024-10-18 09:38:18,813 - WARNING - Began EBiennial Reprocessing
+2024-10-18 09:38:18,813 - INFO - Retrieving Attachments
+2024-10-18 09:38:18,813 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (10/17/2024 12:00:00 AM - 10/17/2024 11:59:59 PM)%'
+2024-10-18 09:38:19,329 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (10/17/2024 12:00:00 AM - 10/17/2024 11:59:59 PM)
+2024-10-18 09:38:19,329 - DEBUG - Sender: - Interface Team
+2024-10-18 09:38:19,329 - DEBUG - Received Time: - 2024-10-18 09:11:58.501000+00:00
+2024-10-18 09:38:19,386 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2024-10-18_Summary.xlsx
+2024-10-18 09:38:19,398 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2024-10-18_Discrepancy.xlsx
+2024-10-18 09:38:19,401 - INFO - extracting data from saved attachments
+2024-10-18 09:38:19,918 - INFO - checking Summary
+2024-10-18 09:38:19,920 - DEBUG - All values are SALE
+2024-10-18 09:38:19,920 - INFO - reading data From Discrepancy
+2024-10-18 09:38:19,928 - DEBUG - Reading data from: - Ebiennial PaymentReport_2024-10-18_Discrepancy.xlsx
+2024-10-18 09:38:19,928 - DEBUG - transaction found: - 171024C29-27F9A9E9-0FF5-42B5-8C0C-8C7DD486AB72,1029858,SALE
+2024-10-18 09:38:19,928 - DEBUG - transaction found: - 171024O13-90E0A0D8-A8D5-469E-B52B-7AAD2CC8BBA3,1029867,SALE
+2024-10-18 09:38:20,064 - INFO - checking Summary
+2024-10-18 09:38:20,064 - DEBUG - All values are SALE
+2024-10-18 09:38:20,064 - INFO - Reprocessing EBiennial Transactions
+2024-10-18 09:38:20,064 - INFO - Building Objects
+2024-10-18 09:38:20,064 - INFO - -------------------------------------------------------
+2024-10-18 09:38:20,064 - INFO - Running URL Query
+2024-10-18 09:39:25,608 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Young&ssl_phone=447810350455&ssl_approval_code=282922&ssl_email=william.young%40the-independents.com&ssl_amount=9.00&ssl_avs_zip=SW12+8JL&uid=7a612ea9-fbbb-4c59-ab11-8eb660ae74a5&ssl_exp_date=0325&ssl_card_short_description=AMEX&merchant_defined_data2=6583495&merchant_defined_data1=1029858&ssl_country=GBR&ssl_avs_address=64+Endlesham+Road&ssl_state=London&ssl_city=London&ssl_first_name=William&ssl_invoice_number=1029858&application_profile_id=2&ssl_txn_id=171024C29-27F9A9E9-0FF5-42B5-8C0C-8C7DD486AB72&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=37**********2016&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=10%2f17%2f2024+03%3a30%3a16+AM&Uid=f34325b3-1b2a-4709-84e8-9f0c52cc20cd
+2024-10-18 09:39:25,608 - INFO - Extracting DOS ID
+2024-10-18 09:39:25,608 - DEBUG - DOS ID found: - 6583495
+2024-10-18 09:39:25,608 - INFO - Running Date Query
+2024-10-18 09:39:26,374 - DEBUG - date found for 6583495: - 2024-03-08
+2024-10-18 09:39:26,374 - INFO - Building reprocess URL
+2024-10-18 09:39:26,374 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Young&ssl_phone=447810350455&ssl_approval_code=282922&ssl_email=william.young%40the-independents.com&ssl_amount=9.00&ssl_avs_zip=SW12+8JL&uid=7a612ea9-fbbb-4c59-ab11-8eb660ae74a5&ssl_exp_date=0325&ssl_card_short_description=AMEX&merchant_defined_data2=6583495&merchant_defined_data1=1029858&ssl_country=GBR&ssl_avs_address=64+Endlesham+Road&ssl_state=London&ssl_city=London&ssl_first_name=William&ssl_invoice_number=1029858&application_profile_id=2&ssl_txn_id=171024C29-27F9A9E9-0FF5-42B5-8C0C-8C7DD486AB72&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=37**********2016&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=10%2f17%2f2024+03%3a30%3a16+AM&Uid=f34325b3-1b2a-4709-84e8-9f0c52cc20cd
+2024-10-18 09:39:26,374 - INFO - Assigning Actions
+2024-10-18 09:39:26,374 - DEBUG - Action for transaction ID:171024C29-27F9A9E9-0FF5-42B5-8C0C-8C7DD486AB72 - Process
+2024-10-18 09:39:26,374 - WARNING - reseting transaction
+2024-10-18 09:39:26,441 - CRITICAL - Reset failed for invoice number :1029858
+2024-10-18 09:39:26,441 - INFO - Running Date Query
+2024-10-18 09:39:27,263 - DEBUG - date found for 6583495: - 2024-03-08
+2024-10-18 09:39:27,264 - CRITICAL - reprocessing Failed: Old Date2024-03-08 New date: 2024-03-08
+2024-10-18 09:39:27,264 - INFO - -------------------------------------------------------
+2024-10-18 09:39:27,264 - INFO - Running URL Query
+2024-10-18 09:40:35,096 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=DeCicco&ssl_company=MDG+Design+%26+Construction+LLC&ssl_phone=6313641778&ssl_approval_code=05419G&ssl_email=mdecicco%40mdgny.com&ssl_amount=9.00&ssl_avs_zip=11797&uid=66d92658-5815-41be-8de5-e08cca58a831&ssl_exp_date=1227&ssl_card_short_description=VISA&merchant_defined_data2=5558893&merchant_defined_data1=1029867&ssl_country=USA&ssl_avs_address=170+Froehlich+Farm+Blvd&ssl_state=New+York&ssl_city=Woodbury&ssl_first_name=Maria&ssl_invoice_number=1029867&application_profile_id=2&ssl_txn_id=171024O13-90E0A0D8-A8D5-469E-B52B-7AAD2CC8BBA3&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********2091&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=10%2f17%2f2024+07%3a15%3a13+AM&Uid=cf240c67-813d-4db4-92b5-c3605a3caad2
+2024-10-18 09:40:35,096 - INFO - Extracting DOS ID
+2024-10-18 09:40:35,096 - DEBUG - DOS ID found: - 5558893
+2024-10-18 09:40:35,096 - INFO - Running Date Query
+2024-10-18 09:40:35,845 - DEBUG - date found for 5558893: - 2024-10-17
+2024-10-18 09:40:35,845 - INFO - Building reprocess URL
+2024-10-18 09:40:35,845 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=DeCicco&ssl_company=MDG+Design+%26+Construction+LLC&ssl_phone=6313641778&ssl_approval_code=05419G&ssl_email=mdecicco%40mdgny.com&ssl_amount=9.00&ssl_avs_zip=11797&uid=66d92658-5815-41be-8de5-e08cca58a831&ssl_exp_date=1227&ssl_card_short_description=VISA&merchant_defined_data2=5558893&merchant_defined_data1=1029867&ssl_country=USA&ssl_avs_address=170+Froehlich+Farm+Blvd&ssl_state=New+York&ssl_city=Woodbury&ssl_first_name=Maria&ssl_invoice_number=1029867&application_profile_id=2&ssl_txn_id=171024O13-90E0A0D8-A8D5-469E-B52B-7AAD2CC8BBA3&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********2091&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=10%2f17%2f2024+07%3a15%3a13+AM&Uid=cf240c67-813d-4db4-92b5-c3605a3caad2
+2024-10-18 09:40:35,845 - INFO - Assigning Actions
+2024-10-18 09:40:35,846 - INFO - Checking for Refund 
+2024-10-18 09:40:36,552 - DEBUG - Empty Refund
+2024-10-18 09:40:36,552 - DEBUG - Action for transaction ID:171024O13-90E0A0D8-A8D5-469E-B52B-7AAD2CC8BBA3 - Refund
+2024-10-18 09:40:36,552 - INFO - -------------------------------------------------------
+2024-10-18 09:40:36,552 - INFO - Sending Email
+2024-10-18 09:40:36,679 - DEBUG - 171024C29-27F9A9E9-0FF5-42B5-8C0C-8C7DD486AB72,Process
+2024-10-18 09:40:36,680 - DEBUG - 171024O13-90E0A0D8-A8D5-469E-B52B-7AAD2CC8BBA3,Refund
+2024-10-18 09:40:36,711 - INFO - Email Sent
+2024-10-18 09:40:36,711 - INFO - Removing Saved files
+2024-10-18 09:40:36,715 - DEBUG - Total Files Deleted:  - 2
+2024-10-18 09:40:36,715 - WARNING - EBiennial Reprocessing Complete

@@ -1,0 +1,136 @@
+EbiennailDataFilingRequest{
+    "eBiennialFilingRequest": {
+        "SubmitterInfo": {
+            "SubmitterIP": "24.185.11.221",
+            "SubmitterSysID": "E_Statements",
+            "Timestamp": "2023-12-19T12:21:18.2254607-05:00",
+            "SubmitterContact": {
+                "Name": "Timothy Kaywood",
+                "Address": {
+                    "StreetAddress": "1155 Montauk Hwy",
+                    "AddressLine2": "",
+                    "City": "East Patchogue",
+                    "State": "NY",
+                    "ZipCode": "11772",
+                    "ZipPlus4": null,
+                    "Country": ""
+                }
+            },
+            "EmailAddress": "AMANDA@THENORTHRIDGEGROUP.COM",
+            "SecondaryEmailAddress": null,
+            "SubmitterUserID": null,
+            "DrawdownAcctNum": null
+        },
+        "RequestorTransID": "DOS-1550-623959",
+        "DOSID": "1984847",
+        "EntityName": "SHULTZ'S HOLDING CORPORATION",
+        "EntityType": "DOMESTIC BUSINESS CORPORATION",
+        "FilingPeriod": "12/1/2023 12:00:00 AM",
+        "FeeAmount": "9.00",
+        "CEOInfo": {
+            "Name": "TIMOTHY KAYWOOD",
+            "Address": {
+                "StreetAddress": "1155 MONTAUK HIGHWAY",
+                "AddressLine2": "",
+                "City": "EAST PATCHOGUE",
+                "State": "NY",
+                "ZipCode": "11772",
+                "ZipPlus4": null,
+                "Country": "USA"
+            }
+        },
+        "PrinExecOfficeInfo": {
+            "Name": "",
+            "Address": {
+                "StreetAddress": "1155 MONTAUK HIGHWAY",
+                "AddressLine2": "",
+                "City": "EAST PATCHOGUE",
+                "State": "NY",
+                "ZipCode": "11772",
+                "ZipPlus4": null,
+                "Country": "USA"
+            }
+        },
+        "ServiceOfProcessInfo": {
+            "Name": "THE CORPORATION",
+            "Address": {
+                "StreetAddress": "1155 MONTAUK HIGHWAY",
+                "AddressLine2": "",
+                "City": "EAST PATCHOGUE",
+                "State": "NY",
+                "ZipCode": "11772",
+                "ZipPlus4": null,
+                "Country": ""
+            }
+        },
+        "WomenBoardMember": {
+            "TotalNumberOfBoardMembers": "1",
+            "NumberOfWomenBoardMembers": "0"
+        },
+        "FilerInfo": {
+            "FilerContact": {
+                "Name": "Timothy Kaywood",
+                "Address": {
+                    "StreetAddress": "1155 Montauk Hwy",
+                    "AddressLine2": "",
+                    "City": "East Patchogue",
+                    "State": "NY",
+                    "ZipCode": "11772",
+                    "ZipPlus4": null,
+                    "Country": ""
+                }
+            }
+        },
+        "farmCorpExemptionFlag": "false",
+        "signatureInfo": {
+            "Signature": "true",
+            "signerName": "Timothy Kaywood",
+            "signerTitle": "OFFICER"
+        },
+        "emailForNotification": "AMANDA@THENORTHRIDGEGROUP.COM",
+        "PaymentInfo": {
+            "paidAmount": "9.00",
+            "totalFee": "9.00",
+            "paymentMethod": "CREDITCARD",
+            "paymentStatus": "PAID",
+            "drawDownInfo": {
+                "drawDownID": null,
+                "ServiceCompanyName": null,
+                "DDTransactionId": null
+            },
+            "creditCardInfo": {
+                "MerchantID": null,
+                "CCtransactionID": "191223C1B-753F30DE-C233-4EC2-B258-5B754FFA877B",
+                "payeeAddressLine1": "1155 Montauk Hwy",
+                "payeeAddressLine2": null,
+                "payeeAddressCity": "East Patchogue",
+                "payeeAddressState": "NY",
+                "payeeAddressZip": "11772",
+                "payeeAddressCountry": "USA",
+                "payeePhone": "6312866655",
+                "payeeEmail": "amanda@thenorthridgegroup.com",
+                "paymentCardNumber": "6158",
+                "paymentCardType": "VISA",
+                "paymentAuthCode": "191223C1B-753F30DE-C233-4EC2-B258-5B754FFA877B"
+            },
+            "ACHInfo": {
+                "accountNumber": null,
+                "routingNumber": null
+            },
+            "payeeName": "Timothy Kaywood",
+            "paymentReason": "EBIEENIAL",
+            "paymentDate": "2023-12-19T17:22:11.244Z",
+            "submissionDate": "0001-01-01T00:00:00",
+            "paymentComment": "",
+            "paymentProviderResponse": "{\"ssl_last_name\":\"Kaywood\",\"ssl_phone\":\"6312866655\",\"ssl_approval_code\":\"052112\",\"ssl_email\":\"amanda@thenorthridgegroup.com\",\"ssl_amount\":\"9.00\",\"ssl_avs_zip\":\"11772\",\"uid\":\"06f0ae12-dad7-499a-8919-1f9f8252ef0d\",\"ssl_exp_date\":\"1127\",\"ssl_card_short_description\":\"VISA\",\"merchant_defined_data2\":\"1984847\",\"merchant_defined_data1\":\"653381\",\"ssl_country\":\"USA\",\"ssl_avs_address\":\"1155 Montauk Hwy\",\"ssl_state\":\"NY\",\"ssl_city\":\"East Patchogue\",\"ssl_first_name\":\"Timothy\",\"ssl_invoice_number\":\"653381\",\"application_profile_id\":\"2\",\"ssl_txn_id\":\"191223C1B-753F30DE-C233-4EC2-B258-5B754FFA877B\",\"ssl_transaction_type\":\"COMPLETE\",\"ssl_result\":\"0\",\"ssl_result_message\":\"APPROVAL\",\"ssl_card_number\":\"45**********6158\",\"ssl_avs_response\":\"\",\"ssl_cvv2_response\":\"\",\"ssl_txn_time\":\"12/19/2023 12:21:11 PM\"}"
+        }
+    }
+}, EbiennailDataFilingResponse {
+    "EbiennialFilingResult": {
+        "requestStatus": 0,
+        "ErrorCode": "",
+        "errorLocation": "",
+        "errorMessage": "",
+        "ValidationErrors": []
+    }
+}

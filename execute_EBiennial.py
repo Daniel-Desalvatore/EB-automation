@@ -18,3 +18,4 @@ class execute_EBiennial:
             self.process_EBiennial.reprocess_transactions(self.process_attachments.read_attachments(),self.process_attachments.read_summery(),date)
 test = execute_EBiennial()
 test.run()
+
