@@ -1,56 +1,86 @@
-2024-10-18 09:38:18,813 - WARNING - Began EBiennial Reprocessing
-2024-10-18 09:38:18,813 - INFO - Retrieving Attachments
-2024-10-18 09:38:18,813 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (10/17/2024 12:00:00 AM - 10/17/2024 11:59:59 PM)%'
-2024-10-18 09:38:19,329 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (10/17/2024 12:00:00 AM - 10/17/2024 11:59:59 PM)
-2024-10-18 09:38:19,329 - DEBUG - Sender: - Interface Team
-2024-10-18 09:38:19,329 - DEBUG - Received Time: - 2024-10-18 09:11:58.501000+00:00
-2024-10-18 09:38:19,386 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2024-10-18_Summary.xlsx
-2024-10-18 09:38:19,398 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2024-10-18_Discrepancy.xlsx
-2024-10-18 09:38:19,401 - INFO - extracting data from saved attachments
-2024-10-18 09:38:19,918 - INFO - checking Summary
-2024-10-18 09:38:19,920 - DEBUG - All values are SALE
-2024-10-18 09:38:19,920 - INFO - reading data From Discrepancy
-2024-10-18 09:38:19,928 - DEBUG - Reading data from: - Ebiennial PaymentReport_2024-10-18_Discrepancy.xlsx
-2024-10-18 09:38:19,928 - DEBUG - transaction found: - 171024C29-27F9A9E9-0FF5-42B5-8C0C-8C7DD486AB72,1029858,SALE
-2024-10-18 09:38:19,928 - DEBUG - transaction found: - 171024O13-90E0A0D8-A8D5-469E-B52B-7AAD2CC8BBA3,1029867,SALE
-2024-10-18 09:38:20,064 - INFO - checking Summary
-2024-10-18 09:38:20,064 - DEBUG - All values are SALE
-2024-10-18 09:38:20,064 - INFO - Reprocessing EBiennial Transactions
-2024-10-18 09:38:20,064 - INFO - Building Objects
-2024-10-18 09:38:20,064 - INFO - -------------------------------------------------------
-2024-10-18 09:38:20,064 - INFO - Running URL Query
-2024-10-18 09:39:25,608 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Young&ssl_phone=447810350455&ssl_approval_code=282922&ssl_email=william.young%40the-independents.com&ssl_amount=9.00&ssl_avs_zip=SW12+8JL&uid=7a612ea9-fbbb-4c59-ab11-8eb660ae74a5&ssl_exp_date=0325&ssl_card_short_description=AMEX&merchant_defined_data2=6583495&merchant_defined_data1=1029858&ssl_country=GBR&ssl_avs_address=64+Endlesham+Road&ssl_state=London&ssl_city=London&ssl_first_name=William&ssl_invoice_number=1029858&application_profile_id=2&ssl_txn_id=171024C29-27F9A9E9-0FF5-42B5-8C0C-8C7DD486AB72&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=37**********2016&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=10%2f17%2f2024+03%3a30%3a16+AM&Uid=f34325b3-1b2a-4709-84e8-9f0c52cc20cd
-2024-10-18 09:39:25,608 - INFO - Extracting DOS ID
-2024-10-18 09:39:25,608 - DEBUG - DOS ID found: - 6583495
-2024-10-18 09:39:25,608 - INFO - Running Date Query
-2024-10-18 09:39:26,374 - DEBUG - date found for 6583495: - 2024-03-08
-2024-10-18 09:39:26,374 - INFO - Building reprocess URL
-2024-10-18 09:39:26,374 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Young&ssl_phone=447810350455&ssl_approval_code=282922&ssl_email=william.young%40the-independents.com&ssl_amount=9.00&ssl_avs_zip=SW12+8JL&uid=7a612ea9-fbbb-4c59-ab11-8eb660ae74a5&ssl_exp_date=0325&ssl_card_short_description=AMEX&merchant_defined_data2=6583495&merchant_defined_data1=1029858&ssl_country=GBR&ssl_avs_address=64+Endlesham+Road&ssl_state=London&ssl_city=London&ssl_first_name=William&ssl_invoice_number=1029858&application_profile_id=2&ssl_txn_id=171024C29-27F9A9E9-0FF5-42B5-8C0C-8C7DD486AB72&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=37**********2016&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=10%2f17%2f2024+03%3a30%3a16+AM&Uid=f34325b3-1b2a-4709-84e8-9f0c52cc20cd
-2024-10-18 09:39:26,374 - INFO - Assigning Actions
-2024-10-18 09:39:26,374 - DEBUG - Action for transaction ID:171024C29-27F9A9E9-0FF5-42B5-8C0C-8C7DD486AB72 - Process
-2024-10-18 09:39:26,374 - WARNING - reseting transaction
-2024-10-18 09:39:26,441 - CRITICAL - Reset failed for invoice number :1029858
-2024-10-18 09:39:26,441 - INFO - Running Date Query
-2024-10-18 09:39:27,263 - DEBUG - date found for 6583495: - 2024-03-08
-2024-10-18 09:39:27,264 - CRITICAL - reprocessing Failed: Old Date2024-03-08 New date: 2024-03-08
-2024-10-18 09:39:27,264 - INFO - -------------------------------------------------------
-2024-10-18 09:39:27,264 - INFO - Running URL Query
-2024-10-18 09:40:35,096 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=DeCicco&ssl_company=MDG+Design+%26+Construction+LLC&ssl_phone=6313641778&ssl_approval_code=05419G&ssl_email=mdecicco%40mdgny.com&ssl_amount=9.00&ssl_avs_zip=11797&uid=66d92658-5815-41be-8de5-e08cca58a831&ssl_exp_date=1227&ssl_card_short_description=VISA&merchant_defined_data2=5558893&merchant_defined_data1=1029867&ssl_country=USA&ssl_avs_address=170+Froehlich+Farm+Blvd&ssl_state=New+York&ssl_city=Woodbury&ssl_first_name=Maria&ssl_invoice_number=1029867&application_profile_id=2&ssl_txn_id=171024O13-90E0A0D8-A8D5-469E-B52B-7AAD2CC8BBA3&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********2091&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=10%2f17%2f2024+07%3a15%3a13+AM&Uid=cf240c67-813d-4db4-92b5-c3605a3caad2
-2024-10-18 09:40:35,096 - INFO - Extracting DOS ID
-2024-10-18 09:40:35,096 - DEBUG - DOS ID found: - 5558893
-2024-10-18 09:40:35,096 - INFO - Running Date Query
-2024-10-18 09:40:35,845 - DEBUG - date found for 5558893: - 2024-10-17
-2024-10-18 09:40:35,845 - INFO - Building reprocess URL
-2024-10-18 09:40:35,845 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=DeCicco&ssl_company=MDG+Design+%26+Construction+LLC&ssl_phone=6313641778&ssl_approval_code=05419G&ssl_email=mdecicco%40mdgny.com&ssl_amount=9.00&ssl_avs_zip=11797&uid=66d92658-5815-41be-8de5-e08cca58a831&ssl_exp_date=1227&ssl_card_short_description=VISA&merchant_defined_data2=5558893&merchant_defined_data1=1029867&ssl_country=USA&ssl_avs_address=170+Froehlich+Farm+Blvd&ssl_state=New+York&ssl_city=Woodbury&ssl_first_name=Maria&ssl_invoice_number=1029867&application_profile_id=2&ssl_txn_id=171024O13-90E0A0D8-A8D5-469E-B52B-7AAD2CC8BBA3&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********2091&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=10%2f17%2f2024+07%3a15%3a13+AM&Uid=cf240c67-813d-4db4-92b5-c3605a3caad2
-2024-10-18 09:40:35,845 - INFO - Assigning Actions
-2024-10-18 09:40:35,846 - INFO - Checking for Refund 
-2024-10-18 09:40:36,552 - DEBUG - Empty Refund
-2024-10-18 09:40:36,552 - DEBUG - Action for transaction ID:171024O13-90E0A0D8-A8D5-469E-B52B-7AAD2CC8BBA3 - Refund
-2024-10-18 09:40:36,552 - INFO - -------------------------------------------------------
-2024-10-18 09:40:36,552 - INFO - Sending Email
-2024-10-18 09:40:36,679 - DEBUG - 171024C29-27F9A9E9-0FF5-42B5-8C0C-8C7DD486AB72,Process
-2024-10-18 09:40:36,680 - DEBUG - 171024O13-90E0A0D8-A8D5-469E-B52B-7AAD2CC8BBA3,Refund
-2024-10-18 09:40:36,711 - INFO - Email Sent
-2024-10-18 09:40:36,711 - INFO - Removing Saved files
-2024-10-18 09:40:36,715 - DEBUG - Total Files Deleted:  - 2
-2024-10-18 09:40:36,715 - WARNING - EBiennial Reprocessing Complete
+2024-11-22 16:10:49,632 - WARNING - Began EBiennial Reprocessing
+2024-11-22 16:10:49,632 - INFO - Retrieving Attachments
+2024-11-22 16:10:49,632 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (11/21/2024 12:00:00 AM - 11/21/2024 11:59:59 PM)%'
+2024-11-22 16:10:50,257 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (11/21/2024 12:00:00 AM - 11/21/2024 11:59:59 PM)
+2024-11-22 16:10:50,257 - DEBUG - Sender: - Interface Team
+2024-11-22 16:10:50,257 - DEBUG - Received Time: - 2024-11-22 09:12:13.721000+00:00
+2024-11-22 16:10:50,341 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2024-11-22_Summary.xlsx
+2024-11-22 16:10:50,351 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2024-11-22_Discrepancy.xlsx
+2024-11-22 16:10:50,367 - INFO - extracting data from saved attachments
+2024-11-22 16:10:51,081 - INFO - checking Summary
+2024-11-22 16:10:51,082 - DEBUG - All values are SALE
+2024-11-22 16:10:51,082 - INFO - reading data From Discrepancy
+2024-11-22 16:10:51,096 - DEBUG - Reading data from: - Ebiennial PaymentReport_2024-11-22_Discrepancy.xlsx
+2024-11-22 16:10:51,096 - DEBUG - transaction found: - 211124O13-01B4EAF3-0394-4BD1-AE66-120A6222C325,1059726,SALE
+2024-11-22 16:10:51,096 - DEBUG - transaction found: - 211124C18-50CBCD75-15C0-4D40-B2C3-3FE28754E05E,1059733,AUTHONLY
+2024-11-22 16:10:51,096 - DEBUG - transaction found: - 211124C1C-F2314385-0A94-40CB-BA1D-FEAF048823A5,1059860,SALE
+2024-11-22 16:10:51,096 - DEBUG - transaction found: - 211124O3A-AEA5353F-79C3-4365-80BF-FAB681AB0EC3,1058779,RETURN
+2024-11-22 16:10:51,096 - DEBUG - transaction found: - 211124O17-FB803261-14C5-4B05-82A5-093D7A8E3A9C,1058879,RETURN
+2024-11-22 16:10:51,096 - DEBUG - transaction found: - 211124O2D-B9C64ED9-C2F6-4FCD-BCE0-4999774F4D4D,1060117,SALE
+2024-11-22 16:10:51,305 - INFO - checking Summary
+2024-11-22 16:10:51,305 - DEBUG - All values are SALE
+2024-11-22 16:10:51,306 - INFO - Reprocessing EBiennial Transactions
+2024-11-22 16:10:51,306 - INFO - Building Objects
+2024-11-22 16:10:51,306 - INFO - -------------------------------------------------------
+2024-11-22 16:10:51,306 - INFO - Running URL Query
+2024-11-22 16:11:52,171 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Landau&ssl_approval_code=08348C&ssl_amount=9.00&ssl_avs_zip=11204&uid=53858416-4666-4f13-9558-20dd7f09665a&ssl_exp_date=1128&ssl_card_short_description=VISA&merchant_defined_data2=1124582&merchant_defined_data1=1059726&ssl_country=USA&ssl_avs_address=1852+48th+Street&ssl_state=NY&ssl_city=Brooklyn&ssl_first_name=Favel+S&ssl_invoice_number=1059726&application_profile_id=2&ssl_txn_id=211124O13-01B4EAF3-0394-4BD1-AE66-120A6222C325&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=41**********8194&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=11%2f21%2f2024+03%3a56%3a11+AM&Uid=6db39e4f-1a57-41c9-915b-c13a56280b5b
+2024-11-22 16:11:52,171 - INFO - Extracting DOS ID
+2024-11-22 16:11:52,171 - DEBUG - DOS ID found: - 1124582
+2024-11-22 16:11:52,172 - INFO - Running Date Query
+2024-11-22 16:11:53,062 - DEBUG - date found for 1124582: - 2023-07-26
+2024-11-22 16:11:53,062 - INFO - Building reprocess URL
+2024-11-22 16:11:53,062 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Landau&ssl_approval_code=08348C&ssl_amount=9.00&ssl_avs_zip=11204&uid=53858416-4666-4f13-9558-20dd7f09665a&ssl_exp_date=1128&ssl_card_short_description=VISA&merchant_defined_data2=1124582&merchant_defined_data1=1059726&ssl_country=USA&ssl_avs_address=1852+48th+Street&ssl_state=NY&ssl_city=Brooklyn&ssl_first_name=Favel+S&ssl_invoice_number=1059726&application_profile_id=2&ssl_txn_id=211124O13-01B4EAF3-0394-4BD1-AE66-120A6222C325&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=41**********8194&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=11%2f21%2f2024+03%3a56%3a11+AM&Uid=6db39e4f-1a57-41c9-915b-c13a56280b5b
+2024-11-22 16:11:53,062 - INFO - Assigning Actions
+2024-11-22 16:11:53,065 - DEBUG - Action for transaction ID:211124O13-01B4EAF3-0394-4BD1-AE66-120A6222C325 - Process
+2024-11-22 16:11:53,065 - WARNING - reseting transaction
+2024-11-22 16:11:53,156 - CRITICAL - Reset failed for invoice number :1059726
+2024-11-22 16:11:53,156 - INFO - Running Date Query
+2024-11-22 16:11:53,913 - DEBUG - date found for 1124582: - 2023-07-26
+2024-11-22 16:11:53,913 - CRITICAL - reprocessing Failed: Old Date2023-07-26 New date: 2023-07-26
+2024-11-22 16:11:53,913 - INFO - -------------------------------------------------------
+2024-11-22 16:11:53,913 - DEBUG - no action needed: - AUTHONLY
+2024-11-22 16:11:53,913 - INFO - -------------------------------------------------------
+2024-11-22 16:11:53,913 - INFO - Running URL Query
+2024-11-22 16:12:55,516 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Kaur&ssl_phone=3477144326&ssl_approval_code=04858P&ssl_email=chamandkaur%40gmail.com&ssl_amount=9.00&ssl_avs_zip=11550&uid=8fb006b6-8c9a-43cb-844a-c47e2bcf0ebe&ssl_exp_date=0426&ssl_card_short_description=MC&merchant_defined_data2=5780789&merchant_defined_data1=1059860&ssl_country=USA&ssl_avs_address=37+Glenmore+Ave&ssl_state=NY&ssl_city=Hempstead&ssl_first_name=Chamandeep&ssl_invoice_number=1059860&application_profile_id=2&ssl_txn_id=211124C1C-F2314385-0A94-40CB-BA1D-FEAF048823A5&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=51**********3796&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=11%2f21%2f2024+10%3a28%3a28+AM&Uid=ee36ca26-f9d2-4fcd-ac92-ef64835b322a
+2024-11-22 16:12:55,516 - INFO - Extracting DOS ID
+2024-11-22 16:12:55,517 - DEBUG - DOS ID found: - 5780789
+2024-11-22 16:12:55,517 - INFO - Running Date Query
+2024-11-22 16:12:56,243 - DEBUG - date found for 5780789: - 2024-09-17
+2024-11-22 16:12:56,243 - INFO - Building reprocess URL
+2024-11-22 16:12:56,243 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Kaur&ssl_phone=3477144326&ssl_approval_code=04858P&ssl_email=chamandkaur%40gmail.com&ssl_amount=9.00&ssl_avs_zip=11550&uid=8fb006b6-8c9a-43cb-844a-c47e2bcf0ebe&ssl_exp_date=0426&ssl_card_short_description=MC&merchant_defined_data2=5780789&merchant_defined_data1=1059860&ssl_country=USA&ssl_avs_address=37+Glenmore+Ave&ssl_state=NY&ssl_city=Hempstead&ssl_first_name=Chamandeep&ssl_invoice_number=1059860&application_profile_id=2&ssl_txn_id=211124C1C-F2314385-0A94-40CB-BA1D-FEAF048823A5&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=51**********3796&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=11%2f21%2f2024+10%3a28%3a28+AM&Uid=ee36ca26-f9d2-4fcd-ac92-ef64835b322a
+2024-11-22 16:12:56,243 - INFO - Assigning Actions
+2024-11-22 16:12:56,245 - DEBUG - Action for transaction ID:211124C1C-F2314385-0A94-40CB-BA1D-FEAF048823A5 - Process
+2024-11-22 16:12:56,245 - WARNING - reseting transaction
+2024-11-22 16:12:56,261 - CRITICAL - Reset failed for invoice number :1059860
+2024-11-22 16:12:56,262 - INFO - Running Date Query
+2024-11-22 16:12:56,986 - DEBUG - date found for 5780789: - 2024-09-17
+2024-11-22 16:12:56,986 - CRITICAL - reprocessing Failed: Old Date2024-09-17 New date: 2024-09-17
+2024-11-22 16:12:56,986 - INFO - -------------------------------------------------------
+2024-11-22 16:12:56,986 - DEBUG - no action needed: - RETURN
+2024-11-22 16:12:56,986 - INFO - -------------------------------------------------------
+2024-11-22 16:12:56,986 - DEBUG - no action needed: - RETURN
+2024-11-22 16:12:56,986 - INFO - -------------------------------------------------------
+2024-11-22 16:12:56,986 - INFO - Running URL Query
+2024-11-22 16:14:04,793 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Broumand&ssl_company=Dr.+Fazeli+%26+Dr.+Broumand+LLC&ssl_phone=315-663-0100&ssl_approval_code=00503G&ssl_email=pstockslader%40alliedfp.com&ssl_amount=9.00&ssl_avs_zip=13066&uid=7a3fede6-e47e-4f1d-9cdb-60e63b566687&ssl_exp_date=0427&ssl_card_short_description=VISA&merchant_defined_data2=3806650&merchant_defined_data1=1060117&ssl_country=USA&ssl_avs_address=4110+Medical+Center+Drive&ssl_state=NY&ssl_city=Fayetteville&ssl_first_name=Vadjista&ssl_invoice_number=1060117&application_profile_id=2&ssl_txn_id=211124O2D-B9C64ED9-C2F6-4FCD-BCE0-4999774F4D4D&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=43**********2850&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=11%2f21%2f2024+01%3a41%3a52+PM&Uid=8d1b5dd7-ffe4-4c6f-aff7-bb6cc4ad6408
+2024-11-22 16:14:04,793 - INFO - Extracting DOS ID
+2024-11-22 16:14:04,793 - DEBUG - DOS ID found: - 3806650
+2024-11-22 16:14:04,793 - INFO - Running Date Query
+2024-11-22 16:14:05,690 - DEBUG - date found for 3806650: - 2024-11-21
+2024-11-22 16:14:05,690 - INFO - Building reprocess URL
+2024-11-22 16:14:05,690 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Broumand&ssl_company=Dr.+Fazeli+%26+Dr.+Broumand+LLC&ssl_phone=315-663-0100&ssl_approval_code=00503G&ssl_email=pstockslader%40alliedfp.com&ssl_amount=9.00&ssl_avs_zip=13066&uid=7a3fede6-e47e-4f1d-9cdb-60e63b566687&ssl_exp_date=0427&ssl_card_short_description=VISA&merchant_defined_data2=3806650&merchant_defined_data1=1060117&ssl_country=USA&ssl_avs_address=4110+Medical+Center+Drive&ssl_state=NY&ssl_city=Fayetteville&ssl_first_name=Vadjista&ssl_invoice_number=1060117&application_profile_id=2&ssl_txn_id=211124O2D-B9C64ED9-C2F6-4FCD-BCE0-4999774F4D4D&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=43**********2850&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=11%2f21%2f2024+01%3a41%3a52+PM&Uid=8d1b5dd7-ffe4-4c6f-aff7-bb6cc4ad6408
+2024-11-22 16:14:05,690 - INFO - Assigning Actions
+2024-11-22 16:14:05,691 - INFO - Checking for Refund 
+2024-11-22 16:14:06,197 - DEBUG - Empty Refund
+2024-11-22 16:14:06,197 - DEBUG - Action for transaction ID:211124O2D-B9C64ED9-C2F6-4FCD-BCE0-4999774F4D4D - Refund
+2024-11-22 16:14:06,197 - INFO - -------------------------------------------------------
+2024-11-22 16:14:06,197 - INFO - Sending Email
+2024-11-22 16:14:06,332 - DEBUG - 211124O13-01B4EAF3-0394-4BD1-AE66-120A6222C325,Process
+2024-11-22 16:14:06,332 - DEBUG - 211124C18-50CBCD75-15C0-4D40-B2C3-3FE28754E05E,No Action
+2024-11-22 16:14:06,332 - DEBUG - 211124C1C-F2314385-0A94-40CB-BA1D-FEAF048823A5,Process
+2024-11-22 16:14:06,332 - DEBUG - 211124O3A-AEA5353F-79C3-4365-80BF-FAB681AB0EC3,No Action
+2024-11-22 16:14:06,332 - DEBUG - 211124O17-FB803261-14C5-4B05-82A5-093D7A8E3A9C,No Action
+2024-11-22 16:14:06,332 - DEBUG - 211124O2D-B9C64ED9-C2F6-4FCD-BCE0-4999774F4D4D,Refund
+2024-11-22 16:14:06,389 - INFO - Email Sent
+2024-11-22 16:14:06,389 - INFO - Removing Saved files
+2024-11-22 16:14:06,395 - DEBUG - Total Files Deleted:  - 2
+2024-11-22 16:14:06,395 - WARNING - EBiennial Reprocessing Complete

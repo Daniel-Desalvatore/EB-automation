@@ -72,6 +72,8 @@ class process_EBiennial:
                                     Transaction_Type.append(value)
                                 elif header == headerlist[9]:
                                     Payment_Date.append(value)
+
+
             body = '''<html>
             <body>
             <table style = "border-collapse: collapse;  white-space: nowrap; ">

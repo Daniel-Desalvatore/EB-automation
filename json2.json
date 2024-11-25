@@ -1,0 +1,296 @@
+{
+    "CommonAppInfo": {
+        "cbaId": 62100,
+        "nybeBusId": "954013856",
+        "userName": "Shaw-Ross",
+        "userIPAddr": "10.108.255.97",
+        "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0",
+        "submissionDt": "2024-10-23T13:15:50.8567947-04:00",
+        "commonData": {
+            "busIdentification": {
+                "id": 28787,
+                "entityType": {
+                    "code": "LLC",
+                    "description": "Limited Liability Company",
+                    "name": "Limited Liability Company"
+                },
+                "entitySubType": {
+                    "code": "NA",
+                    "description": "Not Applicable",
+                    "name": "NA"
+                },
+                "legalName": "SHAW ROSS INTERNATIONAL IMPORTERS LLC",
+                "fein": "452429413",
+                "taxIdTypeFlg": "F",
+                "isEmployees": false,
+                "busAddr": [
+                    {
+                        "id": 107818,
+                        "line1": "2900 SW 149th Ave",
+                        "line2": "Suite 200",
+                        "city": "Miramar",
+                        "stateCd": {
+                            "code": "FL"
+                        },
+                        "countyCd": {
+                            "code": "Broward"
+                        },
+                        "zip": "33027",
+                        "countryCd": {
+                            "code": "US"
+                        },
+                        "addrType": {
+                            "code": "NA"
+                        },
+                        "isMailingSame": false,
+                        "isPrimary": true
+                    }
+                ],
+                "busPhoneFax": [
+                    {
+                        "id": 78272,
+                        "createDate": "0001-01-01T00:00:00",
+                        "modifiedDate": "0001-01-01T00:00:00",
+                        "countryCd": "1",
+                        "areaCd": "954",
+                        "phoneExch": "430",
+                        "lineNum": "5024",
+                        "phoneType": {
+                            "code": "OFFICE"
+                        }
+                    }
+                ],
+                "busEmail": [
+                    {
+                        "id": 38676,
+                        "createDate": "0001-01-01T00:00:00",
+                        "modifiedDate": "0001-01-01T00:00:00",
+                        "emailAddress": "theresamccorkell@shaw-ross.com",
+                        "emailTypeCode": "NA"
+                    }
+                ]
+            },
+            "indPrincipals": []
+        },
+        "AgencyApp": [
+            {
+                "agencySpecAppId": 91776,
+                "licenseSpecificAppId": "AA-24-238756-A",
+                "agencyCode": "SLA",
+                "applTypeCode": "INITAPP",
+                "applicationFlag": "WS",
+                "applicationDate": "2024-10-23",
+                "noOfAgencyApps": 0,
+                "orderofProcess": 0,
+                "LicenseType_Code": "MRKTING3YR",
+                "LicenseType_Description": "Marketing",
+                "LicenseType_Name": "Marketing",
+                "CategoryType_Code": "MISC",
+                "CategoryType_Description": "Misc.",
+                "CategoryType_Name": "Misc.",
+                "licSpecApp": [
+                    {
+                        "Applicant_Information": {
+                            "businessInfo": {
+                                "businessEntity": {
+                                    "individualOrganization": "Organization",
+                                    "corporateStructure": "2",
+                                    "middleName": "",
+                                    "ssn": "",
+                                    "fein": "45-2429413",
+                                    "legalName": "SHAW ROSS INTERNATIONAL IMPORTERS LLC",
+                                    "suffix": "",
+                                    "SectionId": 0
+                                },
+                                "address": {
+                                    "SectionId": 0,
+                                    "addressLine1": "2900 SW 149th Ave",
+                                    "city": "Miramar",
+                                    "state": "FL",
+                                    "zip": "33027",
+                                    "country": "US",
+                                    "addressLine2": "Suite 200",
+                                    "zip4": "6612",
+                                    "county": "Broward"
+                                },
+                                "communication": {
+                                    "email": "theresamccorkell@shaw-ross.com",
+                                    "confirmEmail": "theresamccorkell@shaw-ross.com",
+                                    "phones": [
+                                        {
+                                            "phoneType": "2",
+                                            "countryCode": "1",
+                                            "phone": "954-430-5024"
+                                        }
+                                    ],
+                                    "SectionId": 0
+                                },
+                                "website": "",
+                                "SectionId": 0
+                            },
+                            "premisesInfo": {
+                                "address": {
+                                    "SectionId": 0,
+                                    "state": "FL",
+                                    "country": "US",
+                                    "addressLine1": "2900 SW 149th Ave Ste 200",
+                                    "addressLine2": "Miramar",
+                                    "city": "Miramar",
+                                    "zip": "33027",
+                                    "zip4": "6612",
+                                    "county": "Broward"
+                                },
+                                "communication": {
+                                    "phones": [
+                                        {
+                                            "phoneType": "3"
+                                        }
+                                    ],
+                                    "SectionId": 0
+                                },
+                                "SectionId": 0
+                            },
+                            "useBusinessAddress": "false",
+                            "SectionId": 0
+                        },
+                        "Principal": {
+                            "principals": [],
+                            "SectionId": 0
+                        },
+                        "Personal_Questionnaire": {
+                            "principalInfo": []
+                        },
+                        "Representative": {
+                            "contactType": "0",
+                            "address": {
+                                "SectionId": 0,
+                                "state": "NY",
+                                "country": "US"
+                            },
+                            "communication": {
+                                "phones": [
+                                    {
+                                        "phoneType": "3"
+                                    }
+                                ],
+                                "SectionId": 0
+                            },
+                            "subjectOfAppearance": "",
+                            "SectionId": 0
+                        },
+                        "License_Verification": {
+                            "LicVerifQ1": "Yes",
+                            "StateLiqAuthLN": "2182462",
+                            "SectionId": 234
+                        },
+                        "ApplicantInfoQuestions": {
+                            "AppInfoQuestion1": "1",
+                            "SectionId": 228
+                        },
+                        "AD_Marketing3YR": {
+                            "MarketingQ2": "Yes",
+                            "MarketingQ1": "Yes",
+                            "SectionId": 209
+                        },
+                        "Attestation": {
+                            "AttestationConfirmed": true,
+                            "FullNameAttestation": "Theresa McCorkell",
+                            "SectionId": 233
+                        },
+                        "FEE_LIST": {
+                            "FEE": [
+                                {
+                                    "FEE_CDE": "FillingFees",
+                                    "FEE_AMOUNT": 20.0
+                                },
+                                {
+                                    "FEE_CDE": "licensingFees",
+                                    "FEE_AMOUNT": 375.0
+                                },
+                                {
+                                    "FEE_CDE": "AncillaryFees",
+                                    "FEE_AMOUNT": 0.0
+                                }
+                            ]
+                        },
+                        "Attachments": {
+                            "Attachment": [
+                                {
+                                    "documentContentId": "e0e5b492-0000-c72c-a574-bb41e090cd6a",
+                                    "documentName": "Florida_Basic_Permit.pdf",
+                                    "documentTypeCode": "TTBPERMITBREWERSNOTICE",
+                                    "documentFileDate": "2024-10-22T11:43:37",
+                                    "documentSubCat": "TTBPERMITBREWERSNOTICE",
+                                    "documentDesc": ""
+                                },
+                                {
+                                    "documentContentId": "50e7b492-0000-c414-b507-bbc36c54d47f",
+                                    "documentName": "NY_Warehouse_Permit.pdf",
+                                    "documentTypeCode": "STATELICENSE",
+                                    "documentFileDate": "2024-10-22T11:45:10",
+                                    "documentSubCat": "STATELICENSE",
+                                    "documentDesc": ""
+                                },
+                                {
+                                    "documentContentId": "10e9b492-0000-c423-89c5-1cb0e6735874",
+                                    "documentName": "Permit_NY_Transportation_SLA_6_20230404_084110.pdf",
+                                    "documentTypeCode": "MISSCDOC",
+                                    "documentFileDate": "2024-10-22T11:47:09",
+                                    "documentSubCat": "MISSCDOC",
+                                    "documentDesc": ""
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ],
+        "payments": [
+            {
+                "paymentId": 0,
+                "transactionId": "221024O2C-21EBD2D1-98BA-4B37-A523-BD5755A18703",
+                "paidAmount": 395.00,
+                "totalFee": 395.00,
+                "paymentMethod": "ACH",
+                "paymentStatus": "PAID",
+                "achInfo": {
+                    "accountNumber": "33**********0821",
+                    "routingNumber": "061112788",
+                    "accountType": 1
+                },
+                "creditCardInfo": {
+                    "PayeeAddressLine1": "14836 SW 54TH STREET",
+                    "payeeAddressLine2": "MIRAMAR",
+                    "payeeAddressCity": "MIRAMAR",
+                    "payeeAddressState": "FLORIDA",
+                    "payeeAddressZip": "33027",
+                    "payeeAddressCountry": "USA",
+                    "payeePhone": "9544305024",
+                    "payeeEmail": "theresamccorkell@shaw-ross.com",
+                    "paymentAuthCode": "339542"
+                },
+                "payee": "Alfred",
+                "paymentDate": "2024-10-22T11:54:08",
+                "submissionDate": "2024-10-23T13:15:51.3020393-04:00",
+                "transactionIntakeId": 62100,
+                "fee": [
+                    {
+                        "feeCode": "FillingFees",
+                        "feeAmount": 20.0,
+                        "applicationNumber": "AA-24-238756-A"
+                    },
+                    {
+                        "feeCode": "licensingFees",
+                        "feeAmount": 375.0,
+                        "applicationNumber": "AA-24-238756-A"
+                    },
+                    {
+                        "feeCode": "AncillaryFees",
+                        "feeAmount": 0.0,
+                        "applicationNumber": "AA-24-238756-A"
+                    }
+                ]
+            }
+        ]
+    }
+}
