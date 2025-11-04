@@ -8,7 +8,7 @@ class OutlookEmailReader:
         self.outlook_app = win32com.client.Dispatch("Outlook.Application")
         self.namespace = self.outlook_app.GetNamespace("MAPI")
         self.inbox = self.namespace.GetDefaultFolder(6)  # "6" refers to the Inbox folder
-        self.attachment_folder_path = "C:\\Users\\DDesalvatore\\OneDrive - New York State Office of Information Technology Services\\Documents\\Python\EBiennial Processing Automation\EBiennial_email_attachments"
+        self.attachment_folder_path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EB-automation\EBiennial_email_attachments"
         self.attachment_names =[]
 
     def retrieve_attachments(self):
@@ -20,10 +20,8 @@ class OutlookEmailReader:
             today_str = today.strftime("%m/%d/%Y")
             print(datetime.now().hour)
             print(yesterday_str)
-            if datetime.now().hour !=16:
-                filter_criteria = f"@SQL=\"urn:schemas:httpmail:subject\" LIKE '%PROD: Ebiennial Payment Reports (11/21/2024 12:00:00 AM - 11/21/2024 11:59:59 PM)%'"
-            if datetime.now().hour == 16:
-                filter_criteria = f"@SQL=\"urn:schemas:httpmail:subject\" LIKE '%PROD: Ebiennial Payment Reports (11/21/2024 12:00:00 AM - 11/21/2024 11:59:59 PM)%'"
+            filter_criteria = f"@SQL=\"urn:schemas:httpmail:subject\" LIKE '%PROD: Ebiennial Payment Reports (11/03/2025 12:00:00 AM - 11/03/2025 11:59:59 PM)%'"
+            
             self.logger.debug("looking for emails with subject: ", filter_criteria)
             messages = self.inbox.Items.Restrict(filter_criteria)
 

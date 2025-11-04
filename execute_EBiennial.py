@@ -5,7 +5,7 @@ from log_builder import MyLogger
 
 class execute_EBiennial:
     def __init__(self) -> None:
-        self.extract_emails = OutlookEmailReader()
+        self.extract_emails = OutlookEmailReader() 
         self.process_attachments = EBiennial_emails_processing()
         self.process_EBiennial = process_EBiennial()
         self.logger = MyLogger()

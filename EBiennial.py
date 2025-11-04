@@ -5,8 +5,9 @@ import pandas as pd
 from dotenv import load_dotenv
 from log_builder import MyLogger 
 from datetime import datetime, timedelta, date
-import requests
+
 from EBiennial_attachment_processing import EBiennial_emails_processing
+import time
 class process_EBiennial:
     def __init__(self) -> None:
         self.transactions=[] #store transactions from EBiennial_emails_processing
@@ -27,7 +28,7 @@ class process_EBiennial:
     def send_email(self, transactions,sum):
             #send the email to PROD with proper coloring and actions assinged 
             self.logger.info("Sending Email")
-            folder_path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EBiennial Processing Automation\EBiennial_email_attachments" # Specify the folder path where the Excel files are located
+            folder_path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EB-automation\EBiennial_email_attachments" # Specify the folder path where the Excel files are located
             headerlist=["Transaction ID","Auth Code","Invoice Number","Converge Amount","EBiennial Amount","First Name","Last Name","Card Type","Card Number","Transaction Type","Payment Date"] 
             folder = os.listdir(folder_path)
             Transaction_ID=[]
@@ -192,12 +193,18 @@ class process_EBiennial:
                         transaction.URL = self.url_query(transaction.Transaction_ID)
                         transaction.DOS_ID = self.extract_dos_id(transaction.URL)
                         transaction.Transaction_Date = self.date_query(transaction.DOS_ID)
-                        transaction.Reprocess_URL = self.build_reprocess_url(transaction.URL)
                         transaction.Action = self.action_check(transaction,date)
-                    if transaction.Action == 'Process':
-                        self.reset_transaction(transaction.Invoice_Number)
-                        if not self.reprocess_date_verify(transaction):
-                            self.send_error_email()
+                        transaction.Reprocess_URL = self.build_reprocess_url(transaction.URL,transaction.Action)
+
+                        self.logger.critical(f"invoice number :{transaction.Invoice_Number}")
+                        invoice_number = transaction.Invoice_Number
+                        if transaction.Action == 'Process':
+                            with open("reprocessingquerys.txt", "a") as f:  # "a" for append mode
+                                f.write(f"Update [Prod_NETAPPS].[dbo].[EBIENNIAL_TRANSACTION_TEMP] set Is_Processed=Null  where TRANSACTION_ID ={invoice_number};\n")  # Write the number and a newline
+                    #if transaction.Action == 'Process':
+                        #self.reset_transaction(transaction.Invoice_Number)
+                        #if not self.reprocess_date_verify(transaction):
+                            #self.send_error_email()
                 self.logger.info('-------------------------------------------------------')  
             except ValueError as e:
                 self.logger.error("there was an error building transaction objects: ",e)
@@ -219,7 +226,12 @@ class process_EBiennial:
             cursor = conn.cursor()
             cursor.execute(Prod_sharedServices_query)
             rows = cursor.fetchall()
-            url = rows[1][5]
+            if rows:
+                url = rows[1][5]
+            else:
+                url= "failed"
+            if Transaction_ID == '250625O17-D1A184F4-329A-4AE8-B736-BFD94D25AA96':
+                url =rows[2][5]
             cursor.close()
             conn.close()
             self.logger.debug("URL found: ",url)
@@ -243,36 +255,41 @@ class process_EBiennial:
 
     def date_query(self, DOS_ID):
         #pull the most recent filing date for the transaction 
+        #time.sleep(10)
         self.logger.info("Running Date Query")
         try:
-    
-            date_query = f'''select bf.FilingDateTime,bf.filingno, bft.[Description] AS FilingType from [corp].[businessfiling] bF with(nolock) 
-Inner join corp.Business B with(Nolock) on bf.businessid = b.businessid
-inner join [corp].[BusinessFilingType] bft with(nolock) on bf.BusinessFilingTypeId = bft.BusinessFilingTypeId
-where b.EntityNumber = {DOS_ID}'''
-            # Establish a connection to the SQL Server
-            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
-            # Create a cursor object to interact with the database
-            cursor = conn.cursor()
-            cursor.execute(date_query)
-            rows = cursor.fetchall()
-            dates =[]
-            for row in rows:
-                 dates.append(row[0])
-            cursor.close()
-            conn.close()
-            formatted_dates = [date.split(" ")[0] for date in dates]
-            most_recent_date = max(formatted_dates)
-            formatted_most_recent_date = datetime.strptime(most_recent_date, "%Y-%m-%d").strftime("%Y-%m-%d")
-            self.logger.debug(f"date found for {DOS_ID}:",formatted_most_recent_date)
-            recentdate= formatted_most_recent_date
-            most_recent_date = datetime.strptime(recentdate, "%Y-%m-%d").date()
-            return formatted_most_recent_date
+            if DOS_ID != None:
+                date_query = f'''select bf.FilingDateTime,bf.filingno, bft.[Description] AS FilingType from [corp].[businessfiling] bF with(nolock) 
+    Inner join corp.Business B with(Nolock) on bf.businessid = b.businessid
+    inner join [corp].[BusinessFilingType] bft with(nolock) on bf.BusinessFilingTypeId = bft.BusinessFilingTypeId
+    where b.EntityNumber = {DOS_ID}'''
+                # Establish a connection to the SQL Server
+                conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
+                # Create a cursor object to interact with the database
+                cursor = conn.cursor()
+                print(date_query)
+                cursor.execute(date_query)
+                rows = cursor.fetchall()
+                dates =[]
+                for row in rows:
+                    dates.append(row[0])
+                cursor.close()
+                conn.close()
+                formatted_dates = [date.split(" ")[0] for date in dates]
+                most_recent_date = max(formatted_dates)
+                formatted_most_recent_date = datetime.strptime(most_recent_date, "%Y-%m-%d").strftime("%Y-%m-%d")
+                self.logger.debug(f"date found for {DOS_ID}:",formatted_most_recent_date)
+                recentdate= formatted_most_recent_date
+                most_recent_date = datetime.strptime(recentdate, "%Y-%m-%d").date()
+                return formatted_most_recent_date
+            else:
+                formatted_most_recent_date= "failed"
+                return formatted_most_recent_date
             
         except ValueError as e:
             self.logger.error("there was an error running date query:",e)
 
-    def build_reprocess_url(self,url):
+    def build_reprocess_url(self,url,action):
         #replace the noraml URL with the reporcess URl
         #not currently working 
         self.logger.info("Building reprocess URL")
@@ -283,6 +300,9 @@ where b.EntityNumber = {DOS_ID}'''
             if file_date < str(two_years_ago):'''
             reprocess_URL = url.replace("http://sharedservices.ny.gov/api/payment/response?","https://filing.dos.ny.gov/eBiennialWeb/confirmation?")
             self.logger.debug("Reprocess URL:", reprocess_URL)
+            if action =='Process':
+                with open('urls.txt', "a") as f:  # "a" for append mode
+                    f.write(f"{reprocess_URL}\n")  # Write the number and a newline
             return reprocess_URL
         except ValueError as e:
             self.logger.error("there was an error creating Reprocess URL: ",e)
@@ -299,7 +319,12 @@ where b.EntityNumber = {DOS_ID}'''
             print(today)
             two_days_ago = today - timedelta(days=2)
             print(two_days_ago, "non string") 
-            print(str(two_days_ago), 'string')  
+            print(str(two_days_ago), 'string') 
+            if date =="failed":
+                Action = "No action"
+                return Action
+
+
             found_date = datetime.strptime(transaction.Transaction_Date,"%Y-%m-%d")
             two_days_ago = datetime.strptime(str(two_days_ago),"%Y-%m-%d")
             if transaction.Transaction_Type != 'SALE':
@@ -333,7 +358,7 @@ where b.EntityNumber = {DOS_ID}'''
             #cursor.close()
             #conn.close()
             print(reset_transaction_query)
-            print(self.reset_verification(Invoice_Number))
+            #print(self.reset_verification(Invoice_Number))
             '''if self.reset_verification(Invoice_Number):
                 self.reprocess_request()'''
             
@@ -367,8 +392,8 @@ where b.EntityNumber = {DOS_ID}'''
             self.logger.error("there was wan error with the verifying update query: ",e)
 
     def reprocess_request(self,reprocess_url):
-         session = requests.Session()
-         session.cookies.clear()
+         #session = requests.Session()
+         #session.cookies.clear()
          #response = session.post(url)
          print(reprocess_url)
    
@@ -435,7 +460,7 @@ where b.EntityNumber = {transaction.DOS_ID}'''
     def delete_files(self):
         #remove saved email attchments 
         self.logger.info("Removing Saved files")
-        path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EBiennial Processing Automation\EBiennial_email_attachments"
+        path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EB-automation\EBiennial_email_attachments"
         files = os.listdir(path)
         total_deleted = 0
         for file  in files:

@@ -40,7 +40,7 @@ class EBiennial_emails_processing:
             Transaction_Types=[]
             Invoice_Number=[]
             Transaction_IDs=[]#ids
-            folder_path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EBiennial Processing Automation\EBiennial_email_attachments" # Specify the folder path where the Excel files are located
+            folder_path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EB-automation\EBiennial_email_attachments" # Specify the folder path where the Excel files are located
             headerlist=["Transaction ID","Transaction Type","Invoice Number"] 
             folder = os.listdir(folder_path)
         # Iterate over files in the folder
@@ -76,7 +76,7 @@ class EBiennial_emails_processing:
     def read_summery(self):
             try:
                 user_input = False
-                folder_path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EBiennial Processing Automation\EBiennial_email_attachments" # Specify the folder path where the Excel files are located
+                folder_path = r"C:\Users\DDesalvatore\OneDrive - New York State Office of Information Technology Services\Documents\Python\EB-automation\EBiennial_email_attachments" # Specify the folder path where the Excel files are located
                 folder = os.listdir(folder_path)
                 if "Summary" in folder[-1]:
                         sumfile_name = folder[-1]
