@@ -1,47 +1,66 @@
-2025-11-04 09:19:31,618 - WARNING - Began EBiennial Reprocessing
-2025-11-04 09:19:31,618 - INFO - Retrieving Attachments
-2025-11-04 09:19:31,619 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (11/03/2025 12:00:00 AM - 11/03/2025 11:59:59 PM)%'
-2025-11-04 09:19:31,895 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (11/03/2025 12:00:00 AM - 11/03/2025 11:59:59 PM)
-2025-11-04 09:19:31,895 - DEBUG - Sender: - Interface Team
-2025-11-04 09:19:31,895 - DEBUG - Received Time: - 2025-11-04 09:14:33.090000+00:00
-2025-11-04 09:19:31,923 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2025-11-04_Summary.xlsx
-2025-11-04 09:19:31,936 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2025-11-04_Discrepancy.xlsx
-2025-11-04 09:19:31,938 - INFO - extracting data from saved attachments
-2025-11-04 09:19:32,931 - INFO - checking Summary
-2025-11-04 09:19:32,932 - DEBUG - All values are SALE
-2025-11-04 09:19:32,933 - INFO - reading data From Discrepancy
-2025-11-04 09:19:32,943 - DEBUG - Reading data from: - Ebiennial PaymentReport_2025-11-04_Discrepancy.xlsx
-2025-11-04 09:19:32,943 - DEBUG - transaction found: - 031125O3A-2D542429-2554-45DE-B5EC-EC401DCDA3C3,1431482,SALE
-2025-11-04 09:19:32,943 - DEBUG - transaction found: - 031125C2A-6E3CD652-489A-4144-B2F1-374F49A09C19,1431491,SALE
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125C29-36D515E5-E0B8-41F2-BDC5-467E966BD2D4,1431497,AUTHONLY
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125C2B-89D37F52-B56C-4714-8F62-D3906AA2DE9B,1431496,AUTHONLY
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125C29-739A2D00-C347-4C47-8FD7-027A12B39770,1431499,AUTHONLY
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125C1B-01CE495C-77BC-4315-917E-F997D5CE3330,1431526,AUTHONLY
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125C1A-BC3D6D13-8187-4B4D-ACD6-9E007D1E252B,1433129,SALE
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125C1A-1A6AEC03-495C-41A4-8D77-612258B10A36,1433328,AUTHONLY
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125O39-877CEAE6-DA3A-4022-BE14-6DA596AC9A1F,1434644,SALE
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125O13-4309B91C-842F-4CCF-9FC1-2320CBA4B6D8,1435920,SALE
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125O13-0C1E563A-6768-4ADE-8A9D-AF81C75D4E3E,1435982,SALE
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125C2A-527C5DEE-F4B1-4B1B-9037-86E1C882C52C,1428160,RETURN
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125C1A-F72F481A-A55F-47BF-B9C9-2D45F191520F,1428170,RETURN
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125C2A-358225E1-1D34-46C9-8D48-F08A40B5E5FA,1428182,RETURN
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125C2B-A185FE37-5312-4913-A224-D196757705B1,1428239,RETURN
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125O2D-2CE87845-D87E-4DB3-A4F6-789668E0C679,1428651,RETURN
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125C1B-4E162E80-595B-438D-B751-4096A4AE6A26,1429269,RETURN
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125C18-D0695362-4F71-4AE4-AAB2-7AF53B40A050,1429368,RETURN
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125O3A-500EFD7D-8E8C-4960-AB61-1945047CDB9D,1429531,RETURN
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125O2C-4383F3A6-7050-4423-8D7C-724D1077E134,1430085,RETURN
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125C1D-9C5E150A-973C-466B-9BA6-5CA50040E8AF,1430713,RETURN
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125C2A-B907CF4D-E375-4EE0-9676-CFDA67523A79,1430717,RETURN
-2025-11-04 09:19:32,944 - DEBUG - transaction found: - 031125C2B-71276F67-8D30-4F91-8923-B3CD6BE69CF7,1431210,RETURN
-2025-11-04 09:19:32,945 - DEBUG - transaction found: - 031125C2B-85DD71AA-0B4F-4AB2-9B3E-5B18901D18A8,1431287,RETURN
-2025-11-04 09:19:32,945 - DEBUG - transaction found: - 031125O3A-831463D6-6090-44B6-AB4E-FCB1C1445714,1431285,RETURN
-2025-11-04 09:19:32,945 - DEBUG - transaction found: - 031125O2D-3201AA8F-E7E2-4CEE-B4F5-8F78A15D2D96,1436453,SALE
-2025-11-04 09:19:32,945 - DEBUG - transaction found: - 031125C18-CB208D2F-CED2-4921-AE11-B7E1D27662FA,1436877,SALE
-2025-11-04 09:19:32,945 - DEBUG - transaction found: - 031125C19-352250FF-E145-412B-9E09-DF49AF9A3A6C,1436930,SALE
-2025-11-04 09:19:33,616 - INFO - checking Summary
-2025-11-04 09:19:33,618 - DEBUG - All values are SALE
-2025-11-04 09:19:33,618 - INFO - Reprocessing EBiennial Transactions
-2025-11-04 09:19:33,618 - INFO - Building Objects
-2025-11-04 09:19:33,618 - INFO - -------------------------------------------------------
-2025-11-04 09:19:33,618 - INFO - Running URL Query
+2026-02-25 11:24:42,234 - WARNING - Began EBiennial Reprocessing
+2026-02-25 11:24:42,234 - INFO - Retrieving Attachments
+2026-02-25 11:24:42,235 - DEBUG - looking for emails with subject:  - @SQL="urn:schemas:httpmail:subject" LIKE '%PROD: Ebiennial Payment Reports (02/21/2026 12:00:00 AM - 02/21/2026 11:59:59 PM)%'
+2026-02-25 11:24:42,434 - DEBUG - Subject: - PROD: Ebiennial Payment Reports (02/21/2026 12:00:00 AM - 02/21/2026 11:59:59 PM)
+2026-02-25 11:24:42,434 - DEBUG - Sender: - Interface Team
+2026-02-25 11:24:42,434 - DEBUG - Received Time: - 2026-02-22 09:11:31.629000+00:00
+2026-02-25 11:24:42,463 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2026-02-22_Summary.xlsx
+2026-02-25 11:24:42,486 - DEBUG - Attachment saved: - Ebiennial PaymentReport_2026-02-22_Discrepancy.xlsx
+2026-02-25 11:24:42,493 - INFO - extracting data from saved attachments
+2026-02-25 11:24:42,848 - INFO - checking Summary
+2026-02-25 11:24:42,848 - DEBUG - All values are SALE
+2026-02-25 11:24:42,848 - INFO - reading data From Discrepancy
+2026-02-25 11:24:42,858 - DEBUG - Reading data from: - Ebiennial PaymentReport_2026-02-22_Discrepancy.xlsx
+2026-02-25 11:24:42,858 - DEBUG - transaction found: - 210226C1A-4A8F7432-6102-400E-A06E-60C44E5BC2FC,1570345,AUTHONLY
+2026-02-25 11:24:42,858 - DEBUG - transaction found: - 210226C18-402FC624-8F92-425E-A273-3E03805340E3,1570346,AUTHONLY
+2026-02-25 11:24:42,858 - DEBUG - transaction found: - 210226O3A-7A19DF81-A747-4508-B457-690772198F4D,1570347,AUTHONLY
+2026-02-25 11:24:42,858 - DEBUG - transaction found: - 210226C1C-F18DC991-B450-4E58-815B-0607DF2473C6,1570349,AUTHONLY
+2026-02-25 11:24:42,858 - DEBUG - transaction found: - 210226C29-BB287105-F0A0-4021-A034-A3002C0C5326,1570350,AUTHONLY
+2026-02-25 11:24:42,858 - DEBUG - transaction found: - 210226C1B-BED4E86B-3452-44C8-88AC-8048A6651563,1570348,SALE
+2026-02-25 11:24:42,858 - DEBUG - transaction found: - 210226O3B-5A9106AA-DF4D-412E-B7A7-0D404CF385D5,1570359,SALE
+2026-02-25 11:24:42,858 - DEBUG - transaction found: - 210226O10-4268430C-2BF6-4301-B791-4C195F3EED2C,1570360,SALE
+2026-02-25 11:24:42,859 - DEBUG - transaction found: - 210226O2C-BC51F506-FF00-4FB2-AA95-929695366518,1570363,SALE
+2026-02-25 11:24:42,859 - DEBUG - transaction found: - 210226C1C-1DFD49EA-8F11-49D6-A1CE-18E801FC9FBE,1570399,SALE
+2026-02-25 11:24:42,859 - DEBUG - transaction found: - 210226O39-90A47019-040B-4DAD-965D-9C7A80694107,1570428,SALE
+2026-02-25 11:24:42,859 - DEBUG - transaction found: - 210226O3A-FED22048-B384-4CA3-AD3C-FA12DCA68A1A,1570450,SALE
+2026-02-25 11:24:42,859 - DEBUG - transaction found: - 210226C2B-4EC8AF1D-7B10-450C-B979-3EDF11F9F129,1570464,SALE
+2026-02-25 11:24:42,859 - DEBUG - transaction found: - 210226C18-FE3CE845-FA84-4042-8C07-E49D38E15E3B,1570473,SALE
+2026-02-25 11:24:42,859 - DEBUG - transaction found: - 210226C18-2C7D9D6F-65BC-4CEA-B02E-A88E86E27662,1570487,SALE
+2026-02-25 11:24:42,859 - DEBUG - transaction found: - 210226C1C-8EE2A159-E7E3-42AC-AE48-4797AF7DC2FB,1570499,SALE
+2026-02-25 11:24:42,859 - DEBUG - transaction found: - 210226C1D-21897054-6BA5-4986-A7FE-581913A58011,1570514,SALE
+2026-02-25 11:24:42,859 - DEBUG - transaction found: - 210226O18-4720B088-8C6C-4A9E-A107-416A38DD793F,1570517,SALE
+2026-02-25 11:24:42,859 - DEBUG - transaction found: - 210226C29-71918227-938B-493A-8847-58556F7832B8,1570538,SALE
+2026-02-25 11:24:42,859 - DEBUG - transaction found: - 210226O17-BF33783A-4EFA-425B-BCF4-D78CC563E37E,1570565,SALE
+2026-02-25 11:24:42,859 - DEBUG - transaction found: - 210226C19-9B683C39-9332-4B0D-9E1F-37C864894A28,1570567,SALE
+2026-02-25 11:24:42,859 - DEBUG - transaction found: - 210226O3A-3444EB53-885A-4078-84E5-59952F9A9D6E,1570610,AUTHONLY
+2026-02-25 11:24:42,860 - DEBUG - transaction found: - 210226C1A-81A72711-3D12-4E85-A730-DA0DC96D5800,1570643,SALE
+2026-02-25 11:24:42,901 - INFO - checking Summary
+2026-02-25 11:24:42,901 - DEBUG - All values are SALE
+2026-02-25 11:24:42,902 - INFO - Reprocessing EBiennial Transactions
+2026-02-25 11:24:42,902 - INFO - Building Objects
+2026-02-25 11:24:42,902 - INFO - -------------------------------------------------------
+2026-02-25 11:24:42,902 - DEBUG - no action needed: - AUTHONLY
+2026-02-25 11:24:42,902 - INFO - -------------------------------------------------------
+2026-02-25 11:24:42,903 - DEBUG - no action needed: - AUTHONLY
+2026-02-25 11:24:42,903 - INFO - -------------------------------------------------------
+2026-02-25 11:24:42,903 - DEBUG - no action needed: - AUTHONLY
+2026-02-25 11:24:42,903 - INFO - -------------------------------------------------------
+2026-02-25 11:24:42,903 - DEBUG - no action needed: - AUTHONLY
+2026-02-25 11:24:42,903 - INFO - -------------------------------------------------------
+2026-02-25 11:24:42,903 - DEBUG - no action needed: - AUTHONLY
+2026-02-25 11:24:42,903 - INFO - -------------------------------------------------------
+2026-02-25 11:24:42,903 - INFO - Running URL Query
+2026-02-25 11:27:05,826 - DEBUG - URL found:  - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Poyarkova&ssl_phone=(718)709-4717&ssl_approval_code=09621G&ssl_email=highenergy1306%40yahoo.com&ssl_amount=9.00&ssl_avs_zip=10021&uid=297e7451-9d24-451e-be10-e07ac22e47d4&ssl_exp_date=0430&ssl_card_short_description=VISA&ssl_address2=Apt.37F&merchant_defined_data2=4897722&merchant_defined_data1=1570348&ssl_country=USA&ssl_avs_address=524+E+72nd+St&ssl_state=NY&ssl_city=New+York&ssl_first_name=Yekaterina&ssl_invoice_number=1570348&application_profile_id=2&ssl_txn_id=210226C1B-BED4E86B-3452-44C8-88AC-8048A6651563&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********4122&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=02%2f21%2f2026+12%3a26%3a53+AM&Uid=81d4915c-d1f2-4806-b423-d04e1ca0def4
+2026-02-25 11:27:05,827 - INFO - Extracting DOS ID
+2026-02-25 11:27:05,827 - DEBUG - DOS ID found: - 4897722
+2026-02-25 11:27:05,827 - INFO - Running Date Query
+2026-02-25 11:27:06,961 - DEBUG - date found for 4897722: - 2026-02-21
+2026-02-25 11:27:06,962 - INFO - Assigning Actions
+2026-02-25 11:27:06,962 - INFO - Checking for Refund 
+2026-02-25 11:27:07,366 - DEBUG - Empty Refund
+2026-02-25 11:27:07,366 - DEBUG - Action for transaction ID:210226C1B-BED4E86B-3452-44C8-88AC-8048A6651563 - Refund
+2026-02-25 11:27:07,366 - INFO - Building reprocess URL
+2026-02-25 11:27:07,366 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Poyarkova&ssl_phone=(718)709-4717&ssl_approval_code=09621G&ssl_email=highenergy1306%40yahoo.com&ssl_amount=9.00&ssl_avs_zip=10021&uid=297e7451-9d24-451e-be10-e07ac22e47d4&ssl_exp_date=0430&ssl_card_short_description=VISA&ssl_address2=Apt.37F&merchant_defined_data2=4897722&merchant_defined_data1=1570348&ssl_country=USA&ssl_avs_address=524+E+72nd+St&ssl_state=NY&ssl_city=New+York&ssl_first_name=Yekaterina&ssl_invoice_number=1570348&application_profile_id=2&ssl_txn_id=210226C1B-BED4E86B-3452-44C8-88AC-8048A6651563&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=42**********4122&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=02%2f21%2f2026+12%3a26%3a53+AM&Uid=81d4915c-d1f2-4806-b423-d04e1ca0def4
+2026-02-25 11:27:07,366 - CRITICAL - invoice number :1570348
+2026-02-25 11:27:07,366 - INFO - -------------------------------------------------------
+2026-02-25 11:27:07,366 - INFO - Running URL Query

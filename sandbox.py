@@ -72,7 +72,7 @@ where b.EntityNumber = {DOS_ID}'''
             date_query = f"SELECT * FROM CORP.WORKORDERPAY WHERE PaymentTransactionID ='{transaction_id}'"
             # Establish a connection to the SQL Server
             #commit test
-            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
+            conn = pyodbc.connect('Driver={SQL Server};Server={EDS1351PW5SQLV\PRD1140}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
 
             # Create a cursor object to interact with the database
            # print(conn)
@@ -206,7 +206,7 @@ Inner join corp.Business B with(Nolock) on bf.businessid = b.businessid
 inner join [corp].[BusinessFilingType] bft with(nolock) on bf.BusinessFilingTypeId = bft.BusinessFilingTypeId
 where b.EntityNumber = {dos_id}'''
             # Establish a connection to the SQL Server
-            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
+            conn = pyodbc.connect('Driver={SQL Server};Server={EDS1351PW5SQLV\PRD1140}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
             # Create a cursor object to interact with the database
             cursor = conn.cursor()
             cursor.execute(date_query)
@@ -227,8 +227,10 @@ where b.EntityNumber = {dos_id}'''
 Sandbox = Sandbox()
 #Sandbox.database_connect(2895138)
 #Sandbox.env_vars()
-codes = ['281025O18-45B53D76-5EA3-42FD-BFF3-EF0427DBBB19']
+codes = ['060226C1B-5182FAAE-3B70-4F49-BB35-0074B3D5D5D3']
 #Sandbox.reprocess_date_verify('3795680')
+
+
 
 '''for code in codes:
      Sandbox.reprocess_date_verify(Sandbox.extract_dos_id(Sandbox.url_query(code)))
@@ -239,6 +241,8 @@ for code in codes:
      print(Sandbox.refund_db_check(code))
      if len(Sandbox.refund_db_check(code)) == 0:
           print(code, "failed")
+
+
 
 #Sandbox.refund_db_check("170424C2A-982CA739-27A2-41EE-8743-E03A7A4AEBA6")
 #Sandbox.send_log()

@@ -117,7 +117,7 @@ class EBiennial_emails_processing:
             refund_query = f"SELECT * FROM CORP.WORKORDERPAY WHERE PaymentTransactionID ='{transaction}'"
             # Establish a connection to the SQL Server
             #commit test
-            conn = pyodbc.connect('Driver={SQL Server};Server={EDS0085PW5SQLV\P17SO50364,50364}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
+            conn = pyodbc.connect('Driver={SQL Server};Server={EDS1351PW5SQLV\PRD1140,50740}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
             # Create a cursor object to interact with the database
             cursor = conn.cursor()
             cursor.execute(refund_query)
