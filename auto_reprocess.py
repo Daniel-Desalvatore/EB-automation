@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
 
 
-url_file_path = 'urls.txt'  # <--- IMPORTANT: You need to set this!
+url_file_path = 'urls.txt'  
 
 # Initialize the webdriver (e.g., Chrome)
 

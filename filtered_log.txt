@@ -1,0 +1,48 @@
+
+2026-04-20 09:58:24,227 - INFO - Running URL Query 
+
+2026-04-20 10:00:56,695 - DEBUG - URL found: - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Mills&ssl_phone=9147153130&ssl_approval_code=50243Z&ssl_email=info%40nstarpg.org&ssl_amount=9.00&ssl_avs_zip=10603&uid=18cd616d-03b1-4f91-9e0e-3c80e489faac&ssl_exp_date=0330&ssl_card_short_description=MC&merchant_defined_data2=5961459&merchant_defined_data1=1642447&ssl_country=USA&ssl_avs_address=26+Tomahawk+Drive&ssl_state=NY&ssl_city=White+Plains&ssl_first_name=Craig&ssl_invoice_number=1642447&application_profile_id=2&ssl_txn_id=190426C1C-F38F87AF-CB16-4C45-B0C6-5B44B8635308&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=51**********2239&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=04%2f19%2f2026+10%3a00%3a35+PM&Uid=3ee1a45e-8c17-4517-97bb-2203cff73bd6 
+
+2026-04-20 10:00:56,695 - INFO - Extracting DOS ID 
+
+2026-04-20 10:00:56,696 - DEBUG - DOS ID found: - 5961459 
+
+2026-04-20 10:00:56,696 - INFO - Running Date Query 
+
+2026-04-20 10:00:57,821 - DEBUG - date found for 5961459: - 2021-06-21 
+
+2026-04-20 10:00:57,821 - INFO - Assigning Actions 
+
+2026-04-20 10:00:57,822 - DEBUG - Action for transaction ID:190426C1C-F38F87AF-CB16-4C45-B0C6-5B44B8635308 - Process 
+
+2026-04-20 10:00:57,822 - INFO - Building reprocess URL 
+
+2026-04-20 10:00:57,822 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Mills&ssl_phone=9147153130&ssl_approval_code=50243Z&ssl_email=info%40nstarpg.org&ssl_amount=9.00&ssl_avs_zip=10603&uid=18cd616d-03b1-4f91-9e0e-3c80e489faac&ssl_exp_date=0330&ssl_card_short_description=MC&merchant_defined_data2=5961459&merchant_defined_data1=1642447&ssl_country=USA&ssl_avs_address=26+Tomahawk+Drive&ssl_state=NY&ssl_city=White+Plains&ssl_first_name=Craig&ssl_invoice_number=1642447&application_profile_id=2&ssl_txn_id=190426C1C-F38F87AF-CB16-4C45-B0C6-5B44B8635308&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=51**********2239&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=04%2f19%2f2026+10%3a00%3a35+PM&Uid=3ee1a45e-8c17-4517-97bb-2203cff73bd6 
+
+2026-04-20 10:00:57,823 - CRITICAL - invoice number :1642447 
+
+
+2026-04-20 10:03:30,660 - INFO - ------------------------------------------------------- 
+
+2026-04-20 10:03:30,661 - INFO - Running URL Query 
+
+2026-04-20 10:06:18,300 - DEBUG - URL found: - http://sharedservices.ny.gov/api/payment/response?ssl_last_name=Mills&ssl_phone=9147153130&ssl_approval_code=24886Z&ssl_email=info%40nstarpg.org&ssl_amount=9.00&ssl_avs_zip=10603&uid=91cd7a63-178c-4a82-a2e7-92623f5c1cd6&ssl_exp_date=0330&ssl_card_short_description=MC&merchant_defined_data2=5961459&merchant_defined_data1=1642449&ssl_country=USA&ssl_avs_address=26+Tomahawk+Drive&ssl_state=NY&ssl_city=White+Plains&ssl_first_name=Craig&ssl_invoice_number=1642449&application_profile_id=2&ssl_txn_id=190426O3A-570187F6-C466-4CEA-A0D8-710D0A74E5E5&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=51**********2239&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=04%2f19%2f2026+10%3a02%3a57+PM&Uid=9813ff40-5c4a-4508-97fd-1bc4f6db55c2 
+
+2026-04-20 10:06:18,300 - INFO - Extracting DOS ID 
+
+2026-04-20 10:06:18,300 - DEBUG - DOS ID found: - 5961459 
+
+2026-04-20 10:06:18,300 - INFO - Running Date Query 
+
+2026-04-20 10:06:19,393 - DEBUG - date found for 5961459: - 2021-06-21 
+
+2026-04-20 10:06:19,393 - INFO - Assigning Actions 
+
+2026-04-20 10:06:19,394 - DEBUG - Action for transaction ID:190426O3A-570187F6-C466-4CEA-A0D8-710D0A74E5E5 - Process 
+
+2026-04-20 10:06:19,394 - INFO - Building reprocess URL 
+
+2026-04-20 10:06:19,394 - DEBUG - Reprocess URL: - https://filing.dos.ny.gov/eBiennialWeb/confirmation?ssl_last_name=Mills&ssl_phone=9147153130&ssl_approval_code=24886Z&ssl_email=info%40nstarpg.org&ssl_amount=9.00&ssl_avs_zip=10603&uid=91cd7a63-178c-4a82-a2e7-92623f5c1cd6&ssl_exp_date=0330&ssl_card_short_description=MC&merchant_defined_data2=5961459&merchant_defined_data1=1642449&ssl_country=USA&ssl_avs_address=26+Tomahawk+Drive&ssl_state=NY&ssl_city=White+Plains&ssl_first_name=Craig&ssl_invoice_number=1642449&application_profile_id=2&ssl_txn_id=190426O3A-570187F6-C466-4CEA-A0D8-710D0A74E5E5&ssl_transaction_type=AUTHONLY&ssl_result=0&ssl_result_message=APPROVAL&ssl_card_number=51**********2239&ssl_avs_response=Y&ssl_cvv2_response=M&ssl_txn_time=04%2f19%2f2026+10%3a02%3a57+PM&Uid=9813ff40-5c4a-4508-97fd-1bc4f6db55c2 
+
+2026-04-20 10:06:19,396 - CRITICAL - invoice number :1642449 
+

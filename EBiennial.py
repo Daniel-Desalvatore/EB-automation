@@ -222,6 +222,7 @@ class process_EBiennial:
             "Database=Prod_SharedServices"
             f"UID={self.EVUN}"
             f"PWD={self.EVPW}")
+            print(conn)
             #commit test
             # Create a cursor object to interact with the database
             cursor = conn.cursor()

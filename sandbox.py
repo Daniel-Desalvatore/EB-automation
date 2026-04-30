@@ -196,6 +196,43 @@ where b.EntityNumber = {DOS_ID}'''
         except ValueError as e:
            print("there was an error extracting dos ID: ",e)
 
+    def date_query(self, DOS_ID):
+        #pull the most recent filing date for the transaction 
+        #time.sleep(10)
+        #self.logger.info("Running Date Query")
+        try:
+            if DOS_ID != None:
+                date_query = f'''select bf.FilingDateTime,bf.filingno, bft.[Description] AS FilingType from [corp].[businessfiling] bF with(nolock) 
+    Inner join corp.Business B with(Nolock) on bf.businessid = b.businessid
+    inner join [corp].[BusinessFilingType] bft with(nolock) on bf.BusinessFilingTypeId = bft.BusinessFilingTypeId
+    where b.EntityNumber = {DOS_ID}'''
+                # Establish a connection to the SQL Server
+                conn = pyodbc.connect('Driver={SQL Server};Server={EDS1351PW5SQLV\PRD1140}; Database={Prod_CORP_APPDB} ; trusted_connection="yes"')
+                # Create a cursor object to interact with the database
+                cursor = conn.cursor()
+                cursor.execute(date_query)
+                rows = cursor.fetchall()
+                dates =[]
+                for row in rows:
+                    dates.append(row[0])
+                print(rows)
+                cursor.close()
+                conn.close()
+                formatted_dates = [date.split(" ")[0] for date in dates]
+                most_recent_date = max(formatted_dates)
+                print(most_recent_date)
+                formatted_most_recent_date = datetime.strptime(most_recent_date, "%Y-%m-%d").strftime("%Y-%m-%d")
+                #self.logger.debug(f"date found for {DOS_ID}:",formatted_most_recent_date)
+                recentdate= formatted_most_recent_date
+                most_recent_date = datetime.strptime(recentdate, "%Y-%m-%d").date()
+                return formatted_most_recent_date
+            else:
+                formatted_most_recent_date= "failed"
+                return formatted_most_recent_date
+            
+        except ValueError as e:
+            self.logger.error("there was an error running date query:",e)
+
     def reprocess_date_verify(self,dos_id):
          #pull the most recent filing date for the transaction 
         
@@ -225,9 +262,10 @@ where b.EntityNumber = {dos_id}'''
            print("there was an error running date query:",e)
          
 Sandbox = Sandbox()
+Sandbox.date_query(6727835)
 #Sandbox.database_connect(2895138)
 #Sandbox.env_vars()
-codes = ['060226C1B-5182FAAE-3B70-4F49-BB35-0074B3D5D5D3']
+codes = ['200426C1A-8146913B-DC29-45B9-A524-DF80C1CD13DD']
 #Sandbox.reprocess_date_verify('3795680')
 
 
