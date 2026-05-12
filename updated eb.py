@@ -181,10 +181,7 @@ class process_EBiennial:
             self.delete_files()
                 
     def build_transaction_object(self,transactions,date):
-            
             #build the transaction objects
-            print(date,"hereeeeeeeee")
-
             self.logger.info("Building Objects")
             try: 
                 for transaction in transactions:
@@ -193,7 +190,7 @@ class process_EBiennial:
                         transaction.Action = "No Action"
                         self.logger.debug("no action needed:",transaction.Transaction_Type)
                     else:
-                        transaction.URL = self.url_query(transaction.Transaction_ID,date)
+                        transaction.URL = self.url_query(transaction.Transaction_ID)
                         transaction.DOS_ID = self.extract_dos_id(transaction.URL)
                         transaction.Transaction_Date = self.date_query(transaction.DOS_ID)
                         transaction.Action = self.action_check(transaction,date)
@@ -212,44 +209,40 @@ class process_EBiennial:
             except ValueError as e:
                 self.logger.error("there was an error building transaction objects: ",e)
 
-    def url_query(self,Transaction_ID,date):
+    def url_query(self,Transaction_ID):
         #find the base URL for the transaction 
+        self.logger.info("Running URL Query")
+
         # 1. Get yesterday's date
-        date = date.replace('Ebiennial PaymentReport_','')
-        date = date[0:10]
-        print(date)
-        date = datetime.strptime(date, '%Y-%m-%d').date()
-        print(date,'hereererereererererer')
-        today_str = date
-        yesterday = today_str - timedelta(days=1)
+        today_str = datetime.now().strftime('%Y-%m-%d')
+        yesterday = datetime.now() - timedelta(days=1)
         yesterday_str = yesterday.strftime('%Y-%m-%d')
-        print(today_str, yesterday_str)
+
         try:
-            print(yesterday_str)
-            Prod_sharedServices_query = f"""SELECT TOP (1000) [Url] FROM [Prod_SharedServices].[metrics].[Request] WHERE url like '%{Transaction_ID}%'
-
-  AND RequestDateTime >= '{yesterday_str}' AND RequestDateTime < '{today_str}'
-
-  ORDER BY Id DESC;"""
+            Prod_sharedServices_query = f"Select * from [Prod_SharedServices].[metrics].[Request] where url like '%{Transaction_ID}%' and RequestDateTime >= '{yesterday_str}' AND RequestDateTime < '{today_str}'"
+            print(f"UID={self.EVUN}",f"PWD={self.EVPW}")
             # Establish a connection to the SQL Server
-            print(Prod_sharedServices_query)
             conn = pyodbc.connect(
             "Driver={SQL Server};"
             "Server=EDS0085PW5SQLV\P17SO50364,50364"
             "Database=Prod_SharedServices"
             f"UID={self.EVUN}"
             f"PWD={self.EVPW}")
+            print(conn)
             #commit test
             # Create a cursor object to interact with the database
             cursor = conn.cursor()
             cursor.execute(Prod_sharedServices_query)
             rows = cursor.fetchall()
-            print(rows)
-            url = rows[0][0]
-            print(url)
+            if rows:
+                url = rows[1][5]
+            else:
+                url= "failed"
+            if Transaction_ID == '250625O17-D1A184F4-329A-4AE8-B736-BFD94D25AA96':
+                url =rows[2][5]
             cursor.close()
             conn.close()
-            
+            self.logger.debug("URL found: ",url)
             return url
         except ValueError as e:
             self.logger.error("there was an error running URL query", e)   

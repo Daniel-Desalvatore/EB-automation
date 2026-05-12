@@ -159,10 +159,19 @@ where b.EntityNumber = {DOS_ID}'''
            print("there was an error creating Reprocess URL: ",e)
     def url_query(self,Transaction_ID):
         #find the base URL for the transaction 
-        
+        # 1. Get yesterday's date
+        today_str = datetime.now().strftime('%Y-%m-%d')
+        yesterday = datetime.now() - timedelta(days=1)
+        yesterday_str = yesterday.strftime('%Y-%m-%d')
         try:
-            Prod_sharedServices_query = f"Select * from [Prod_SharedServices].[metrics].[Request] where url like '%{Transaction_ID}%'"
+            print(yesterday_str)
+            Prod_sharedServices_query = f"""SELECT TOP (1000) [Url] FROM [Prod_SharedServices].[metrics].[Request] WHERE url like '%{Transaction_ID}%'
+
+  AND RequestDateTime >= '2026-05-03' AND RequestDateTime < '2026-05-04'
+
+  ORDER BY Id DESC;"""
             # Establish a connection to the SQL Server
+            print(Prod_sharedServices_query)
             conn = pyodbc.connect(
             "Driver={SQL Server};"
             "Server=EDS0085PW5SQLV\P17SO50364,50364"
@@ -174,7 +183,9 @@ where b.EntityNumber = {DOS_ID}'''
             cursor = conn.cursor()
             cursor.execute(Prod_sharedServices_query)
             rows = cursor.fetchall()
-            url = rows[1][5]
+            print(rows)
+            url = rows[0][0]
+            print(url)
             cursor.close()
             conn.close()
             
@@ -262,18 +273,27 @@ where b.EntityNumber = {dos_id}'''
            print("there was an error running date query:",e)
          
 Sandbox = Sandbox()
-Sandbox.date_query(6727835)
+#Sandbox.url_query('030526O2D-BE3368A4-FFE9-4F25-93D5-D751CC1E0BC5')
+#Sandbox.date_query(6727835)
 #Sandbox.database_connect(2895138)
 #Sandbox.env_vars()
-codes = ['200426C1A-8146913B-DC29-45B9-A524-DF80C1CD13DD']
+codes = ['080526O18-EF839829-711F-4688-803D-A975EF929267',
+'080526O17-CFEFBBDE-242D-44CE-A8F3-6E1E272E9EB5',
+'080526C2A-2BD9FE67-2D12-4D99-9367-1D609309C5B5',
+'080526C2A-61F169D0-C0EB-4709-919A-FA165CA454D2',
+'080526O3A-5C90E488-4B51-4942-8700-9A74A2693562',
+'080526O39-E96DB629-9DD4-462B-A0E2-3ACF034CF914',
+'080526O2C-7956CEC6-506B-4459-AE36-4E8E42AD8DD7',
+'080526C18-B7E3E7E9-0DBF-4C25-B77C-38B44BEC84E9',
+'080526C18-A078B037-B439-4D1B-94C3-484528CCFD6C']
 #Sandbox.reprocess_date_verify('3795680')
 
 
 
-'''for code in codes:
+
+"""for code in codes:
      Sandbox.reprocess_date_verify(Sandbox.extract_dos_id(Sandbox.url_query(code)))
-     Sandbox.build_reprocess_url(Sandbox.url_query(code))
-'''
+     Sandbox.build_reprocess_url(Sandbox.url_query(code))"""
 
 for code in codes:
      print(Sandbox.refund_db_check(code))
